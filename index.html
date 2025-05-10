@@ -14,6 +14,21 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="custom.css">
+    <style>
+        .flat-button {
+            border-radius: 0 !important;
+            border: 2px solid #4338CA;
+            background-color: transparent;
+            color: #4338CA;
+            font-weight: 600;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .flat-button:hover,
+        .flat-button.is-active {
+            background-color: #4338CA !important;
+            color: white !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -24,11 +39,10 @@
                 <a class="navbar-item brand-name" href="index.html">
                     Andrew B. Caldwell
                 </a>
-                <!-- Removed burger menu since we only have one navigation item -->
             </div>
-            <div class="navbar-menu is-active"> <!-- Always visible menu -->
+            <div class="navbar-menu is-active">
                 <div class="navbar-end">
-                    <a class="navbar-item" href="cv.html">
+                    <a class="navbar-item flat-button" href="cv.html">
                         CV
                     </a>
                 </div>
@@ -143,69 +157,69 @@
                         </div>
                     </a>
                 </div>
-            </div> <!-- Closing .columns for publications -->
-
-             <div class="has-text-centered mt-6"> <!-- Social Icons below publications -->
-                <div class="hero-social-links field is-grouped is-grouped-centered">
-                    <p class="control">
-                        <a href="https://www.linkedin.com/in/andrewbcaldwell/" title="LinkedIn" target="_blank" rel="noopener noreferrer" class="button is-ghost">
-                            <span class="icon"><i class="fab fa-linkedin"></i></span>
-                        </a>
-                    </p>
-                    <p class="control">
-                        <a href="https://scholar.google.com/citations?hl=en&user=yZdrmZoAAAAJ&view_op=list_works&authuser=1" title="Google Scholar" target="_blank" rel="noopener noreferrer" class="button is-ghost">
-                            <span class="icon"><i class="fas fa-graduation-cap"></i></span>
-                        </a>
-                    </p>
-                    <p class="control">
-                        <a href="https://orcid.org/0000-0002-2850-7677" title="ORCID (0000-0002-2850-7677)" target="_blank" rel="noopener noreferrer" class="button is-ghost">
-                            <span class="icon"><i class="fab fa-orcid"></i></span>
-                        </a>
-                    </p>
-                    <p class="control">
-                        <a href="https://www.researchgate.net/profile/Andrew_Caldwell2" title="ResearchGate" target="_blank" rel="noopener noreferrer" class="button is-ghost">
-                            <span class="icon"><i class="fab fa-researchgate"></i></span>
-                        </a>
-                    </p>
-                    <p class="control">
-                        <a href="https://github.com/andrewbcaldwell" title="GitHub" target="_blank" rel="noopener noreferrer" class="button is-ghost">
-                            <span class="icon"><i class="fab fa-github"></i></span>
-                        </a>
-                    </p>
-                    <p class="control">
-                        <a href="https://www.twitter.com/AndrewBCaldwell" title="X (Twitter)" target="_blank" rel="noopener noreferrer" class="button is-ghost">
-                            <span class="icon"><i class="fab fa-x-twitter"></i></span>
-                        </a>
-                    </p>
-                    <p class="control">
-                        <a href="https://bsky.app/profile/andrewbcaldwell.bsky.social" title="Bluesky" target="_blank" rel="noopener noreferrer" class="button is-ghost">
-                            <span class="icon"><i class="fas fa-cloud"></i></span>
-                        </a>
-                    </p>
-                </div> <!-- Closing .hero-social-links -->
-            </div> <!-- Closing .has-text-centered for social links -->
-        </div> <!-- Closing .container for recent-publications-section -->
-    </section> <!-- Closing .recent-publications-section -->
-
-    <!-- Collaboration Section - NEW -->
-    <section class="section">
-        <div class="container">
-            <div class="columns is-centered">
-                <div class="column is-three-quarters-desktop is-full-tablet has-text-centered">
-                    <h2 class="title is-2 mb-4">Interested in collaborating with me?</h2>
-                    <p class="subtitle is-5 mb-5">I'm always open to discussing new projects, research collaborations, or interesting opportunities.</p>
-                    <a href="mailto:your.email@example.com" class="button is-primary is-large is-rounded">
-                        <span class="icon"><i class="fas fa-envelope"></i></span>
-                        <span>Let's talk</span>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer - Now indigo edge-to-edge -->
+    <!-- Collaboration Section - Styled to match hero section -->
+    <section class="section white-collab-section" style="padding-bottom: 3rem;">
+        <div class="container has-text-centered">
+            <h1 class="title is-1 is-spaced hero-main-title">Interested in collaborating with me?</h1>
+            <p class="subtitle is-4 hero-tagline">I'm always open to discussing new projects, research collaborations, or interesting opportunities.</p>
+            <div class="mt-5">
+                <a href="mailto:your.email@example.com" class="button is-primary is-large is-rounded">
+                    <span class="icon"><i class="fas fa-envelope"></i></span>
+                    <span>Let's talk</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer - Indigo edge-to-edge with social icons inside -->
     <footer class="footer section indigo-description-hero is-primary" style="padding: 2rem 1.5rem; color: white !important;">
         <div class="container">
+            <!-- Social Icons now in the footer -->
+            <div class="has-text-centered mb-4"> 
+                <div class="hero-social-links field is-grouped is-grouped-centered">
+                    <p class="control">
+                        <a href="https://www.linkedin.com/in/andrewbcaldwell/" title="LinkedIn" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
+                            <span class="icon"><i class="fab fa-linkedin"></i></span>
+                        </a>
+                    </p>
+                    <p class="control">
+                        <a href="https://scholar.google.com/citations?hl=en&user=yZdrmZoAAAAJ&view_op=list_works&authuser=1" title="Google Scholar" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
+                            <span class="icon"><i class="fas fa-graduation-cap"></i></span>
+                        </a>
+                    </p>
+                    <p class="control">
+                        <a href="https://orcid.org/0000-0002-2850-7677" title="ORCID (0000-0002-2850-7677)" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
+                            <span class="icon"><i class="fab fa-orcid"></i></span>
+                        </a>
+                    </p>
+                    <p class="control">
+                        <a href="https://www.researchgate.net/profile/Andrew_Caldwell2" title="ResearchGate" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
+                            <span class="icon"><i class="fab fa-researchgate"></i></span>
+                        </a>
+                    </p>
+                    <p class="control">
+                        <a href="https://github.com/andrewbcaldwell" title="GitHub" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
+                            <span class="icon"><i class="fab fa-github"></i></span>
+                        </a>
+                    </p>
+                    <p class="control">
+                        <a href="https://www.twitter.com/AndrewBCaldwell" title="X (Twitter)" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
+                            <span class="icon"><i class="fab fa-x-twitter"></i></span>
+                        </a>
+                    </p>
+                    <p class="control">
+                        <a href="https://bsky.app/profile/andrewbcaldwell.bsky.social" title="Bluesky" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
+                            <span class="icon"><i class="fas fa-cloud"></i></span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Copyright info -->
             <div style="display: flex; justify-content: center; align-items: center;"> 
                 <p style="margin: 0; color: white !important;"> 
                     Built by me using
