@@ -198,31 +198,39 @@
     </footer>
 
     <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+        document.getElementById('current-year').textContent = new Date().getFullYear(); // Your existing line, untouched
         document.addEventListener('DOMContentLoaded', () => {
             const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
             if ($navbarBurgers.length > 0) { 
                 $navbarBurgers.forEach( el => {
-                    el.addEventListener('click', () => {
+                    el.addEventListener('click', (event) => { // MODIFIED: Added (event)
+                        event.preventDefault(); // MODIFIED: Added this line
+
                         const target = el.dataset.target;
                         const $target = document.getElementById(target);
-                        el.classList.toggle('is-active');
-                        $target.classList.toggle('is-active');
+                        
+                        if ($target) { // MODIFIED: Added this safety check
+                            el.classList.toggle('is-active');
+                            $target.classList.toggle('is-active');
+                        } else {
+                            console.error('Navbar menu target element with ID "' + target + '" not found on index.html.');
+                        }
                     });
                 });
             }
 
+            // Your existing scroll shadow script, untouched by this fix
             const mainNavbar = document.querySelector('.main-navbar');
             if (mainNavbar) {
                 const scrollThreshold = 10; 
                 const addShadow = () => mainNavbar.classList.add('has-shadow');
                 const removeShadow = () => mainNavbar.classList.remove('has-shadow');
-                if (window.scrollY > scrollThreshold) { // Check on load
+                if (window.scrollY > scrollThreshold) {
                     addShadow();
                 } else {
                     removeShadow();
                 }
-                window.addEventListener('scroll', () => { // Check on scroll
+                window.addEventListener('scroll', () => { 
                     if (window.scrollY > scrollThreshold) {
                         addShadow();
                     } else {
