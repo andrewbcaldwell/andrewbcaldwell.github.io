@@ -150,10 +150,11 @@
                         </div>
                     </a>
                 </div>
-            </div>
-             <div class="has-text-centered mt-6">
+            </div> <!-- Closing .columns for publications -->
+
+             <div class="has-text-centered mt-6"> <!-- Social Icons below publications -->
                 <div class="hero-social-links field is-grouped is-grouped-centered">
-                     <p class="control">
+                    <p class="control">
                         <a href="YOUR_LINKEDIN_URL_PLACEHOLDER" title="LinkedIn" target="_blank" rel="noopener noreferrer" class="button is-ghost">
                             <span class="icon"><i class="fab fa-linkedin"></i></span>
                         </a>
@@ -183,10 +184,10 @@
                             <span class="icon"><i class="fas fa-cloud"></i></span>
                         </a>
                     </p>
-                </div>
-            </div>
-        </div>
-    </section>
+                </div> <!-- Closing .hero-social-links -->
+            </div> <!-- Closing .has-text-centered for social links -->
+        </div> <!-- Closing .container for recent-publications-section -->
+    </section> <!-- Closing .recent-publications-section -->
 
     <!-- Footer -->
     <footer class="footer">
@@ -221,9 +222,17 @@
                 const scrollThreshold = 10; 
                 const addShadow = () => mainNavbar.classList.add('has-shadow');
                 const removeShadow = () => mainNavbar.classList.remove('has-shadow');
-                if (window.scrollY > scrollThreshold) addShadow(); else removeShadow();
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY > scrollThreshold) addShadow(); else removeShadow();
+                if (window.scrollY > scrollThreshold) { // Check on load
+                    addShadow();
+                } else {
+                    removeShadow();
+                }
+                window.addEventListener('scroll', () => { // Check on scroll
+                    if (window.scrollY > scrollThreshold) {
+                        addShadow();
+                    } else {
+                        removeShadow();
+                    }
                 });
             }
         });
