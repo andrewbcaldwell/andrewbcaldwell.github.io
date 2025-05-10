@@ -104,11 +104,12 @@
         // Current year in footer
         document.getElementById('current-year-contact').textContent = new Date().getFullYear();
         
-        // Navbar Burger Toggle Script (This is crucial for mobile menu)
+        // Combined navbar functionality
         document.addEventListener('DOMContentLoaded', () => {
+            // Handle navbar burger toggling
             const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
             if ($navbarBurgers.length > 0) {
-                $navbarBurgers.forEach( el => {
+                $navbarBurgers.forEach(el => {
                     el.addEventListener('click', () => {
                         const target = el.dataset.target;
                         const $target = document.getElementById(target);
@@ -117,22 +118,31 @@
                     });
                 });
             }
-        });
-
-        // Navbar add shadow on scroll (This might not be desired on cv/contact if navbar isn't transparent there initially)
-        // But keeping it for consistency if the main-navbar class is used on all pages with is-fixed-top
-        if (document.querySelector('.main-navbar.is-fixed-top')) {
+            
+            // Handle navbar shadow separately
             const mainNavbar = document.querySelector('.main-navbar');
             if (mainNavbar) {
                 const scrollThreshold = 10; 
                 const addShadow = () => mainNavbar.classList.add('has-shadow');
                 const removeShadow = () => mainNavbar.classList.remove('has-shadow');
-                if (window.scrollY > scrollThreshold) { addShadow(); } else { removeShadow(); }
+                
+                // Check initial position
+                if (window.scrollY > scrollThreshold) { 
+                    addShadow(); 
+                } else { 
+                    removeShadow(); 
+                }
+                
+                // Add scroll listener
                 window.addEventListener('scroll', () => {
-                    if (window.scrollY > scrollThreshold) { addShadow(); } else { removeShadow(); }
+                    if (window.scrollY > scrollThreshold) { 
+                        addShadow(); 
+                    } else { 
+                        removeShadow(); 
+                    }
                 });
             }
-        }
+        });
     </script>
 </body>
 </html>
