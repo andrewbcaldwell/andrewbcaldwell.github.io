@@ -11,6 +11,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="custom.css">
+    <style>
+        .flat-button {
+            border-radius: 0 !important;
+            border: 2px solid #4338CA;
+            background-color: transparent;
+            color: #4338CA;
+            font-weight: 600;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .flat-button:hover,
+        .flat-button.is-active {
+            background-color: #4338CA !important;
+            color: white !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -29,10 +44,10 @@
             </div>
             <div id="mainNavbar" class="navbar-menu">
                 <div class="navbar-end">
-                    <a class="navbar-item is-active" href="cv.html"> <!-- CV is active on this page -->
+                    <a class="navbar-item flat-button is-active" href="cv.html"> <!-- CV is active on this page -->
                         CV
                     </a>
-                    <a class="navbar-item" href="contact.html">
+                    <a class="navbar-item flat-button" href="contact.html">
                         Contact
                     </a>
                 </div>
@@ -158,63 +173,78 @@
             </div>
         </div>
     </section>
+    
+    <!-- Collaboration Section - Styled to match hero section -->
+    <section class="section white-collab-section" style="padding-bottom: 3rem;">
+        <div class="container has-text-centered">
+            <h1 class="title is-1 is-spaced hero-main-title">Interested in collaborating with me?</h1>
+            <p class="subtitle is-4 hero-tagline">I'm always open to discussing new projects, research collaborations, or interesting opportunities.</p>
+            <div class="mt-5">
+                <a href="mailto:your.email@example.com" class="button is-primary is-large is-rounded">
+                    <span class="icon"><i class="fas fa-envelope"></i></span>
+                    <span>Let's talk</span>
+                </a>
+            </div>
+        </div>
+    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="content has-text-centered">
-            <!-- Social Icons - Added from index.html above the "Built by me" text -->
-            <div class="has-text-centered mt-4 mb-5">
+    <!-- Footer - Updated to match index.html -->
+    <footer class="footer section indigo-description-hero is-primary" style="padding: 2rem 1.5rem; color: white !important;">
+        <div class="container">
+            <!-- Social Icons now in the footer -->
+            <div class="has-text-centered mb-4"> 
                 <div class="hero-social-links field is-grouped is-grouped-centered">
                     <p class="control">
-                        <a href="https://www.linkedin.com/in/andrewbcaldwell/" title="LinkedIn" target="_blank" rel="noopener noreferrer" class="button is-ghost">
+                        <a href="https://www.linkedin.com/in/andrewbcaldwell/" title="LinkedIn" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
                             <span class="icon"><i class="fab fa-linkedin"></i></span>
                         </a>
                     </p>
                     <p class="control">
-                        <a href="https://scholar.google.com/citations?hl=en&user=yZdrmZoAAAAJ&view_op=list_works&authuser=1" title="Google Scholar" target="_blank" rel="noopener noreferrer" class="button is-ghost">
+                        <a href="https://scholar.google.com/citations?hl=en&user=yZdrmZoAAAAJ&view_op=list_works&authuser=1" title="Google Scholar" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
                             <span class="icon"><i class="fas fa-graduation-cap"></i></span>
                         </a>
                     </p>
                     <p class="control">
-                        <a href="https://orcid.org/0000-0002-2850-7677" title="ORCID (0000-0002-2850-7677)" target="_blank" rel="noopener noreferrer" class="button is-ghost">
+                        <a href="https://orcid.org/0000-0002-2850-7677" title="ORCID (0000-0002-2850-7677)" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
                             <span class="icon"><i class="fab fa-orcid"></i></span>
                         </a>
                     </p>
                     <p class="control">
-                        <a href="https://www.researchgate.net/profile/Andrew_Caldwell2" title="ResearchGate" target="_blank" rel="noopener noreferrer" class="button is-ghost">
+                        <a href="https://www.researchgate.net/profile/Andrew_Caldwell2" title="ResearchGate" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
                             <span class="icon"><i class="fab fa-researchgate"></i></span>
                         </a>
                     </p>
                     <p class="control">
-                        <a href="https://github.com/andrewbcaldwell" title="GitHub" target="_blank" rel="noopener noreferrer" class="button is-ghost">
+                        <a href="https://github.com/andrewbcaldwell" title="GitHub" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
                             <span class="icon"><i class="fab fa-github"></i></span>
                         </a>
                     </p>
                     <p class="control">
-                        <a href="https://www.twitter.com/AndrewBCaldwell" title="X (Twitter)" target="_blank" rel="noopener noreferrer" class="button is-ghost">
+                        <a href="https://www.twitter.com/AndrewBCaldwell" title="X (Twitter)" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
                             <span class="icon"><i class="fab fa-x-twitter"></i></span>
                         </a>
                     </p>
                     <p class="control">
-                        <a href="https://bsky.app/profile/andrewbcaldwell.bsky.social" title="Bluesky" target="_blank" rel="noopener noreferrer" class="button is-ghost">
+                        <a href="https://bsky.app/profile/andrewbcaldwell.bsky.social" title="Bluesky" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
                             <span class="icon"><i class="fas fa-cloud"></i></span>
                         </a>
                     </p>
-                </div> <!-- Closing .hero-social-links -->
+                </div>
             </div>
-             
-            <!-- Centered "Built by me" text with Bulma logo -->
+            
+            <!-- Copyright info -->
             <div style="display: flex; justify-content: center; align-items: center;"> 
-                <p style="margin: 0;"> 
+                <p style="margin: 0; color: white !important;"> 
                     Built by me using
-                    <a href="https://bulma.io" target="_blank" rel="noopener noreferrer" class="bulma-credit">
-                    <img src="images/bulma-logo.svg" alt="Bulma CSS Framework" class="bulma-logo-img">
-                    </a>.
+                    <a href="https://bulma.io" target="_blank" rel="noopener noreferrer" class="bulma-credit" style="color: white !important;">
+                    <img src="images/bulma-logo.svg" alt="Bulma CSS Framework" class="bulma-logo-img" style="filter: brightness(0) invert(1);">
+                    </a>
                     &copy; <span id="current-year-cv"></span>
                 </p>
             </div>
         </div>
     </footer>
+    
     <script>
         document.getElementById('current-year-cv').textContent = new Date().getFullYear();
         document.addEventListener('DOMContentLoaded', () => {
@@ -223,6 +253,7 @@
             if ($navbarBurgers.length > 0) {
                 $navbarBurgers.forEach(el => {
                     el.addEventListener('click', () => {
+                        // Simple toggle without preventDefault() that was causing issues
                         const target = el.dataset.target;
                         const $target = document.getElementById(target);
                         el.classList.toggle('is-active');

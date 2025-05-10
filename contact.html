@@ -11,6 +11,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="custom.css">
+    <style>
+        .flat-button {
+            border-radius: 0 !important;
+            border: 2px solid #4338CA;
+            background-color: transparent;
+            color: #4338CA;
+            font-weight: 600;
+            transition: background-color 0.2s, color 0.2s;
+        }
+        .flat-button:hover,
+        .flat-button.is-active {
+            background-color: #4338CA !important;
+            color: white !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -29,10 +44,10 @@
             </div>
             <div id="mainNavbar" class="navbar-menu">
                 <div class="navbar-end">
-                    <a class="navbar-item" href="cv.html">
+                    <a class="navbar-item flat-button" href="cv.html">
                         CV
                     </a>
-                    <a class="navbar-item is-active" href="contact.html"> <!-- Contact is active on this page -->
+                    <a class="navbar-item flat-button is-active" href="contact.html"> <!-- Contact is active on this page -->
                         Contact
                     </a>
                 </div>
@@ -43,7 +58,7 @@
     <!-- Contact Content Section -->
     <section class="section contact-section">
         <div class="container">
-            <h1 class="title is-2 has-text-centered section-title">Get In Touch</h1>
+            <h1 class="title is-1 is-spaced hero-main-title has-text-centered">Get In Touch</h1>
             
             <!-- Removed the .box.content-box and explicit column centering to make it wider -->
             <!-- Content is now directly in the section's container, or can be in a wider column -->
@@ -67,7 +82,7 @@
                     <div class="content">
                         <ul class="contact-links-list"> <!-- Ensure this class exists if you have custom CSS for it -->
                             <li><a href="https://www.linkedin.com/in/andrewbcaldwell/" target="_blank" rel="noopener noreferrer"><span class="icon is-small"><i class="fab fa-linkedin"></i></span>&nbsp;LinkedIn</a></li>
-                            <li><a href="https://scholar.google.com/citations?hl=en&user=yZdrmZoAAAAJ&view_op=list_works&authuser=1" target="_blank" rel="noopener noreferrer"><span class="icon is-small"><i class="fab fa-google-scholar"></i></span>&nbsp;Google Scholar</a></li>
+                            <li><a href="https://scholar.google.com/citations?hl=en&user=yZdrmZoAAAAJ&view_op=list_works&authuser=1" target="_blank" rel="noopener noreferrer"><span class="icon is-small"><i class="fas fa-graduation-cap"></i></span>&nbsp;Google Scholar</a></li>
                             <li><a href="https://orcid.org/0000-0002-2850-7677" target="_blank" rel="noopener noreferrer"><span class="icon is-small"><i class="fab fa-orcid"></i></span>&nbsp;ORCID</a></li>
                             <li><a href="https://www.researchgate.net/profile/Andrew_Caldwell2" target="_blank" rel="noopener noreferrer"><span class="icon is-small"><i class="fab fa-researchgate"></i></span>&nbsp;ResearchGate</a></li>
                             <li><a href="https://www.webofscience.com/wos/author/record/FTQ-4923-2022" target="_blank" rel="noopener noreferrer"><span class="icon is-small"><i class="fas fa-flask"></i></span>&nbsp;Web of Science</a></li> <!-- Using a generic science icon -->
@@ -82,20 +97,59 @@
         </div> <!-- Closing .container for contact-section -->
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="content has-text-centered">
-            <p> <!-- Removed is-size-7, CSS handles size -->
-                Built by me using
-                <a href="https://bulma.io" target="_blank" rel="noopener noreferrer" class="bulma-credit">
-                    Bulma<img src="images/bulma-logo.svg" alt="Bulma CSS Framework" class="bulma-logo-img">
-                </a>.
-                Copyright &copy; <span id="current-year-contact"></span> Andrew B. Caldwell. All rights reserved.
-            </p>
-            <div class="footer-social-links mt-3">
-                 <a href="https://github.com/andrewbcaldwell" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github fa-lg"></i></a> &nbsp;
-                 <a href="https://www.linkedin.com/in/andrewbcaldwell/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin fa-lg"></i></a> &nbsp;
-                 <a href="https://www.twitter.com/AndrewBCaldwell" title="X (Twitter)" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter fa-lg"></i></a>
+    <!-- Footer - Updated to match index.html -->
+    <footer class="footer section indigo-description-hero is-primary" style="padding: 2rem 1.5rem; color: white !important;">
+        <div class="container">
+            <!-- Social Icons now in the footer -->
+            <div class="has-text-centered mb-4"> 
+                <div class="hero-social-links field is-grouped is-grouped-centered">
+                    <p class="control">
+                        <a href="https://www.linkedin.com/in/andrewbcaldwell/" title="LinkedIn" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
+                            <span class="icon"><i class="fab fa-linkedin"></i></span>
+                        </a>
+                    </p>
+                    <p class="control">
+                        <a href="https://scholar.google.com/citations?hl=en&user=yZdrmZoAAAAJ&view_op=list_works&authuser=1" title="Google Scholar" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
+                            <span class="icon"><i class="fas fa-graduation-cap"></i></span>
+                        </a>
+                    </p>
+                    <p class="control">
+                        <a href="https://orcid.org/0000-0002-2850-7677" title="ORCID (0000-0002-2850-7677)" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
+                            <span class="icon"><i class="fab fa-orcid"></i></span>
+                        </a>
+                    </p>
+                    <p class="control">
+                        <a href="https://www.researchgate.net/profile/Andrew_Caldwell2" title="ResearchGate" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
+                            <span class="icon"><i class="fab fa-researchgate"></i></span>
+                        </a>
+                    </p>
+                    <p class="control">
+                        <a href="https://github.com/andrewbcaldwell" title="GitHub" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
+                            <span class="icon"><i class="fab fa-github"></i></span>
+                        </a>
+                    </p>
+                    <p class="control">
+                        <a href="https://www.twitter.com/AndrewBCaldwell" title="X (Twitter)" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
+                            <span class="icon"><i class="fab fa-x-twitter"></i></span>
+                        </a>
+                    </p>
+                    <p class="control">
+                        <a href="https://bsky.app/profile/andrewbcaldwell.bsky.social" title="Bluesky" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
+                            <span class="icon"><i class="fas fa-cloud"></i></span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Copyright info -->
+            <div style="display: flex; justify-content: center; align-items: center;"> 
+                <p style="margin: 0; color: white !important;"> 
+                    Built by me using
+                    <a href="https://bulma.io" target="_blank" rel="noopener noreferrer" class="bulma-credit" style="color: white !important;">
+                    <img src="images/bulma-logo.svg" alt="Bulma CSS Framework" class="bulma-logo-img" style="filter: brightness(0) invert(1);">
+                    </a>
+                    &copy; <span id="current-year-contact"></span>
+                </p>
             </div>
         </div>
     </footer>
@@ -104,13 +158,14 @@
         // Current year in footer
         document.getElementById('current-year-contact').textContent = new Date().getFullYear();
         
-        // Combined navbar functionality
+        // Fixed Mobile Menu Toggle
         document.addEventListener('DOMContentLoaded', () => {
             // Handle navbar burger toggling
             const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
             if ($navbarBurgers.length > 0) {
                 $navbarBurgers.forEach(el => {
                     el.addEventListener('click', () => {
+                        // Simple toggle without preventDefault() that was causing issues
                         const target = el.dataset.target;
                         const $target = document.getElementById(target);
                         el.classList.toggle('is-active');
