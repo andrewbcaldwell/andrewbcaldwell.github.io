@@ -199,8 +199,8 @@ a:hover {
     font-family: var(--font-family-main);
 }
 .hero-profile-image {
-    width: 128px;  /* <<<--- SIZE ADJUSTED HERE ---<<< */
-    height: 128px; /* <<<--- SIZE ADJUSTED HERE ---<<< */
+    width: 256px;  /* <<<--- SIZE ADJUSTED HERE ---<<< */
+    height: 256px; /* <<<--- SIZE ADJUSTED HERE ---<<< */
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 1.5rem;
