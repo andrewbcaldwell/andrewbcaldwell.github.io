@@ -4,22 +4,22 @@
 :root {
     --primary-indigo: #4338CA;
     --primary-indigo-darker: #3730A3;
-    --primary-indigo-lighter: #6D28D9; /* A lighter indigo for hover or less emphasis if needed */
-    --primary-indigo-ultralight: #ede9fe; /* Very light indigo for subtle backgrounds like active nav item */
+    /* --primary-indigo-lighter: #6D28D9; */ /* Not currently used, can remove if not needed */
+    /* --primary-indigo-ultralight: #ede9fe; */ /* Not currently used */
 
-
-    --text-color: #363636;          /* Bulma's $grey-darker (default text) */
-    --text-color-light: #7a7a7a;    /* Bulma's $grey */
-    --background-color: #ffffff;    /* Stark white */
-    /* --section-bg-alt: #f5f5f5;    Removed, as footer and nav are now white */
+    --text-color: #363636;
+    --text-color-light: #7a7a7a;
+    --background-color: #ffffff;
     --border-color: #dbdbdb;
     --border-color-light: #ededed;
 
-    --global-border-radius: 8px;
+    /* --global-border-radius: 8px;  Replaced by more specific radii */
+    --button-border-radius: 18px; /* More rounded buttons */
+    --navbar-item-border-radius: 18px; /* Match button roundness for nav items */
     --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
     --card-shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.1);
 
-    --font-family-main: 'Lexend', sans-serif; /* Main font Lexend */
+    --font-family-main: 'Lexend', sans-serif;
 }
 
 html {
@@ -50,17 +50,17 @@ body {
 
 h1, h2, h3, h4, h5, h6, .title, .subtitle {
     font-family: var(--font-family-main);
-    color: var(--text-color); /* Titles will use default dark text unless specified */
+    color: var(--text-color);
 }
-.title { font-weight: 700; } /* Heavier weight for titles by default */
+.title { font-weight: 700; }
 .subtitle {
     color: var(--text-color-light);
-    font-weight: 400; /* Lighter weight for subtitles */
+    font-weight: 400;
 }
 
 a {
     color: var(--primary-indigo);
-    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out; /* Added more transitions */
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
     font-weight: 500;
 }
 a:hover {
@@ -68,19 +68,20 @@ a:hover {
 }
 
 .button {
-    border-radius: var(--global-border-radius) !important;
-    font-weight: 600; /* Default button font weight */
-    font-family: var(--font-family-main); /* Ensure buttons use Lexend */
+    border-radius: var(--button-border-radius) !important; /* More rounded */
+    font-weight: 600;
+    font-family: var(--font-family-main);
     transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.1s ease-out, box-shadow 0.2s ease-out;
+    border-width: 1px; /* Default border width for most buttons */
+    border-style: solid; /* Ensure border style is set for consistency */
 }
 .button:active {
     transform: translateY(1px);
 }
 
-/* Standard Indigo Button (e.g., CV download) */
 .button.is-primary {
     background-color: var(--primary-indigo);
-    border-color: transparent;
+    border-color: transparent; /* No border for solid primary button unless specified */
     color: #fff;
 }
 .button.is-primary:hover {
@@ -91,63 +92,65 @@ a:hover {
     box-shadow: 0 0 0 0.125em rgba(67, 56, 202, 0.25);
 }
 
-/* For outlined default buttons like social links on contact page */
 .button.is-default-outlined {
     background-color: transparent;
-    border: 1px solid var(--border-color); /* Use var(--border-color) for consistency */
+    border-color: var(--border-color);
     color: var(--text-color-light);
+    border-width: 1px; /* Standard outline */
 }
 .button.is-default-outlined:hover {
     border-color: var(--primary-indigo);
     color: var(--primary-indigo);
-    background-color: var(--background-color); /* Keep bg white */
+    background-color: var(--background-color);
 }
 
 /* --- Navbar Specific Styling --- */
 .navbar {
-    background-color: var(--background-color); /* 1) All white background */
-    border-bottom: none; /* 1) Remove light grey line */
-    box-shadow: 0 1px 3px rgba(0,0,0,0.03); /* Optional: keep or remove for flatter look */
+    background-color: var(--background-color);
+    border-bottom: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
     padding: 0.5rem 0;
     font-family: var(--font-family-main);
 }
 
-/* 2) Top left corner name styling */
-.navbar-brand .navbar-item.brand-name { /* Add .brand-name class to the <a> tag in HTML */
-    color: var(--primary-indigo); /* Indigo color for name */
-    font-weight: 700;
-    font-size: 1.25rem;
-    padding: 0.5rem 0.75rem; /* Adjust padding as needed */
-    border-radius: var(--global-border-radius);
-    background-color: transparent; /* Explicitly transparent initially */
+/* Navbar Brand Name */
+.navbar-brand .navbar-item.brand-name {
+    color: var(--primary-indigo);
+    font-weight: 700; /* Bolder */
+    font-size: 1.5rem; /* Bigger */
+    padding: 0.5rem 1rem; /* Adjust padding for new size */
+    border-radius: var(--navbar-item-border-radius); /* Rounder like other buttons */
+    background-color: transparent;
+    border: 2px solid transparent; /* Transparent border initially to maintain size on hover */
+    line-height: 1.5; /* Ensure text fits well */
 }
 .navbar-brand .navbar-item.brand-name:hover {
-    background-color: var(--primary-indigo) !important; /* Indigo background on hover */
-    color: #fff !important; /* White text on hover */
+    background-color: var(--primary-indigo) !important;
+    color: #fff !important;
+    border-color: var(--primary-indigo) !important; /* Match border to background */
 }
 
-/* 3) Home, CV, Contact button styling */
+/* Navbar Menu Items (Home, CV, Contact) */
 .navbar-menu .navbar-item {
-    color: var(--primary-indigo); /* Indigo text */
-    border: 1px solid var(--primary-indigo); /* Indigo outline */
-    background-color: var(--background-color); /* White fill */
+    color: var(--primary-indigo);
+    border: 2px solid var(--primary-indigo); /* Thicker outline */
+    background-color: var(--background-color);
     font-weight: 500;
-    border-radius: var(--global-border-radius);
-    margin: 0 0.25rem; /* Spacing between items */
-    padding-left: 1em;
-    padding-right: 1em;
+    border-radius: var(--navbar-item-border-radius); /* Rounder */
+    margin: 0 0.35rem; /* Adjusted spacing */
+    padding: 0.6em 1.2em; /* Adjust padding for feel */
 }
 .navbar-menu .navbar-item:hover,
-.navbar-menu .navbar-item.is-active { /* Hover and active state */
-    background-color: var(--primary-indigo) !important; /* Solid indigo background */
-    color: #fff !important; /* White text */
-    border-color: var(--primary-indigo) !important; /* Ensure border matches background */
+.navbar-menu .navbar-item.is-active {
+    background-color: var(--primary-indigo) !important;
+    color: #fff !important;
+    border-color: var(--primary-indigo) !important;
 }
 
 .navbar-burger span {
     background-color: var(--text-color-light);
     height: 2px;
-    border-radius: var(--global-border-radius);
+    border-radius: 4px; /* Standard small rounding for burger lines */
 }
 
 
@@ -158,21 +161,12 @@ a:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 4rem 1rem 2rem 1rem;
-    min-height: calc(80vh - 100px); /* Adjusted for potentially no footer height */
+    padding: 3rem 1rem 2rem 1rem; /* Adjusted top padding as name is removed */
+    min-height: calc(80vh - 100px);
     font-family: var(--font-family-main);
 }
-.hero-name {
-    font-size: 2.5rem;
-    font-weight: 700; /* Lexend has various weights, 700 is bold */
-    color: var(--text-color);
-    margin-bottom: 1.5rem;
-}
-@media screen and (min-width: 769px) {
-    .hero-name {
-        font-size: 3.5rem;
-    }
-}
+/* .hero-name styling removed as the element is deleted from HTML */
+
 .hero-profile-image {
     width: 150px;
     height: 150px;
@@ -208,7 +202,7 @@ a:hover {
 .box.content-box {
     background-color: var(--background-color);
     border: 1px solid var(--border-color);
-    border-radius: var(--global-border-radius);
+    border-radius: var(--button-border-radius); /* Use button radius for consistency if desired, or keep global */
     box-shadow: var(--card-shadow);
     padding: 2rem;
     font-family: var(--font-family-main);
@@ -238,25 +232,20 @@ a:hover {
 
 /* --- Footer --- */
 .footer {
-    background-color: var(--background-color); /* 5) No grey at the footer */
-    border-top: none; /* Optional: remove top border if you want it truly seamless with page bg */
+    background-color: var(--background-color);
+    border-top: none;
     color: var(--text-color-light);
-    padding: 2.5rem 1.5rem; /* Adjusted padding for new text size */
+    padding: 2.5rem 1.5rem;
     margin-top: auto;
     font-family: var(--font-family-main);
-    text-align: center; /* 4) Center footer content */
+    text-align: center;
 }
 
-/* 4) Centered text, larger font for index page footer specifically */
 .main-page-footer-credit p {
-    color: var(--text-color-light); /* Or var(--text-color) for darker */
-    font-size: 1rem; /* Larger text */
+    color: var(--text-color-light);
+    font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 0;
-}
-/* Generic footer text if used on other pages, can be smaller */
-.footer:not(.main-page-footer) p { /* Assuming you might add .main-page-footer class to index.html footer */
-    font-size: 0.9rem;
 }
 
 .footer a {
