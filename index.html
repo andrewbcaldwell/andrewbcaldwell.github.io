@@ -91,16 +91,16 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container main-page-footer-credit">
-            <p>
-                Built by Andrew Caldwell using
-                <a href="https://bulma.io" target="_blank" rel="noopener noreferrer" class="bulma-credit">
-                    <img src="images/bulma-logo.svg" alt="Bulma CSS Framework" class="bulma-logo-img">
-                </a>
-                &copy; <span id="current-year"></span>
-            </p>
-        </div>
-    </footer>
+    <div class="container main-page-footer-credit"> <!-- This class already handles centering and specific text size -->
+        <p>
+            Built by me using
+            <a href="https://bulma.io" target="_blank" rel="noopener noreferrer" class="bulma-credit">
+                <img src="images/bulma-logo.svg" alt="Bulma CSS Framework" class="bulma-logo-img">
+            </a>.
+            Copyright © <span id="current-year"></span>
+        </p>
+    </div>
+</footer>
 
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
