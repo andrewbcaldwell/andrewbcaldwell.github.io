@@ -15,7 +15,7 @@
 <body>
 
     <!-- Navigation Bar -->
-    <nav class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-fixed-top main-navbar has-background-white" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
                 <a class="navbar-item brand-name" href="index.html">
@@ -40,24 +40,26 @@
         </div>
     </nav>
 
-    <!-- CV Content Section -->
-    <section class="section cv-section">
+    <!-- CV Title Section -->
+    <section class="section cv-title-section" style="padding-bottom: 0;">
         <div class="container">
             <h1 class="title is-2 has-text-centered section-title">Curriculum Vitae</h1>
+            <!-- Download Button - Now in its own container -->
+            <div style="text-align: right; padding-bottom: 1rem;">
+                <a href="/AndrewBCaldwell_CV_2025.pdf" class="button is-primary" title="Download CV as PDF">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                    <span>Download CV</span>
+                </a>
+            </div>
+        </div>
+    </section>
 
-            <div class="cv-content-area box content-box">
-                <!-- Download Button - Positioned outside the colored/default flow but inside the main box -->
-                <div style="padding: 1.5rem 2rem 0.5rem 2rem; text-align: right;"> <!-- Adjust padding as needed -->
-                    <a href="/AndrewBCaldwell_CV_2025.pdf" class="button is-primary" title="Download CV as PDF">
-                        <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                        <span>Download CV</span>
-                    </a>
-                </div>
-
-                <!-- Section 1: Indigo Background -->
-                <div class="cv-section-colored">
+    <!-- Indigo Section - Now a full-width section like in index.html -->
+    <section class="section is-primary" style="padding-top: 2rem; padding-bottom: 2rem;">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-three-quarters-desktop is-full-tablet">
                     <div itemscope itemtype="http://data-vocabulary.org/Person" class="mb-5">
-                        <!-- Note: .title and .subtitle will be styled white by .cv-section-colored rules in CSS -->
                         <h1 class="title is-3" itemprop="name">Andrew B. Caldwell</h1>
                         <p class="subtitle is-5" itemprop="title">Research Scientist, Systems Biology</p>
                         <address class="content">
@@ -81,52 +83,77 @@
                         
                         <p><strong>BS in Chemistry and Biochemistry, Seattle Pacific University, 2008</strong></p>
                     </div>
-                </div> <!-- End of Indigo Background Section -->
-                
-                <!-- Separator, hr styling will be adjusted by CSS based on parent (.cv-section-colored or .cv-section-default) -->
-                <hr style="margin-top:0; margin-bottom:0;"> 
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Section 2: White Background -->
-                <div class="cv-section-default">
-                    <h2 class="title is-4 section-title-indigo">Publications</h2>
-                    <div class="content cv-entry">
-                        <ul>
-                            <li class="mb-3">Valdes P<sup>*</sup>, <b>Caldwell AB<sup>*</sup></b>, Qing L, Fitzgerald MQ, Ramachandran S, Karch CM, Dominantly Inherited Alzheimer Network (DIAN), Galasko DR, Yuan SH, Wagner SL, Subramaniam S. 2025. Integrative multiomics reveals common endotypes across <i>PSEN1</i>, <i>PSEN2</i>, and <i>APP</i> mutations in familial Alzheimer’s disease. <i>Alzheimer's Research & Therapy</i> 17,5. <a href="https://doi.org/10.1186/s13195-024-01659-6" target="_blank" rel="noopener noreferrer">Valdes et al. 2025</a></li>
-                            <li class="mb-3">Valdes P, Henry KW, Fitzgerald MQ, Muralidharan K, <b>Caldwell AB</b>, Ramachandran S, Goldstein LSB, Mobley WC, Galasko DR, Subramaniam S. 2023. Limitations of the human iPSC-derived neuron model for early-onset Alzheimer’s disease. <i>Molecular Brain</i> 16,75. <a href="https://doi.org/10.1186/s13041-023-01063-5" target="_blank" rel="noopener noreferrer">Valdes et al. 2023</a></li>
-                            <li class="mb-3">Patel AO, <b>Caldwell AB</b>, Ramachandran S, Subramaniam S. 2023. Endotype Characterization Reveals Mechanistic Differences Across Brain Regions in Sporadic Alzheimer’s Disease. <i> Journal of Alzheimer's Disease Reports</i> 7, 1:957-972. <a href="https://doi.org/10.3233/ADR-220098" target="_blank" rel="noopener noreferrer">Patel et al. 2023</a></li>    
-                            <li class="mb-3">Dwivedi I, <b>Caldwell AB<sup>*</sup></b>, Zhou D<sup>*</sup>, Wu W, Subramaniam S, Haddad GG. 2023. Methadone alters transcriptional programs associated with synapse formation in human cortical organoids. <i>Translational Psychiatry</i> 13, 151. <a href="https://doi.org/10.1038/s41398-023-02397-3" target="_blank" rel="noopener noreferrer">Dwivedi et al. 2023</a></li>    
-                            <li class="mb-3"><b>Caldwell AB</b>, Anantharaman BG, Ramachandran S, Nguyen P, Liu Q, Trinh I, Galasko D, Desplats PA, Wagner SL, Subramaniam S. 2022. Transcriptomic profiling of sporadic Alzheimer’s disease patients. <i>Molecular Brain</i> 15:83. <a href="https://doi.org/10.1186/s13041-022-00963-2" target="_blank" rel="noopener noreferrer">Caldwell et al. 2022</a></li>
-                            <li class="mb-3">Azad P, <b>Caldwell AB</b>, Ramachandran S, Spann NJ, Akbari A, Villafuerte FC, Bermudez D, Zhao H, Poulson O, Zhou D, Bafna V, Subramaniam S, Haddad GG. 2022. ARID1B, a molecular suppressor of erythropoiesis, is essential for the prevention of Monge’s disease. <i>Experimental & Molecular Medicine</i> 54:777–787. <a href="https://doi.org/10.1038/s12276-022-00769-1" target="_blank" rel="noopener noreferrer">Azad et al. 2022</a></li>
-                            <li class="mb-3"><b>Caldwell AB</b>, Qing L, Zhang C, Schroth GP, Galasko DR, Rynearson KD, Tanzi RE, Yuan SH, Wagner SL, Subramaniam S. 2022. Endotype reversal as a novel strategy for screening drugs targeting familial Alzheimer's disease. <i>Alzheimer's & Dementia</i>, alz12553. <a href="https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/alz.12553" target="_blank" rel="noopener noreferrer">Caldwell et al. 2022</a></li>
-                            <li class="mb-3"><b>Caldwell AB</b>, Qing L, Schroth GP, Galasko DR, Yuan SH, Wagner SL, Subramaniam S. 2020. Dedifferentiation and neuronal repression define familial Alzheimer’s disease. <i>Science Advances</i> 6, 46, eaba5933. <a href="https://advances.sciencemag.org/content/6/46/eaba5933" target="_blank" rel="noopener noreferrer">Caldwell et al. 2020</a></li>
-                            <li class="mb-3"><b>Caldwell AB</b>, Cheng Z, Vargas JA, Birnbaum H, Hoffmann A. 2014. Network dynamics determine the autocrine and paracrine signaling functions of TNF. <i>Genes & Development</i> 28:2120-2133. <a href="http://genesdev.cshlp.org/content/28/19/2120.full" target="_blank" rel="noopener noreferrer">Caldwell et al. 2014</a></li>
-                            <li class="mb-3">Culpepper DJ, Maddox MK, <b>Caldwell AB</b>, McFarland BJ. 2011. Systematic mutation and thermodynamic analysis of central tyrosine pairs in polyspecific NKG2D receptor interactions. <i>Molecular Immunology</i> 48:516-523. <a href="https://www.sciencedirect.com/science/article/pii/S0161589010005870?via%3Dihub" target="_blank" rel="noopener noreferrer">Culpepper et al. 2011</a></li>
-                        </ul>
+    <!-- Publications Section (White Background) -->
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-three-quarters-desktop is-full-tablet">
+                    <div class="box content-box">
+                        <div class="cv-section-default">
+                            <h2 class="title is-4 section-title-indigo">Publications</h2>
+                            <div class="content cv-entry">
+                                <ul>
+                                    <li class="mb-3">Valdes P<sup>*</sup>, <b>Caldwell AB<sup>*</sup></b>, Qing L, Fitzgerald MQ, Ramachandran S, Karch CM, Dominantly Inherited Alzheimer Network (DIAN), Galasko DR, Yuan SH, Wagner SL, Subramaniam S. 2025. Integrative multiomics reveals common endotypes across <i>PSEN1</i>, <i>PSEN2</i>, and <i>APP</i> mutations in familial Alzheimer's disease. <i>Alzheimer's Research & Therapy</i> 17,5. <a href="https://doi.org/10.1186/s13195-024-01659-6" target="_blank" rel="noopener noreferrer">Valdes et al. 2025</a></li>
+                                    <li class="mb-3">Valdes P, Henry KW, Fitzgerald MQ, Muralidharan K, <b>Caldwell AB</b>, Ramachandran S, Goldstein LSB, Mobley WC, Galasko DR, Subramaniam S. 2023. Limitations of the human iPSC-derived neuron model for early-onset Alzheimer's disease. <i>Molecular Brain</i> 16,75. <a href="https://doi.org/10.1186/s13041-023-01063-5" target="_blank" rel="noopener noreferrer">Valdes et al. 2023</a></li>
+                                    <li class="mb-3">Patel AO, <b>Caldwell AB</b>, Ramachandran S, Subramaniam S. 2023. Endotype Characterization Reveals Mechanistic Differences Across Brain Regions in Sporadic Alzheimer's Disease. <i> Journal of Alzheimer's Disease Reports</i> 7, 1:957-972. <a href="https://doi.org/10.3233/ADR-220098" target="_blank" rel="noopener noreferrer">Patel et al. 2023</a></li>    
+                                    <li class="mb-3">Dwivedi I, <b>Caldwell AB<sup>*</sup></b>, Zhou D<sup>*</sup>, Wu W, Subramaniam S, Haddad GG. 2023. Methadone alters transcriptional programs associated with synapse formation in human cortical organoids. <i>Translational Psychiatry</i> 13, 151. <a href="https://doi.org/10.1038/s41398-023-02397-3" target="_blank" rel="noopener noreferrer">Dwivedi et al. 2023</a></li>    
+                                    <li class="mb-3"><b>Caldwell AB</b>, Anantharaman BG, Ramachandran S, Nguyen P, Liu Q, Trinh I, Galasko D, Desplats PA, Wagner SL, Subramaniam S. 2022. Transcriptomic profiling of sporadic Alzheimer's disease patients. <i>Molecular Brain</i> 15:83. <a href="https://doi.org/10.1186/s13041-022-00963-2" target="_blank" rel="noopener noreferrer">Caldwell et al. 2022</a></li>
+                                    <li class="mb-3">Azad P, <b>Caldwell AB</b>, Ramachandran S, Spann NJ, Akbari A, Villafuerte FC, Bermudez D, Zhao H, Poulson O, Zhou D, Bafna V, Subramaniam S, Haddad GG. 2022. ARID1B, a molecular suppressor of erythropoiesis, is essential for the prevention of Monge's disease. <i>Experimental & Molecular Medicine</i> 54:777–787. <a href="https://doi.org/10.1038/s12276-022-00769-1" target="_blank" rel="noopener noreferrer">Azad et al. 2022</a></li>
+                                    <li class="mb-3"><b>Caldwell AB</b>, Qing L, Zhang C, Schroth GP, Galasko DR, Rynearson KD, Tanzi RE, Yuan SH, Wagner SL, Subramaniam S. 2022. Endotype reversal as a novel strategy for screening drugs targeting familial Alzheimer's disease. <i>Alzheimer's & Dementia</i>, alz12553. <a href="https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/alz.12553" target="_blank" rel="noopener noreferrer">Caldwell et al. 2022</a></li>
+                                    <li class="mb-3"><b>Caldwell AB</b>, Qing L, Schroth GP, Galasko DR, Yuan SH, Wagner SL, Subramaniam S. 2020. Dedifferentiation and neuronal repression define familial Alzheimer's disease. <i>Science Advances</i> 6, 46, eaba5933. <a href="https://advances.sciencemag.org/content/6/46/eaba5933" target="_blank" rel="noopener noreferrer">Caldwell et al. 2020</a></li>
+                                    <li class="mb-3"><b>Caldwell AB</b>, Cheng Z, Vargas JA, Birnbaum H, Hoffmann A. 2014. Network dynamics determine the autocrine and paracrine signaling functions of TNF. <i>Genes & Development</i> 28:2120-2133. <a href="http://genesdev.cshlp.org/content/28/19/2120.full" target="_blank" rel="noopener noreferrer">Caldwell et al. 2014</a></li>
+                                    <li class="mb-3">Culpepper DJ, Maddox MK, <b>Caldwell AB</b>, McFarland BJ. 2011. Systematic mutation and thermodynamic analysis of central tyrosine pairs in polyspecific NKG2D receptor interactions. <i>Molecular Immunology</i> 48:516-523. <a href="https://www.sciencedirect.com/science/article/pii/S0161589010005870?via%3Dihub" target="_blank" rel="noopener noreferrer">Culpepper et al. 2011</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <hr style="margin-top:0; margin-bottom:0;">
+            </div>
+        </div>
+    </section>
 
-                <!-- Section 3: White Background -->
-                <div class="cv-section-default">
-                    <h2 class="title is-4 section-title-indigo">Software</h2>
-                    <div class="content cv-entry">
-                        <ul>
-                            <li class="mb-3">Choudhary KS, <b>Caldwell AB</b>, Subramaniam S. 2021. DEGenR: An R Shiny app for differential gene expression and enrichment analysis (Version v1.0.0). <i>Zenodo</i> doi.org/10.5281/zenodo.4815134. <a href="http://doi.org/10.5281/zenodo.4815134" target="_blank" rel="noopener noreferrer">DEGenR v1.0.0</a></li>
-                        </ul>
+    <!-- Software Section (White Background) -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-three-quarters-desktop is-full-tablet">
+                    <div class="box content-box">
+                        <div class="cv-section-default">
+                            <h2 class="title is-4 section-title-indigo">Software</h2>
+                            <div class="content cv-entry">
+                                <ul>
+                                    <li class="mb-3">Choudhary KS, <b>Caldwell AB</b>, Subramaniam S. 2021. DEGenR: An R Shiny app for differential gene expression and enrichment analysis (Version v1.0.0). <i>Zenodo</i> doi.org/10.5281/zenodo.4815134. <a href="http://doi.org/10.5281/zenodo.4815134" target="_blank" rel="noopener noreferrer">DEGenR v1.0.0</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <hr style="margin-top:0; margin-bottom:0;">
+            </div>
+        </div>
+    </section>
 
-                <!-- Section 4: White Background -->
-                <div class="cv-section-default">
-                    <h2 class="title is-4 section-title-indigo">Reviews</h2>
-                    <div class="content cv-entry">
-                        <ul>
-                            <li class="mb-3">Shih VF, Tsui R, <b>Caldwell AB</b>, Hoffmann A. 2011. A single NFκB system for both canonical and non-canonical signaling. <i>Cell Research</i> 21: 86-102. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3193412/" target="_blank" rel="noopener noreferrer">Shih et al. 2011</a></li>
-                        </ul>
+    <!-- Reviews Section (White Background) -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-three-quarters-desktop is-full-tablet">
+                    <div class="box content-box">
+                        <div class="cv-section-default">
+                            <h2 class="title is-4 section-title-indigo">Reviews</h2>
+                            <div class="content cv-entry">
+                                <ul>
+                                    <li class="mb-3">Shih VF, Tsui R, <b>Caldwell AB</b>, Hoffmann A. 2011. A single NFκB system for both canonical and non-canonical signaling. <i>Cell Research</i> 21: 86-102. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3193412/" target="_blank" rel="noopener noreferrer">Shih et al. 2011</a></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div> <!-- End of .cv-content-area .box .content-box -->
+            </div>
         </div>
     </section>
 
@@ -134,14 +161,15 @@
     <footer class="footer">
         <div class="content has-text-centered">
              <p> 
-                Built by me in <span id="current-year-cv"></span> using
+                Built by me using
                 <a href="https://bulma.io" target="_blank" rel="noopener noreferrer" class="bulma-credit">
-                    <img src="images/bulma-logo.svg" alt="Bulma CSS Framework" class="bulma-logo-img">
-                </a>
+                    Bulma<img src="images/bulma-logo.svg" alt="Bulma CSS Framework" class="bulma-logo-img">
+                </a>.
+                Copyright &copy; <span id="current-year-cv"></span> Andrew B. Caldwell. All rights reserved.
             </p>
             <div class="footer-social-links mt-3">
-                <a href="http://linkedin.com/in/andrewbcaldwell/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin fa-lg"></i></a> &nbsp;
-                <a href="https://orcid.org/0000-0002-2850-7677" title="ORCID" target="_blank" rel="noopener noreferrer"><i class="fab fa-orcid fa-lg"></i></a> &nbsp;
+                <a href="YOUR_LINKEDIN_URL_PLACEHOLDER" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin fa-lg"></i></a> &nbsp;
+                <a href="YOUR_ORCID_URL_PLACEHOLDER" title="ORCID" target="_blank" rel="noopener noreferrer"><i class="fab fa-orcid fa-lg"></i></a> &nbsp;
                 <a href="https://github.com/andrewbcaldwell" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github fa-lg"></i></a>
             </div>
         </div>
@@ -149,8 +177,42 @@
     <script>
         document.getElementById('current-year-cv').textContent = new Date().getFullYear();
         document.addEventListener('DOMContentLoaded', () => {
+            // Handle navbar burger toggling
             const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-            if ($navbarBurgers.length > 0) { $navbarBurgers.forEach( el => { el.addEventListener('click', () => { const target = el.dataset.target; const $target = document.getElementById(target); el.classList.toggle('is-active'); $target.classList.toggle('is-active'); }); }); }
+            if ($navbarBurgers.length > 0) {
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+                    });
+                });
+            }
+            
+            // Handle navbar shadow separately
+            const mainNavbar = document.querySelector('.main-navbar');
+            if (mainNavbar) {
+                const scrollThreshold = 10; 
+                const addShadow = () => mainNavbar.classList.add('has-shadow');
+                const removeShadow = () => mainNavbar.classList.remove('has-shadow');
+                
+                // Check initial position
+                if (window.scrollY > scrollThreshold) { 
+                    addShadow(); 
+                } else { 
+                    removeShadow(); 
+                }
+                
+                // Add scroll listener
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > scrollThreshold) { 
+                        addShadow(); 
+                    } else { 
+                        removeShadow(); 
+                    }
+                });
+            }
         });
     </script>
 </body>
