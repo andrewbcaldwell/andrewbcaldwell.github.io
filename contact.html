@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Andrew B. Caldwell</title>
+    <!-- Google Fonts (Lexend) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="custom.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item brand-name" href="index.html">
+                    Andrew B. Caldwell
+                </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+            <div id="mainNavbar" class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item" href="cv.html">
+                        CV
+                    </a>
+                    <a class="navbar-item is-active" href="contact.html"> <!-- Contact is active on this page -->
+                        Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Content Section -->
+    <section class="section contact-section">
+        <div class="container">
+            <h1 class="title is-2 has-text-centered section-title">Get In Touch</h1>
+            <div class="columns is-centered">
+                <div class="column is-two-thirds-tablet is-half-desktop"> <!-- Adjusted column width for potentially longer list -->
+                    <div class="contact-box box content-box">
+                        <p class="is-size-5 has-text-centered">
+                            I'm always open to discussing new projects, research collaborations, or interesting opportunities.
+                            The best way to reach me is by email:
+                        </p>
+                        <div class="field mt-4 mb-5"> <!-- Added margin for spacing -->
+                            <p class="control has-icons-left">
+                                <a href="mailto:your.email@example.com" class="button is-primary is-medium is-fullwidth">
+                                    <span class="icon is-small is-left"><i class="fas fa-envelope"></i></span>
+                                    <span>Email: your.email@example.com</span>
+                                </a>
+                            </p>
+                        </div>
+                        <hr>
+                        <h3 class="title is-5 has-text-centered mb-4">Find me online:</h3>
+                        <div class="content"> <!-- Standard HTML comment: Using Bulma .content for list styling -->
+                            <ul class="contact-links-list">
+                                <li><a href="https://www.linkedin.com/in/andrewbcaldwell/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                                <li><a href="https://scholar.google.com/citations?hl=en&user=yZdrmZoAAAAJ&view_op=list_works&authuser=1" target="_blank" rel="noopener noreferrer">Google Scholar</a></li>
+                                <li><a href="https://orcid.org/0000-0002-2850-7677" target="_blank" rel="noopener noreferrer">ORCID</a></li>
+                                <li><a href="https://www.researchgate.net/profile/Andrew_Caldwell2" target="_blank" rel="noopener noreferrer">ResearchGate</a></li>
+                                <li><a href="https://www.webofscience.com/wos/author/record/FTQ-4923-2022" target="_blank" rel="noopener noreferrer">Web of Science</a></li>
+                                <li><a href="https://oapolicy.universityofcalifornia.edu/userprofile.html?uid=318367" target="_blank" rel="noopener noreferrer">UC San Diego Digital Science</a></li>    
+                                <li><a href="https://github.com/andrewbcaldwell" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                                <li><a href="https://bsky.app/profile/andrewbcaldwell.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a></li>
+                                <li><a href="https://www.twitter.com/AndrewBCaldwell" target="_blank" rel="noopener noreferrer">Twitter (X)</a></li>
+                            </ul>
+                        </div>
+                        
+                        <!-- Optional: Quick social buttons if desired (can be removed if list above is sufficient) -->
+                        <!--
+                        <p class="has-text-centered my-4 has-text-grey">Quick Links:</p>
+                        <div class="field is-grouped is-grouped-centered social-links-contact">
+                            <p class="control">
+                                <a href="https://www.linkedin.com/in/andrewbcaldwell/" target="_blank" rel="noopener noreferrer" class="button is-default-outlined">
+                                    <span class="icon"><i class="fab fa-linkedin"></i></span><span>LinkedIn</span>
+                                </a>
+                            </p>
+                            <p class="control">
+                                <a href="https://github.com/andrewbcaldwell" target="_blank" rel="noopener noreferrer" class="button is-default-outlined">
+                                    <span class="icon"><i class="fab fa-github"></i></span><span>GitHub</span>
+                                </a>
+                            </p>
+                             <p class="control">
+                                <a href="https://www.twitter.com/AndrewBCaldwell" target="_blank" rel="noopener noreferrer" class="button is-default-outlined">
+                                    <span class="icon"><i class="fab fa-x-twitter"></i></span><span>X (Twitter)</span>
+                                </a>
+                            </p>
+                        </div>
+                        -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+             <p> 
+                Built by me in <span id="current-year-cv"></span> using
+                <a href="https://bulma.io" target="_blank" rel="noopener noreferrer" class="bulma-credit">
+                    <img src="images/bulma-logo.svg" alt="Bulma CSS Framework" class="bulma-logo-img">
+                </a>
+            </p>
+            <div class="footer-social-links mt-3">
+                <a href="http://linkedin.com/in/andrewbcaldwell/" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin fa-lg"></i></a> &nbsp;
+                <a href="https://orcid.org/0000-0002-2850-7677" title="ORCID" target="_blank" rel="noopener noreferrer"><i class="fab fa-orcid fa-lg"></i></a> &nbsp;
+                <a href="https://github.com/andrewbcaldwell" title="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github fa-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('current-year-contact').textContent = new Date().getFullYear();
+        // Navbar Burger Toggle Script
+        document.addEventListener('DOMContentLoaded', () => {
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            if ($navbarBurgers.length > 0) { $navbarBurgers.forEach( el => { el.addEventListener('click', () => { const target = el.dataset.target; const $target = document.getElementById(target); el.classList.toggle('is-active'); $target.classList.toggle('is-active'); }); }); }
+        });
+    </script>
+</body>
+</html>
