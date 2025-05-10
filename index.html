@@ -39,11 +39,19 @@
                 <a class="navbar-item brand-name" href="index.html">
                     Andrew B. Caldwell
                 </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
             </div>
-            <div class="navbar-menu is-active">
+            <div id="mainNavbar" class="navbar-menu">
                 <div class="navbar-end">
                     <a class="navbar-item flat-button" href="cv.html">
                         CV
+                    </a>
+                    <a class="navbar-item flat-button" href="contact.html">
+                        Contact
                     </a>
                 </div>
             </div>
@@ -236,9 +244,23 @@
         // Current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
         
-        // Handle navbar shadow
+        // Fixed Mobile Menu Toggle
         document.addEventListener('DOMContentLoaded', () => {
-            // Handle navbar shadow
+            // Handle navbar burger toggling
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            if ($navbarBurgers.length > 0) {
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+                        // Simple toggle without preventDefault() that was causing issues
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+                    });
+                });
+            }
+            
+            // Handle navbar shadow separately
             const mainNavbar = document.querySelector('.main-navbar');
             if (mainNavbar) {
                 const scrollThreshold = 10; 
