@@ -1,23 +1,23 @@
-/* custom.css - Merged previous good Navbar/Footer with new Hero/Pubs sections */
+/* custom.css - Final Version with Profile Pic Fix & All Features */
 
 /* --- Global & Theme Variables --- */
 :root {
     --primary-indigo: #4338CA;
     --primary-indigo-darker: #3730A3;
     --primary-indigo-overlay: rgba(49, 46, 129, 0.85); 
-    --primary-indigo-semitransparent: rgba(67, 56, 202, 0.1); /* For mobile menu active item */
+    --primary-indigo-semitransparent: rgba(67, 56, 202, 0.1); 
 
-    --text-color: #2c3e50; /* Softer black from new hero design */
+    --text-color: #2c3e50; 
     --text-color-light: #7f8c8d;   
-    --text-on-primary: #ffffff; /* For indigo description hero text */
-    --link-on-primary: #d1d5db;    
+    --text-on-primary: #ffffff; /* For general text on indigo backgrounds */    
+    --link-on-primary: #d1d5db; /* For general links on indigo backgrounds */    
     --link-on-primary-hover: #ffffff; 
     
-    /* CV Page Specific - Kept from before */
-    --text-on-indigo: #ffffff; 
-    --text-on-indigo-dim: #e0e0e0; 
-    --link-on-indigo: #f0f0f0; 
-    --link-on-indigo-hover: #c7d2fe; 
+    /* CV Page Specific (can be same as above if no difference needed) */
+    --text-on-indigo: var(--text-on-primary); 
+    --text-on-indigo-dim: #e0e0e0; /* Slightly dimmer for less emphasis */
+    --link-on-indigo: var(--link-on-primary); 
+    --link-on-indigo-hover: var(--link-on-primary-hover); 
 
     --background-color: #ffffff;
     --border-color: #e5e7eb; 
@@ -26,7 +26,7 @@
     --navbar-item-border-radius: 9999px; 
     --button-border-radius: 18px;      
     --box-content-border-radius: 12px; 
-    --card-border-radius: 8px; /* For new publication cards */
+    --card-border-radius: 8px;
 
     --card-shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -1px rgba(0,0,0,0.04); 
     --card-shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.07), 0 4px 6px -2px rgba(0,0,0,0.05);
@@ -34,7 +34,7 @@
     --font-family-main: 'Lexend', sans-serif;
 }
 
-/* Bulma .is-primary Color Override FOR SECTIONS */
+/* --- Bulma .is-primary Color Override --- */
 .section.is-primary { 
     background-color: var(--primary-indigo) !important;
     color: var(--text-on-primary) !important;
@@ -42,13 +42,14 @@
 .section.is-primary .title, 
 .section.is-primary .subtitle, 
 .section.is-primary p,
-.section.is-primary .content {
+.section.is-primary .content, /* Ensure content within .is-primary sections is light */
+.section.is-primary .content p { /* And paragraphs within that content */
     color: var(--text-on-primary) !important;
 }
 .section.is-primary .subtitle { 
     color: var(--link-on-primary) !important; 
 }
-/* This specifically targets BUTTONS with .is-primary */
+/* Button specific .is-primary */
 .button.is-primary { 
     background-color: var(--primary-indigo) !important;
     border-color: var(--primary-indigo) !important;
@@ -57,6 +58,9 @@
 .button.is-primary:hover {
     background-color: var(--primary-indigo-darker) !important;
     border-color: var(--primary-indigo-darker) !important;
+}
+.button.is-primary:focus:not(:active) {
+    box-shadow: 0 0 0 0.125em rgba(67, 56, 202, 0.25);
 }
 
 
@@ -69,10 +73,10 @@ body {
     display: flex;
     flex-direction: column;
     background-color: var(--background-color);
-    padding-top: 5rem; /* For fixed navbar - ADJUST IF NAVBAR HEIGHT CHANGES */
+    padding-top: 5rem; /* For fixed navbar - Adjust if navbar height changes significantly */
 }
 
-.section { padding: 3rem 1.5rem; }
+.section { padding: 3rem 1.5rem; } 
 @media screen and (min-width: 769px) { 
     .section { padding: 4rem 1.5rem; }
 }
@@ -109,20 +113,20 @@ a:hover { color: var(--primary-indigo-darker); }
     background-color: var(--background-color);
 }
 
-/* --- PREVIOUSLY GOOD NAVBAR STYLES --- */
-.navbar.main-navbar {
-    background-color: var(--background-color); /* Start white */
-    border-bottom: 1px solid var(--border-color-light); /* Subtle bottom border */
+/* --- Navbar Styling --- */
+.navbar.main-navbar { 
+    background-color: var(--background-color); 
+    border-bottom: 1px solid var(--border-color-light); 
     font-family: var(--font-family-main);
     transition: box-shadow 0.3s ease-in-out; 
     padding: 0.2rem 0;
-    position: fixed; /* Fixed navbar */
+    position: fixed; 
     width: 100%;
     top: 0;
     left: 0;
     z-index: 30;
 }
-.navbar.main-navbar.has-shadow { /* Class added by JS on scroll */
+.navbar.main-navbar.has-shadow { 
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 .navbar-brand .navbar-item.brand-name {
@@ -137,7 +141,7 @@ a:hover { color: var(--primary-indigo-darker); }
 }
 .navbar-brand .navbar-item.brand-name:hover {
     background-color: var(--primary-indigo) !important;
-    color: var(--text-on-primary) !important; /* Use --text-on-primary for consistency */
+    color: var(--text-on-primary) !important;
     border-color: var(--primary-indigo) !important;
 }
 /* Desktop Menu Items */
@@ -155,7 +159,7 @@ a:hover { color: var(--primary-indigo-darker); }
     .navbar-menu .navbar-item:hover,
     .navbar-menu .navbar-item.is-active {
         background-color: var(--primary-indigo) !important;
-        color: var(--text-on-primary) !important; /* Use --text-on-primary */
+        color: var(--text-on-primary) !important;
         border-color: var(--primary-indigo) !important; 
     }
 }
@@ -166,7 +170,7 @@ a:hover { color: var(--primary-indigo-darker); }
     box-shadow: 0 8px 16px rgba(10,10,10,.1); 
     padding: 0.5rem 0;
     text-align: right; 
-    border-bottom-left-radius: var(--box-content-border-radius); /* Use defined radius */
+    border-bottom-left-radius: var(--box-content-border-radius); 
     border-bottom-right-radius: var(--box-content-border-radius);
 }
 .navbar-menu.is-active .navbar-item {
@@ -188,23 +192,21 @@ a:hover { color: var(--primary-indigo-darker); }
     font-weight: 700; 
     background-color: var(--primary-indigo-semitransparent) !important;
 }
-/* --- END OF PREVIOUSLY GOOD NAVBAR STYLES --- */
 
-
-/* --- Section 1: White Intro Hero (NEW) --- */
+/* --- Section 1: White Intro Hero --- */
 .white-intro-hero {
     background-color: var(--background-color);
-    padding-top: 5rem;      /* Space down from navbar */
+    padding-top: 5rem;      
     padding-bottom: 3rem;  
-    text-align: center;    
+    text-align: center;     
 }
-.hero-main-title { /* "Bench-to-Code Systems Biologist" */
+.hero-main-title { 
     font-size: 2.4rem;   
     font-weight: 700;   
     color: var(--text-color) !important; 
     margin-bottom: 0.5rem !important; 
 }
-.hero-tagline { /* "From Cell Culture to Code..." */
+.hero-tagline { 
     font-size: 1.1rem; 
     color: var(--primary-indigo) !important; 
     margin-bottom: 2rem !important; 
@@ -213,21 +215,33 @@ a:hover { color: var(--primary-indigo-darker); }
     margin-right: auto;
     font-weight: 400; 
 }
-.white-hero-profile-image .is-rounded { 
-    width: 128px; 
-    height: 128px;
-    border: 4px solid var(--background-color); 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+.white-hero-profile-image-wrapper {
+    display: flex;           
+    justify-content: center; 
+    margin-top: 1rem;        
+    margin-bottom: 1.5rem;   
 }
-@media screen and (max-width: 768px) { 
+img.hero-profile-image-main { /* Profile image in white hero */
+    width: 256px;        
+    height: 256px;       
+    border-radius: 50%;  
+    object-fit: cover;   /* Prevents skewing */
+    border: 5px solid var(--background-color); 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12); 
+    display: block;      
+}
+@media screen and (max-width: 768px) { /* Responsive adjustments for white hero */
     .hero-main-title { font-size: 2rem; }
     .hero-tagline { font-size: 1rem; margin-bottom: 1.5rem; }
-    .white-hero-profile-image .is-rounded { width: 110px; height: 110px; }
+    img.hero-profile-image-main { 
+        width: 180px; 
+        height: 180px; 
+    }
 }
 
-/* --- Section 2: Indigo Personal Description Hero (NEW) --- */
+/* --- Section 2: Indigo Personal Description Hero --- */
 .section.indigo-description-hero.is-primary { 
-    /* background-color is handled by .is-primary global override */
+    /* background-color handled by global .section.is-primary rule */
     padding-top: 4rem;
     padding-bottom: 4rem;
 }
@@ -235,15 +249,15 @@ a:hover { color: var(--primary-indigo-darker); }
 .indigo-description-hero .title.is-2 { 
     margin-bottom: 2rem;
     font-weight: 600;
-    color: var(--text-on-primary) !important; /* Ensure white title */
+    /* color: var(--text-on-primary) !important; Handled by global .section.is-primary */
 }
-.indigo-description-hero .content p { /* Target paragraphs within .content */
-    color: var(--text-on-primary) !important; /* Ensure white text */
+.indigo-description-hero .content p { 
+    /* color: var(--text-on-primary) !important; Handled by global .section.is-primary */
     line-height: 1.8; 
     margin-bottom: 1.25rem;
 }
 .indigo-description-hero a.link-on-indigo-bg { 
-    color: var(--link-on-primary);
+    color: var(--link-on-primary); /* Brighter/distinct link color for on primary background */
     font-weight: 600; 
     text-decoration: none;
     border-bottom: 1px solid var(--link-on-primary); 
@@ -255,7 +269,7 @@ a:hover { color: var(--primary-indigo-darker); }
     border-bottom-color: var(--link-on-primary-hover);
 }
 
-/* --- Section 3: Recent Publications (NEW) --- */
+/* --- Section 3: Recent Publications --- */
 .recent-publications-section {
     background-color: var(--background-color);
     padding-top: 4rem;
@@ -280,7 +294,7 @@ a:hover { color: var(--primary-indigo-darker); }
 }
 .publication-image-figure { 
     position: relative;
-    padding-top: 129.4%; 
+    padding-top: 129.4%; /* Approx 8.5x11 aspect ratio (11/8.5 * 100). ADJUST TO YOUR IMAGES. */
     background-color: #f0f0f0; 
 }
 .publication-image-figure img {
@@ -306,7 +320,7 @@ a:hover { color: var(--primary-indigo-darker); }
     padding: 1rem 1.25rem;
     opacity: 0; 
     transform: translateY(100%); 
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Slightly faster transition */
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out; 
     text-align: left;
     min-height: auto; 
     display: flex;
@@ -327,50 +341,124 @@ a:hover { color: var(--primary-indigo-darker); }
 
 /* Social links below publications */
 .hero-social-links { margin-top: 2rem; }
-.hero-social-links .button.is-ghost { /* Same as before */ }
-.hero-social-links .button.is-ghost:hover { /* Same as before */ }
-.hero-social-links .button.is-ghost .icon { /* Same as before */ }
+.hero-social-links .button.is-ghost {
+    background: transparent;
+    border: none;
+    color: var(--text-color-light);
+    font-size: 1.5rem;
+    margin: 0 0.6rem;
+    padding: 0.5rem;
+}
+.hero-social-links .button.is-ghost:hover {
+    color: var(--primary-indigo);
+    transform: scale(1.1);
+}
+.hero-social-links .button.is-ghost .icon {
+    font-size: inherit;
+}
 
+/* --- Generic Box Styling (CV, Contact content) --- */
+.box.content-box {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--box-content-border-radius); 
+    box-shadow: var(--card-shadow);
+    padding: 0; 
+    font-family: var(--font-family-main);
+    overflow: hidden; 
+}
+.cv-section-default {
+    padding: 2rem;
+}
+@media screen and (min-width: 769px) {
+    .cv-section-default {
+        padding: 2.5rem;
+    }
+}
+.cv-section-colored {
+    background-color: var(--primary-indigo);
+    color: var(--text-on-indigo); /* Uses specific CV text color variable */
+    padding: 2rem;
+    border-radius: 0;
+}
+@media screen and (min-width: 769px) {
+    .cv-section-colored {
+        padding: 2.5rem;
+    }
+}
+.box.content-box > div:first-child {
+    border-top-left-radius: var(--box-content-border-radius);
+    border-top-right-radius: var(--box-content-border-radius);
+}
+.box.content-box > div:last-child {
+    border-bottom-left-radius: var(--box-content-border-radius);
+    border-bottom-right-radius: var(--box-content-border-radius);
+}
+.cv-section-colored .title,
+.cv-section-colored .subtitle,
+.cv-section-colored strong {
+    color: var(--text-on-indigo) !important; 
+}
+.cv-section-colored .subtitle {
+    color: var(--text-on-indigo-dim) !important;
+}
+.cv-section-colored address, .cv-section-colored p, .cv-section-colored li {
+    color: var(--text-on-indigo);
+}
+.cv-section-colored a { /* Links within CV colored section */
+    color: var(--link-on-indigo); 
+    font-weight: 600; 
+}
+.cv-section-colored a:hover {
+    color: var(--link-on-indigo-hover); 
+    text-decoration: underline;
+}
+.cv-section-colored abbr { 
+    border-bottom-color: var(--text-on-indigo-dim); 
+    color: var(--text-on-indigo);
+}
+.section-title-indigo { /* For CV titles like "Publications" on white bg */
+    color: var(--primary-indigo) !important; 
+}
+.content-box .title.is-4 { 
+    padding-bottom: 0.5em;
+    margin-top: 1.5rem;
+    margin-bottom: 1em;
+    font-size: 1.5rem;
+}
+.content-box .cv-section-default .title.is-4 { 
+    border-bottom: 1px solid var(--border-color-light);
+}
+.content-box div:first-child > .title.is-4:first-of-type { 
+    margin-top: 0;
+}
+.content-box hr { 
+    background-color: var(--border-color-light);
+    height: 1px;
+    margin: 1.5rem 0;
+}
+.cv-section-colored hr { 
+    background-color: rgba(255, 255, 255, 0.2); 
+}
 
-/* --- Generic Box Styling (CV, Contact content - from before) --- */
-.box.content-box { /* ... */ }
-.cv-section-default { /* ... */ }
-@media screen and (min-width: 769px) { .cv-section-default { /* ... */ } }
-.cv-section-colored { /* ... */ }
-@media screen and (min-width: 769px) { .cv-section-colored { /* ... */ } }
-.box.content-box > div:first-child { /* ... */ }
-.box.content-box > div:last-child { /* ... */ }
-.cv-section-colored .title, .cv-section-colored .subtitle, .cv-section-colored strong { /* ... */ }
-.cv-section-colored .subtitle { /* ... */ }
-.cv-section-colored address, .cv-section-colored p, .cv-section-colored li { /* ... */ }
-.cv-section-colored a { /* ... */ }
-.cv-section-colored a:hover { /* ... */ }
-.cv-section-colored abbr {  /* ... */ }
-.section-title-indigo { /* ... */ }
-.content-box .title.is-4 {  /* ... */ }
-.content-box .cv-section-default .title.is-4 {  /* ... */ }
-.content-box div:first-child > .title.is-4:first-of-type {  /* ... */ }
-.content-box hr {  /* ... */ }
-.cv-section-colored hr {  /* ... */ }
-
-/* --- PREVIOUSLY GOOD FOOTER STYLES --- */
+/* --- Footer --- */
 .footer {
-    background-color: var(--background-color); /* White footer */
-    border-top: none; /* No border */
+    background-color: var(--background-color);
+    border-top: none;
     color: var(--text-color-light);
     padding: 2rem 1.5rem; 
     margin-top: auto;
     font-family: var(--font-family-main);
     text-align: center;
 }
-/* Paragraph styling for CV/Contact footers */
+/* Footer paragraphs for CV/Contact */
 .footer .content p { 
     color: var(--text-color-light);
     font-size: 0.85rem; 
     line-height: 1.5;
     margin-bottom: 0.5rem; 
 }
-/* Paragraph styling specifically for index.html footer */
+/* Footer paragraph for index.html */
 .main-page-footer-credit p { 
     color: var(--text-color-light);
     font-size: 0.9rem; 
@@ -398,8 +486,8 @@ a:hover { color: var(--primary-indigo-darker); }
 .bulma-credit:hover .bulma-logo-img {
     filter: none;
 }
-.bulma-logo-img { /* Smaller logo */
-    height: 1em;  
+.bulma-logo-img {
+    height: 1em;
     margin-left: 0.3em; 
     vertical-align: middle;
     position: relative;
@@ -407,11 +495,10 @@ a:hover { color: var(--primary-indigo-darker); }
     filter: grayscale(100%) opacity(0.7);
     transition: filter 0.2s ease-in-out;
 }
-.footer-social-links a { 
+.footer-social-links a {
     margin: 0 0.5em;
     color: var(--text-color-light) !important;
 }
 .footer-social-links a:hover {
     color: var(--primary-indigo) !important;
 }
-/* --- END OF PREVIOUSLY GOOD FOOTER STYLES --- */
