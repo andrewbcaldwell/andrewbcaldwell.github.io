@@ -24,19 +24,12 @@
                 <a class="navbar-item brand-name" href="index.html">
                     Andrew B. Caldwell
                 </a>
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
+                <!-- Removed burger menu since we only have one navigation item -->
             </div>
-            <div id="mainNavbar" class="navbar-menu">
+            <div class="navbar-menu is-active"> <!-- Always visible menu -->
                 <div class="navbar-end">
                     <a class="navbar-item" href="cv.html">
                         CV
-                    </a>
-                    <a class="navbar-item" href="contact.html">
-                        Contact
                     </a>
                 </div>
             </div>
@@ -113,7 +106,7 @@
                             <img src="images/pub_portrait_caldwell2020.jpg" alt="Caldwell et al. 2020 Sci Advances">
                         </figure>
                         <div class="publication-overlay">
-                            <h3 class="title is-5">Dedifferentiation and neuronal repression define familial Alzheimer’s disease.</h3>
+                            <h3 class="title is-5">Dedifferentiation and neuronal repression define familial Alzheimer's disease.</h3>
                         </div>
                     </a>
                 </div>
@@ -146,7 +139,7 @@
                             <img src="images/pub_portrait_azad2022.jpg" alt="Azad et al. 2022 EM&M">
                         </figure>
                         <div class="publication-overlay">
-                            <h3 class="title is-5">ARID1B, a molecular suppressor of erythropoiesis, is essential for the prevention of Monge’s disease.</h3>
+                            <h3 class="title is-5">ARID1B, a molecular suppressor of erythropoiesis, is essential for the prevention of Monge's disease.</h3>
                         </div>
                     </a>
                 </div>
@@ -194,16 +187,34 @@
         </div> <!-- Closing .container for recent-publications-section -->
     </section> <!-- Closing .recent-publications-section -->
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container main-page-footer-credit">
-            <p style="margin: 0;"> 
+    <!-- Collaboration Section - NEW -->
+    <section class="section">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-three-quarters-desktop is-full-tablet has-text-centered">
+                    <h2 class="title is-2 mb-4">Interested in collaborating with me?</h2>
+                    <p class="subtitle is-5 mb-5">I'm always open to discussing new projects, research collaborations, or interesting opportunities.</p>
+                    <a href="mailto:your.email@example.com" class="button is-primary is-large is-rounded">
+                        <span class="icon"><i class="fas fa-envelope"></i></span>
+                        <span>Let's talk</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer - Now indigo edge-to-edge -->
+    <footer class="footer section indigo-description-hero is-primary" style="padding: 2rem 1.5rem; color: white !important;">
+        <div class="container">
+            <div style="display: flex; justify-content: center; align-items: center;"> 
+                <p style="margin: 0; color: white !important;"> 
                     Built by me using
-                    <a href="https://bulma.io" target="_blank" rel="noopener noreferrer" class="bulma-credit">
-                    <img src="images/bulma-logo.svg" alt="Bulma CSS Framework" class="bulma-logo-img">
-                    </a>.
-                    &copy; <span id="current-year-cv"></span>
+                    <a href="https://bulma.io" target="_blank" rel="noopener noreferrer" class="bulma-credit" style="color: white !important;">
+                    <img src="images/bulma-logo.svg" alt="Bulma CSS Framework" class="bulma-logo-img" style="filter: brightness(0) invert(1);">
+                    </a>
+                    &copy; <span id="current-year"></span>
                 </p>
+            </div>
         </div>
     </footer>
 
@@ -211,22 +222,9 @@
         // Current year in footer
         document.getElementById('current-year').textContent = new Date().getFullYear();
         
-        // Combined navbar functionality
+        // Handle navbar shadow
         document.addEventListener('DOMContentLoaded', () => {
-            // Handle navbar burger toggling
-            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-            if ($navbarBurgers.length > 0) {
-                $navbarBurgers.forEach(el => {
-                    el.addEventListener('click', () => {
-                        const target = el.dataset.target;
-                        const $target = document.getElementById(target);
-                        el.classList.toggle('is-active');
-                        $target.classList.toggle('is-active');
-                    });
-                });
-            }
-            
-            // Handle navbar shadow separately
+            // Handle navbar shadow
             const mainNavbar = document.querySelector('.main-navbar');
             if (mainNavbar) {
                 const scrollThreshold = 10; 
