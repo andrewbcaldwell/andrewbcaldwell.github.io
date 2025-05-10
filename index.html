@@ -1,26 +1,129 @@
----
-<link rel="stylesheet" href="custom.css">
-layout: default
-title: andrewbcaldwell.github.io
-cv: passive
-notes: passive
-contact: passive
-description: Andrew B. Caldwell is a research scientist at UC San Diego.
----
-<!-- <div class="jumbotron"> -->
-<div class="row marketing">
-    <div class="col-sm-4">
-        <img  class="img-circle avatar" alt="Andrew B. Caldwell" src="images/AndrewBCaldwell.png">
-        <p><a href="https://orcid.org/0000-0002-2850-7677" aria-label="View ORCID record">
-        <img src="/img/ORCID_iD_icon-vector.svg" alt="ORCID iD" width="16" height="16"/>
-        0000-0002-2850-7677
-    </a></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrew B. Caldwell - Research Scientist</title>
+    <!-- Google Fonts (Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="custom.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="index.html">
+                    Andrew B. Caldwell
+                </a>
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
             </div>
-    <div itemscope itemtype="http://data-vocabulary.org/Person" class="col-sm-8">
-    <p class="lead">Hi! I'm <span itemprop="name">Andrew Caldwell</span>, a <span itemprop="title">research scientist</span> at UC San Diego working on systems biology of Alzheimer's Disease.</p>
-    <p>I'm intereted in <span itemprop="research">experimental methods for high throughput sequencing</span>, <span itemprop="research">bioinformatics data processing analysis</span>, <span itemprop="research">-omics integration</span>, and <span itemprop="research">mechanistic systems biology of neurodegenerative diseases</span>. You can find my recent work on this topic in <a href="https://advances.sciencemag.org/content/6/46/eaba5933">Science Advances</a> and <a href=" https://doi.org/10.1186/s13195-024-01659-6">Alzheimer's Research & Therapy</a>.</p> 
-    <p></p>You can find me posting on <a href="https://bsky.app/profile/andrewbcaldwell.bsky.social">Bluesky</a> and <a href="https://www.twitter.com/andrewbcaldwell">Twitter</a>.</p>
-    <p>I'm also a big fan of coffee. You can find my coffee-related musings on <a href="https://www.instagram.com/caldwellcoffee">Instagram</a> at <a href="https://www.instagram.com/caldwellcoffee">@CaldwellCoffee</a>.</p>
-    </div>
-</div>
-<!-- </div> -->
+            <div id="mainNavbar" class="navbar-menu">
+                <div class="navbar-start">
+                    <a class="navbar-item is-active" href="index.html">
+                        Home
+                    </a>
+                    <a class="navbar-item" href="cv.html">
+                        CV
+                    </a>
+                    <a class="navbar-item" href="contact.html">
+                        Contact
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Centered Main Page Content -->
+    <section class="section main-page-hero">
+        <div class="container">
+            <h1 class="hero-name">Andrew B. Caldwell</h1>
+
+            <!-- === UPDATE IMAGE PATH if your profile image is not profile.jpg === -->
+            <img src="images/profile.jpg" alt="Andrew B. Caldwell" class="hero-profile-image">
+
+            <div itemscope itemtype="http://data-vocabulary.org/Person" class="hero-description content">
+                <p class="lead">Hi! I'm <span itemprop="name">Andrew Caldwell</span>, a <span itemprop="title">Research Scientist</span> at UC San Diego working on systems biology of Alzheimer's Disease.</p>
+                <p>I'm interested in <span itemprop="research">experimental methods for high throughput sequencing</span>, <span itemprop="research">bioinformatics data processing analysis</span>, <span itemprop="research">-omics integration</span>, and <span itemprop="research">mechanistic systems biology of neurodegenerative diseases</span>.
+                My recent work on this topic can be found in <a href="https://advances.sciencemag.org/content/6/46/eaba5933" target="_blank" rel="noopener noreferrer">Science Advances</a> and <a href="https://doi.org/10.1186/s13195-024-01659-6" target="_blank" rel="noopener noreferrer">Alzheimer's Research & Therapy</a>.</p>
+                <p>You can find me posting on <a href="https://bsky.app/profile/andrewbcaldwell.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a> and <a href="https://www.twitter.com/andrewbcaldwell" target="_blank" rel="noopener noreferrer">Twitter</a>.
+                I'm also a big fan of coffee. You can find my coffee-related musings on <a href="https://www.instagram.com/caldwellcoffee" target="_blank" rel="noopener noreferrer">Instagram @CaldwellCoffee</a>.</p>
+            </div>
+
+            <div class="hero-social-links field is-grouped is-grouped-centered">
+                <p class="control">
+                    <a href="YOUR_LINKEDIN_URL_PLACEHOLDER" title="LinkedIn" target="_blank" rel="noopener noreferrer" class="button is-ghost">
+                        <span class="icon"><i class="fab fa-linkedin"></i></span>
+                    </a>
+                </p>
+                <p class="control">
+                    <a href="https://github.com/andrewbcaldwell" title="GitHub" target="_blank" rel="noopener noreferrer" class="button is-ghost">
+                        <span class="icon"><i class="fab fa-github"></i></span>
+                    </a>
+                </p>
+                <p class="control">
+                    <a href="https://orcid.org/0000-0002-2850-7677" title="ORCID (0000-0002-2850-7677)" target="_blank" rel="noopener noreferrer" class="button is-ghost">
+                        <span class="icon"><i class="fab fa-orcid"></i></span>
+                    </a>
+                </p>
+                <p class="control"> <!-- Placeholder, update with your actual ResearchGate URL -->
+                    <a href="YOUR_RESEARCHGATE_URL_PLACEHOLDER" title="ResearchGate" target="_blank" rel="noopener noreferrer" class="button is-ghost">
+                        <span class="icon"><i class="fab fa-researchgate"></i></span>
+                    </a>
+                </p>
+                <p class="control">
+                    <a href="https://www.twitter.com/andrewbcaldwell" title="X (Twitter)" target="_blank" rel="noopener noreferrer" class="button is-ghost">
+                        <span class="icon"><i class="fab fa-x-twitter"></i></span>
+                    </a>
+                </p>
+                <p class="control">
+                    <a href="https://bsky.app/profile/andrewbcaldwell.bsky.social" title="Bluesky" target="_blank" rel="noopener noreferrer" class="button is-ghost">
+                        <span class="icon"><i class="fas fa-cloud"></i></span>
+                    </a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container main-page-footer-credit">
+            <p class="is-size-7">
+                Built by Andrew Caldwell using
+                <a href="https://bulma.io" target="_blank" rel="noopener noreferrer" class="bulma-credit">
+                    Bulma<img src="images/bulma-logo.svg" alt="Bulma CSS Framework" class="bulma-logo-img">
+                </a>.
+                &copy; <span id="current-year"></span> All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        document.addEventListener('DOMContentLoaded', () => {
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            if ($navbarBurgers.length > 0) {
+                $navbarBurgers.forEach( el => {
+                    el.addEventListener('click', () => {
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+                    });
+                });
+            }
+        });
+    </script></body>
+</html>
