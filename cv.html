@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Andrew B. Caldwell</title>
-    <!-- Google Fonts (Inter) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Fonts (Lexend) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
@@ -15,29 +13,26 @@
     <link rel="stylesheet" href="custom.css">
 </head>
 <body>
+
     <!-- Navigation Bar -->
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
-                <!-- Brand name - clicking this goes to index.html (home) -->
                 <a class="navbar-item brand-name" href="index.html">
                     Andrew B. Caldwell
                 </a>
-                <!-- Navbar burger for mobile -->
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </a>
             </div>
-
             <div id="mainNavbar" class="navbar-menu">
-                <!-- Navbar items moved to the right -->
                 <div class="navbar-end">
-                    <a class="navbar-item" href="cv.html"> {/* Becomes active on CV page */}
+                    <a class="navbar-item is-active" href="cv.html"> {/* CV is active on this page */}
                         CV
                     </a>
-                    <a class="navbar-item" href="contact.html"> {/* Becomes active on Contact page */}
+                    <a class="navbar-item" href="contact.html">
                         Contact
                     </a>
                 </div>
@@ -49,18 +44,16 @@
     <section class="section cv-section">
         <div class="container">
             <h1 class="title is-2 has-text-centered section-title">Curriculum Vitae</h1>
-
             <div class="cv-content-area box content-box">
-                <div class="has-text-right mb-4"> <!-- Aligns button to the right -->
+                <div class="has-text-right mb-4">
                     <a href="/AndrewBCaldwell_CV_2025.pdf" class="button is-primary" title="Download CV as PDF">
                         <span class="icon"><i class="fas fa-file-pdf"></i></span>
                         <span>Download CV</span>
                     </a>
                 </div>
-
                 <div itemscope itemtype="http://data-vocabulary.org/Person" class="mb-5">
                     <h1 class="title is-3" itemprop="name">Andrew B. Caldwell</h1>
-                    <p class="subtitle is-5" itemprop="title">Research Scientist, Bioinformatics and Systems Biology</p>
+                    <p class="subtitle is-5" itemprop="title">Research Scientist, Systems Biology</p>
                     <address class="content">
                         <span itemprop="affiliation"><strong>UC San Diego</strong><br></span>
                         <span itemprop="affiliation"><a href="https://genome.ucsd.edu" target="_blank" rel="noopener noreferrer">Subramaniam Lab</a>, Department of Bioengineering<br></span>
@@ -68,23 +61,18 @@
                         La Jolla, CA 92093<br>
                     </address>
                 </div>
-                
                 <div class="content mb-5">
                     <p>Systems Biologist working on Alzheimer's Disease focusing on experimental methods in sequencing, bioinformatics data processing and analysis, chromatin dynamics, -omics data integration, and systems-level mechanistic disease models.</p>
                 </div>
                 <hr>
-                
                 <h2 class="title is-4">Degrees</h2>
                 <div class="content cv-entry">
                     <p><strong><abbr title="Doctor of Philosophy">PhD</abbr> in Biochemistry, UC San Diego, 2014</strong><br>
                     <em>Towards a Quantitative Understanding of TNF's Signaling Functions</em></p>
-                    
                     <p><strong>MS in Biochemistry, UC San Diego, 2010</strong></p>
-                    
                     <p><strong>BS in Chemistry and Biochemistry, Seattle Pacific University, 2008</strong></p>
                 </div>
                 <hr>
-
                 <h2 class="title is-4">Publications</h2>
                 <div class="content cv-entry">
                     <ul>
@@ -101,7 +89,6 @@
                     </ul>
                 </div>
                 <hr>
-
                 <h2 class="title is-4">Software</h2>
                 <div class="content cv-entry">
                     <ul>
@@ -109,7 +96,6 @@
                     </ul>
                 </div>
                 <hr>
-
                 <h2 class="title is-4">Reviews</h2>
                 <div class="content cv-entry">
                     <ul>
@@ -139,7 +125,6 @@
     </footer>
     <script>
         document.getElementById('current-year-cv').textContent = new Date().getFullYear();
-        // Navbar Burger Toggle Script
         document.addEventListener('DOMContentLoaded', () => {
             const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
             if ($navbarBurgers.length > 0) { $navbarBurgers.forEach( el => { el.addEventListener('click', () => { const target = el.dataset.target; const $target = document.getElementById(target); el.classList.toggle('is-active'); $target.classList.toggle('is-active'); }); }); }

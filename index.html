@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andrew B. Caldwell - Research Scientist</title>
-    <!-- Google Fonts (Inter) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Fonts (Lexend) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
@@ -23,25 +21,21 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
-                <!-- Brand name - clicking this goes to index.html (home) -->
                 <a class="navbar-item brand-name" href="index.html">
                     Andrew B. Caldwell
                 </a>
-                <!-- Navbar burger for mobile -->
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </a>
             </div>
-
             <div id="mainNavbar" class="navbar-menu">
-                <!-- Navbar items moved to the right -->
                 <div class="navbar-end">
-                    <a class="navbar-item" href="cv.html"> {/* Becomes active on CV page */}
+                    <a class="navbar-item" href="cv.html">
                         CV
                     </a>
-                    <a class="navbar-item" href="contact.html"> {/* Becomes active on Contact page */}
+                    <a class="navbar-item" href="contact.html">
                         Contact
                     </a>
                 </div>
@@ -52,10 +46,7 @@
     <!-- Centered Main Page Content -->
     <section class="section main-page-hero">
         <div class="container">
-            
-            <!-- === UPDATE IMAGE PATH if your profile image is not profile.jpg === -->
             <img src="images/profile.jpg" alt="Andrew B. Caldwell" class="hero-profile-image">
-
             <div itemscope itemtype="http://data-vocabulary.org/Person" class="hero-description content">
                 <p class="lead">Hi! I'm <span itemprop="name">Andrew Caldwell</span>, a <span itemprop="title">Research Scientist</span> at UC San Diego working on systems biology of Alzheimer's Disease.</p>
                 <p>I'm interested in <span itemprop="research">experimental methods for high throughput sequencing</span>, <span itemprop="research">bioinformatics data processing analysis</span>, <span itemprop="research">-omics integration</span>, and <span itemprop="research">mechanistic systems biology of neurodegenerative diseases</span>.
@@ -63,7 +54,6 @@
                 <p>You can find me posting on <a href="https://bsky.app/profile/andrewbcaldwell.bsky.social" target="_blank" rel="noopener noreferrer">Bluesky</a> and <a href="https://www.twitter.com/andrewbcaldwell" target="_blank" rel="noopener noreferrer">Twitter</a>.
                 I'm also a big fan of coffee. You can find my coffee-related musings on <a href="https://www.instagram.com/caldwellcoffee" target="_blank" rel="noopener noreferrer">Instagram @CaldwellCoffee</a>.</p>
             </div>
-
             <div class="hero-social-links field is-grouped is-grouped-centered">
                 <p class="control">
                     <a href="YOUR_LINKEDIN_URL_PLACEHOLDER" title="LinkedIn" target="_blank" rel="noopener noreferrer" class="button is-ghost">
@@ -80,7 +70,7 @@
                         <span class="icon"><i class="fab fa-orcid"></i></span>
                     </a>
                 </p>
-                <p class="control"> <!-- Placeholder, update with your actual ResearchGate URL -->
+                <p class="control">
                     <a href="YOUR_RESEARCHGATE_URL_PLACEHOLDER" title="ResearchGate" target="_blank" rel="noopener noreferrer" class="button is-ghost">
                         <span class="icon"><i class="fab fa-researchgate"></i></span>
                     </a>
@@ -101,16 +91,16 @@
 
     <!-- Footer -->
     <footer class="footer">
-    <div class="container main-page-footer-credit">
-        <p> <!-- Removed is-size-7, styling now comes from main-page-footer-credit p in CSS -->
-            Built by Andrew Caldwell using
-            <a href="https://bulma.io" target="_blank" rel="noopener noreferrer" class="bulma-credit">
-                Bulma<img src="images/bulma-logo.svg" alt="Bulma CSS Framework" class="bulma-logo-img">
-            </a>.
-            © <span id="current-year"></span> All rights reserved.
-        </p>
-    </div>
-</footer>
+        <div class="container main-page-footer-credit">
+            <p>
+                Built by Andrew Caldwell using
+                <a href="https://bulma.io" target="_blank" rel="noopener noreferrer" class="bulma-credit">
+                    Bulma<img src="images/bulma-logo.svg" alt="Bulma CSS Framework" class="bulma-logo-img">
+                </a>.
+                &copy; <span id="current-year"></span> All rights reserved.
+            </p>
+        </div>
+    </footer>
 
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
@@ -127,5 +117,6 @@
                 });
             }
         });
-    </script></body>
+    </script>
+</body>
 </html>
