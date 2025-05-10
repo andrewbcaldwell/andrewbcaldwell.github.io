@@ -1,3 +1,331 @@
-@media screen and (min-width: 1024px) { /* Bulma's 'desktop' breakpoint */
-    /* ... desktop pill button styles for navbar items ... */
+/* custom.css */
+
+/* --- Global & Theme Variables --- */
+:root {
+    --primary-indigo: #4338CA;
+    --primary-indigo-darker: #3730A3;
+    --primary-indigo-semitransparent: rgba(67, 56, 202, 0.1);
+
+    --text-color: #363636;
+    --text-color-light: #7a7a7a;
+    --text-on-indigo: #ffffff;
+    --text-on-indigo-dim: #e0e0e0;
+    --link-on-indigo: #f0f0f0;
+    --link-on-indigo-hover: #c7d2fe;
+
+    --background-color: #ffffff;
+    --border-color: #dbdbdb;
+    --border-color-light: #ededed;
+
+    --navbar-item-border-radius: 9999px;
+    --button-border-radius: 18px;
+    --box-content-border-radius: 12px;
+
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.07);
+    --card-shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.1);
+
+    --font-family-main: 'Lexend', sans-serif;
 }
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--background-color);
+}
+
+body {
+    font-family: var(--font-family-main);
+    color: var(--text-color);
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background-color);
+}
+
+.section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+@media screen and (min-width: 769px) { /* Bulma's 'tablet' breakpoint */
+    .section {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+    }
+}
+
+h1, h2, h3, h4, h5, h6, .title, .subtitle {
+    font-family: var(--font-family-main);
+    color: var(--text-color);
+}
+.title { font-weight: 700; }
+.subtitle {
+    color: var(--text-color-light);
+    font-weight: 400;
+}
+
+a {
+    color: var(--primary-indigo);
+    transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    font-weight: 500;
+}
+a:hover {
+    color: var(--primary-indigo-darker);
+}
+
+.button {
+    border-radius: var(--button-border-radius) !important;
+    font-weight: 600;
+    font-family: var(--font-family-main);
+    transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.1s ease-out, box-shadow 0.2s ease-out;
+    border-width: 1px;
+    border-style: solid;
+}
+.button:active {
+    transform: translateY(1px);
+}
+
+.button.is-primary {
+    background-color: var(--primary-indigo);
+    border-color: var(--primary-indigo);
+    color: #fff;
+}
+.button.is-primary:hover {
+    background-color: var(--primary-indigo-darker);
+    border-color: var(--primary-indigo-darker);
+    color: #fff;
+}
+.button.is-primary:focus:not(:active) {
+    box-shadow: 0 0 0 0.125em rgba(67, 56, 202, 0.25);
+}
+
+.button.is-default-outlined {
+    background-color: transparent;
+    border-color: var(--border-color);
+    color: var(--text-color-light);
+    border-width: 1px;
+}
+.button.is-default-outlined:hover {
+    border-color: var(--primary-indigo);
+    color: var(--primary-indigo);
+    background-color: var(--background-color);
+}
+
+/* --- Navbar Specific Styling --- */
+.navbar {
+    background-color: var(--background-color);
+    border-bottom: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    padding: 0.5rem 0;
+    font-family: var(--font-family-main);
+}
+
+/* Navbar Brand Name */
+.navbar-brand .navbar-item.brand-name {
+    color: var(--primary-indigo);
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 0.5rem 1.2rem;
+    border-radius: var(--navbar-item-border-radius) !important;
+    background-color: transparent;
+    border: 2px solid transparent;
+    line-height: 1.5;
+}
+.navbar-brand .navbar-item.brand-name:hover {
+    background-color: var(--primary-indigo) !important;
+    color: #fff !important;
+    border-color: var(--primary-indigo) !important;
+}
+
+/* Navbar Menu Items (Desktop: CV, Contact) */
+/* Styles for desktop (when menu is not 'is-active' for mobile) */
+@media screen and (min-width: 1024px) { /* Bulma's 'desktop' breakpoint where burger disappears */
+    .navbar-menu .navbar-item {
+        color: var(--primary-indigo);
+        border: 2px solid var(--primary-indigo);
+        background-color: var(--background-color);
+        font-weight: 500;
+        border-radius: var(--navbar-item-border-radius) !important;
+        margin: 0 0.35rem;
+        padding: 0.6em 1.5em;
+        line-height: 1.2;
+    }
+    .navbar-menu .navbar-item:hover,
+    .navbar-menu .navbar-item.is-active {
+        background-color: var(--primary-indigo) !important;
+        color: #fff !important;
+        border-color: var(--primary-indigo) !important;
+    }
+}
+
+.navbar-burger span {
+    background-color: var(--text-color-light);
+    height: 2px;
+    border-radius: 4px;
+}
+
+/* Mobile Menu Specific Styles (when navbar-burger is clicked and navbar-menu.is-active) */
+.navbar-menu.is-active {
+    background-color: var(--background-color); /* Ensure dropdown bg is white */
+    box-shadow: 0 8px 16px rgba(10,10,10,.1); /* Bulma's default shadow for dropdown */
+    padding: 0.5rem 0;
+    text-align: right; /* Align text of items to the right */
+}
+
+.navbar-menu.is-active .navbar-item {
+    display: inline-block; /* Make items not take full width */
+    width: auto; /* Allow item to size to its content */
+    padding: 0.75rem 1rem; /* Adjust padding for text links */
+    color: var(--primary-indigo); /* Indigo text */
+    font-weight: 500;
+    background-color: transparent !important; /* Override any hover/active bg from desktop */
+    border: none !important; /* Remove borders from desktop style */
+    border-radius: 0 !important; /* Remove pill shape for mobile dropdown */
+}
+.navbar-menu.is-active .navbar-item:hover {
+    color: var(--primary-indigo-darker) !important; /* Darker indigo on hover */
+    background-color: var(--primary-indigo-semitransparent) !important; /* Subtle hover bg */
+}
+.navbar-menu.is-active .navbar-item.is-active {
+    color: var(--primary-indigo-darker) !important; /* Active item also darker */
+    font-weight: 700; /* Make active item bolder */
+    background-color: var(--primary-indigo-semitransparent) !important;
+}
+
+
+/* --- Centered Hero Section (Home Page) --- */
+/* ... (Keep this section as it was) ... */
+.main-page-hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 3rem 1rem 2rem 1rem;
+    min-height: calc(80vh - 100px);
+    font-family: var(--font-family-main);
+}
+.hero-profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.hero-description {
+    max-width: 600px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color-light);
+    margin-bottom: 2rem;
+}
+.hero-social-links .button.is-ghost { /* ... */ }
+.hero-social-links .button.is-ghost:hover { /* ... */ }
+.hero-social-links .button.is-ghost .icon { /* ... */ }
+
+
+/* --- Generic Box Styling (CV, Contact content) --- */
+.box.content-box {
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--box-content-border-radius);
+    box-shadow: var(--card-shadow);
+    padding: 0; 
+    font-family: var(--font-family-main);
+    overflow: hidden; 
+}
+.cv-section-default {
+    padding: 2rem;
+}
+@media screen and (min-width: 769px) {
+    .cv-section-default {
+        padding: 2.5rem;
+    }
+}
+.cv-section-colored {
+    background-color: var(--primary-indigo);
+    color: var(--text-on-indigo);
+    padding: 2rem;
+    border-radius: 0;
+}
+@media screen and (min-width: 769px) {
+    .cv-section-colored {
+        padding: 2.5rem;
+    }
+}
+.box.content-box > div:first-child {
+    border-top-left-radius: var(--box-content-border-radius);
+    border-top-right-radius: var(--box-content-border-radius);
+}
+.box.content-box > div:last-child {
+    border-bottom-left-radius: var(--box-content-border-radius);
+    border-bottom-right-radius: var(--box-content-border-radius);
+}
+.cv-section-colored .title,
+.cv-section-colored .subtitle,
+.cv-section-colored strong {
+    color: var(--text-on-indigo) !important;
+}
+.cv-section-colored .subtitle {
+    color: var(--text-on-indigo-dim) !important;
+}
+.cv-section-colored address, .cv-section-colored p, .cv-section-colored li {
+    color: var(--text-on-indigo);
+}
+.cv-section-colored a {
+    color: var(--link-on-indigo);
+    font-weight: 600;
+}
+.cv-section-colored a:hover {
+    color: var(--link-on-indigo-hover);
+    text-decoration: underline;
+}
+.cv-section-colored abbr {
+    border-bottom-color: var(--text-on-indigo-dim);
+    color: var(--text-on-indigo);
+}
+.section-title-indigo {
+    color: var(--primary-indigo) !important;
+}
+.content-box .title.is-4 {
+    padding-bottom: 0.5em;
+    margin-top: 1.5rem;
+    margin-bottom: 1em;
+    font-size: 1.5rem;
+}
+.content-box .cv-section-default .title.is-4 {
+    border-bottom: 1px solid var(--border-color-light);
+}
+.content-box div:first-child > .title.is-4:first-of-type,
+.content-box > .title.is-4:first-of-type {
+    margin-top: 0;
+}
+.content-box hr {
+    background-color: var(--border-color-light);
+    height: 1px;
+    margin: 1.5rem 0;
+}
+.cv-section-colored hr {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- Footer --- */
+/* ... (Keep this section as it was) ... */
+.footer {
+    background-color: var(--background-color);
+    border-top: none;
+    color: var(--text-color-light);
+    padding: 2.5rem 1.5rem;
+    margin-top: auto;
+    font-family: var(--font-family-main);
+    text-align: center;
+}
+.main-page-footer-credit p { /* ... */ }
+.footer a { /* ... */ }
+.footer a:hover { /* ... */ }
+.bulma-credit { /* ... */ }
+.bulma-credit:hover { /* ... */ }
+.bulma-credit:hover .bulma-logo-img { /* ... */ }
+.bulma-logo-img { /* ... */ }
+.footer-social-links a { /* ... */ }
+.footer-social-links a:hover { /* ... */ }
