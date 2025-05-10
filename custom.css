@@ -1,23 +1,21 @@
-/* custom.css - STABLE BASE + Footer Text/Logo Size Adjustments */
+/* custom.css */
 
 /* --- Global & Theme Variables --- */
 :root {
     --primary-indigo: #4338CA;
     --primary-indigo-darker: #3730A3;
+    --primary-indigo-semitransparent: rgba(67, 56, 202, 0.1);
 
     --text-color: #363636;
     --text-color-light: #7a7a7a;
-    --background-color: #ffffff;
-    --border-color: #dbdbdb;
-    --border-color-light: #ededed;
-
-    /* New variables for CV alternating backgrounds - to be used later */
     --text-on-indigo: #ffffff; 
     --text-on-indigo-dim: #e0e0e0; 
     --link-on-indigo: #f0f0f0; 
     --link-on-indigo-hover: #c7d2fe; 
-    --primary-indigo-semitransparent: rgba(67, 56, 202, 0.1);
 
+    --background-color: #ffffff;
+    --border-color: #dbdbdb;
+    --border-color-light: #ededed;
 
     --navbar-item-border-radius: 9999px; 
     --button-border-radius: 18px;      
@@ -48,7 +46,7 @@ body {
     padding-top: 3rem;
     padding-bottom: 3rem;
 }
-@media screen and (min-width: 769px) {
+@media screen and (min-width: 769px) { 
     .section {
         padding-top: 4rem;
         padding-bottom: 4rem;
@@ -137,7 +135,6 @@ a:hover {
     border-color: var(--primary-indigo) !important;
 }
 
-/* Desktop Navbar Menu Item Styling (Pill Buttons) */
 @media screen and (min-width: 1024px) {
     .navbar-menu .navbar-item { 
         color: var(--primary-indigo);
@@ -163,7 +160,6 @@ a:hover {
     border-radius: 4px;
 }
 
-/* Mobile Menu Specific Styles */
 .navbar-menu.is-active {
     background-color: var(--background-color); 
     box-shadow: 0 8px 16px rgba(10,10,10,.1); 
@@ -202,11 +198,36 @@ a:hover {
     min-height: calc(80vh - 100px);
     font-family: var(--font-family-main);
 }
-.hero-profile-image { /* ... */ }
-.hero-description { /* ... */ }
-.hero-social-links .button.is-ghost { /* ... */ }
-.hero-social-links .button.is-ghost:hover { /* ... */ }
-.hero-social-links .button.is-ghost .icon { /* ... */ }
+.hero-profile-image {
+    width: 128px;  /* <<<--- SIZE ADJUSTED HERE ---<<< */
+    height: 128px; /* <<<--- SIZE ADJUSTED HERE ---<<< */
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.hero-description {
+    max-width: 600px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color-light);
+    margin-bottom: 2rem;
+}
+.hero-social-links .button.is-ghost {
+    background: transparent;
+    border: none;
+    color: var(--text-color-light);
+    font-size: 1.5rem;
+    margin: 0 0.6rem;
+    padding: 0.5rem;
+}
+.hero-social-links .button.is-ghost:hover {
+    color: var(--primary-indigo);
+    transform: scale(1.1);
+}
+.hero-social-links .button.is-ghost .icon {
+    font-size: inherit;
+}
 
 
 /* --- Generic Box Styling (CV, Contact content) --- */
@@ -215,12 +236,10 @@ a:hover {
     border: 1px solid var(--border-color);
     border-radius: var(--box-content-border-radius); 
     box-shadow: var(--card-shadow);
-    padding: 0; /* Padding handled by inner sections for alternating backgrounds */
+    padding: 0; 
     font-family: var(--font-family-main);
-    overflow: hidden; /* To contain inner section backgrounds */
+    overflow: hidden; 
 }
-
-/* Styles for default (white) sections within the CV box */
 .cv-section-default {
     padding: 2rem;
 }
@@ -229,21 +248,17 @@ a:hover {
         padding: 2.5rem;
     }
 }
-
-/* Styles for colored (indigo) sections within the CV box */
 .cv-section-colored {
     background-color: var(--primary-indigo);
     color: var(--text-on-indigo);
     padding: 2rem;
-    border-radius: 0; /* No individual rounding, follows parent box */
+    border-radius: 0;
 }
 @media screen and (min-width: 769px) {
     .cv-section-colored {
         padding: 2.5rem;
     }
 }
-
-/* Ensure first/last sections within the box conform to the box's border radius */
 .box.content-box > div:first-child {
     border-top-left-radius: var(--box-content-border-radius);
     border-top-right-radius: var(--box-content-border-radius);
@@ -252,8 +267,6 @@ a:hover {
     border-bottom-left-radius: var(--box-content-border-radius);
     border-bottom-right-radius: var(--box-content-border-radius);
 }
-
-/* Styling for text elements specifically within the .cv-section-colored */
 .cv-section-colored .title,
 .cv-section-colored .subtitle,
 .cv-section-colored strong {
@@ -277,37 +290,29 @@ a:hover {
     border-bottom-color: var(--text-on-indigo-dim); 
     color: var(--text-on-indigo);
 }
-
-/* Styling for section titles on white background to be indigo */
 .section-title-indigo {
     color: var(--primary-indigo) !important; 
 }
-
-/* General title styling within .content-box */
 .content-box .title.is-4 { 
     padding-bottom: 0.5em;
     margin-top: 1.5rem;
     margin-bottom: 1em;
     font-size: 1.5rem;
 }
-/* Specific border for titles in default (white) sections */
 .content-box .cv-section-default .title.is-4 { 
     border-bottom: 1px solid var(--border-color-light);
 }
-/* Remove top margin for the first title in the first section of the box */
 .content-box div:first-child > .title.is-4:first-of-type { 
     margin-top: 0;
 }
-
 .content-box hr { 
     background-color: var(--border-color-light);
     height: 1px;
     margin: 1.5rem 0;
 }
-.cv-section-colored hr { /* Lighter hr for indigo backgrounds */
+.cv-section-colored hr { 
     background-color: rgba(255, 255, 255, 0.2); 
 }
-
 
 /* --- Footer --- */
 .footer {
@@ -319,20 +324,18 @@ a:hover {
     font-family: var(--font-family-main);
     text-align: center;
 }
-
 .footer .content p { 
     color: var(--text-color-light);
     font-size: 0.85rem; 
     line-height: 1.5;
     margin-bottom: 0.5rem; 
 }
-.main-page-footer-credit p { /* index.html footer */
+.main-page-footer-credit p {
     color: var(--text-color-light);
     font-size: 0.9rem; 
     line-height: 1.6;
     margin-bottom: 0; 
 }
-
 .footer a { 
     color: var(--primary-indigo);
     font-weight: 500;
@@ -341,11 +344,21 @@ a:hover {
     color: var(--primary-indigo-darker);
     text-decoration: underline;
 }
-.bulma-credit { /* ... */ }
-.bulma-credit:hover { /* ... */ }
-.bulma-credit:hover .bulma-logo-img { /* ... */ }
+.bulma-credit {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-color-light) !important;
+    font-weight: normal !important;
+}
+.bulma-credit:hover {
+    color: var(--primary-indigo) !important;
+    text-decoration: none !important;
+}
+.bulma-credit:hover .bulma-logo-img {
+    filter: none;
+}
 .bulma-logo-img {
-    height: 1em;  /* Smaller logo */
+    height: 1em;
     margin-left: 0.3em; 
     vertical-align: middle;
     position: relative;
@@ -353,5 +366,10 @@ a:hover {
     filter: grayscale(100%) opacity(0.7);
     transition: filter 0.2s ease-in-out;
 }
-.footer-social-links a { /* ... */ }
-.footer-social-links a:hover { /* ... */ }
+.footer-social-links a {
+    margin: 0 0.5em;
+    color: var(--text-color-light) !important;
+}
+.footer-social-links a:hover {
+    color: var(--primary-indigo) !important;
+}
