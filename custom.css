@@ -1,4 +1,4 @@
-/* custom.css - Final Version with Profile Pic Fix & All Features */
+/* custom.css - Updated with New Navigation */
 
 /* --- Global & Theme Variables --- */
 :root {
@@ -20,6 +20,7 @@
     --link-on-indigo-hover: var(--link-on-primary-hover); 
 
     --background-color: #ffffff;
+    --background-color-light: #f9f9f9;
     --border-color: #e5e7eb; 
     --border-color-light: #f3f4f6; 
 
@@ -113,7 +114,7 @@ a:hover { color: var(--primary-indigo-darker); }
     background-color: var(--background-color);
 }
 
-/* --- Navbar Styling --- */
+/* --- Navbar Styling (UPDATED) --- */
 .navbar.main-navbar { 
     background-color: var(--background-color); 
     border-bottom: 1px solid var(--border-color-light); 
@@ -129,68 +130,187 @@ a:hover { color: var(--primary-indigo-darker); }
 .navbar.main-navbar.has-shadow { 
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
+
+/* Logo styling */
 .navbar-brand .navbar-item.brand-name {
     color: var(--primary-indigo);
     font-weight: 700;
-    font-size: 1.5rem;
-    padding: 0.5rem 1.2rem; 
-    border-radius: var(--navbar-item-border-radius) !important; 
+    font-size: 1.25rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0 !important;
     background-color: transparent;
-    border: 2px solid transparent; 
-    line-height: 1.5; 
+    border: none;
+    display: flex;
+    align-items: center;
 }
+
+.navbar-brand .logo-icon {
+    background-color: var(--primary-indigo);
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.75rem;
+    font-weight: 900;
+    font-size: 20px;
+}
+
 .navbar-brand .navbar-item.brand-name:hover {
-    background-color: var(--primary-indigo) !important;
-    color: var(--text-on-primary) !important;
-    border-color: var(--primary-indigo) !important;
+    background-color: var(--primary-indigo-semitransparent) !important;
+    color: var(--primary-indigo) !important;
+    border: none !important;
 }
-/* Desktop Menu Items */
+
+/* Desktop Menu items */
 @media screen and (min-width: 1024px) {
     .navbar-menu .navbar-item { 
-        color: var(--primary-indigo);
-        border: 2px solid var(--primary-indigo); 
-        background-color: var(--background-color);
+        color: var(--text-color);
+        border: none; 
+        background-color: transparent;
         font-weight: 500;
-        border-radius: var(--navbar-item-border-radius) !important; 
-        margin: 0 0.35rem;
-        padding: 0.6em 1.5em; 
-        line-height: 1.2; 
+        border-radius: 4px !important; 
+        margin: 0 0.3rem;
+        padding: 0.5rem 0.75rem; 
     }
+    
     .navbar-menu .navbar-item:hover,
     .navbar-menu .navbar-item.is-active {
-        background-color: var(--primary-indigo) !important;
-        color: var(--text-on-primary) !important;
-        border-color: var(--primary-indigo) !important; 
+        background-color: var(--primary-indigo-semitransparent) !important;
+        color: var(--primary-indigo) !important;
+        border: none !important; 
+    }
+    
+    /* Indigo button */
+    .button.is-indigo {
+        background-color: var(--primary-indigo);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    
+    .button.is-indigo:hover {
+        background-color: var(--primary-indigo-darker);
     }
 }
-.navbar-burger span { background-color: var(--text-color); }
-/* Mobile Menu Styles */
-.navbar-menu.is-active {
-    background-color: var(--background-color); 
-    box-shadow: 0 8px 16px rgba(10,10,10,.1); 
-    padding: 0.5rem 0;
-    text-align: right; 
-    border-bottom-left-radius: var(--box-content-border-radius); 
-    border-bottom-right-radius: var(--box-content-border-radius);
+
+.navbar-burger span {
+    background-color: var(--primary-indigo);
+    height: 2px;
 }
-.navbar-menu.is-active .navbar-item {
-    display: inline-block; 
-    width: auto; 
-    padding: 0.75rem 1rem; 
-    color: var(--primary-indigo); 
-    font-weight: 500;
-    background-color: transparent !important; 
-    border: none !important; 
-    border-radius: 0 !important; 
+
+/* Mobile Menu Overlay (NEW) */
+.mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 40;
+    align-items: center;
+    justify-content: center;
 }
-.navbar-menu.is-active .navbar-item:hover {
-    color: var(--primary-indigo-darker) !important; 
-    background-color: var(--primary-indigo-semitransparent) !important; 
+
+.mobile-menu-overlay.is-active {
+    display: flex;
 }
-.navbar-menu.is-active .navbar-item.is-active {
-    color: var(--primary-indigo-darker) !important; 
-    font-weight: 700; 
-    background-color: var(--primary-indigo-semitransparent) !important;
+
+.mobile-menu-container {
+    position: relative;
+    background-color: white;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 16px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.mobile-menu-header {
+    padding: 15px;
+    text-align: right;
+}
+
+.mobile-menu-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: #666;
+}
+
+.mobile-menu-items {
+    padding: 10px 20px 20px;
+}
+
+.mobile-menu-item {
+    display: block;
+    padding: 15px 20px;
+    margin: 10px 0;
+    background-color: rgba(67, 56, 202, 0.05);
+    color: var(--primary-indigo);
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+    text-decoration: none;
+}
+
+.mobile-menu-item:hover {
+    background-color: rgba(67, 56, 202, 0.1);
+}
+
+.mobile-menu-icon {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.mobile-social-links {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.mobile-social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    border-radius: 50%;
+    background-color: rgba(67, 56, 202, 0.1);
+    color: var(--primary-indigo);
+    font-size: 18px;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.mobile-social-links a:hover {
+    background-color: var(--primary-indigo);
+    color: white;
+    transform: scale(1.1);
+}
+
+.mobile-menu-footer {
+    padding: 20px;
+    background-color: var(--background-color-light);
+}
+
+.mobile-menu-footer .button.is-primary {
+    background-color: var(--primary-indigo);
+    border-color: var(--primary-indigo);
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.mobile-menu-footer .button.is-primary:hover {
+    background-color: var(--primary-indigo-darker);
+    border-color: var(--primary-indigo-darker);
 }
 
 /* --- Section 1: White Intro Hero --- */
@@ -501,4 +621,9 @@ img.hero-profile-image-main { /* Profile image in white hero */
 }
 .footer-social-links a:hover {
     color: var(--primary-indigo) !important;
+}
+
+/* Mobile Menu Helper Styles */
+body.is-menu-open {
+    overflow: hidden;
 }
