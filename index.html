@@ -145,7 +145,7 @@
     <div class="container">
         <div class="navbar-brand">
             <a class="navbar-item brand-name" href="index.html">
-                <span class="logo-icon">A</span> Andrew B. Caldwell
+                <span class="logo-icon"><i class="fas fa-dna"></i></span> Andrew B. Caldwell
             </a>
             <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNavbarMobile">
                 <span aria-hidden="true"></span>
@@ -458,36 +458,45 @@
         });
     </script>
     <script>
-            // Mobile Menu Toggle
-            document.addEventListener('DOMContentLoaded', () => {
-            // Toggle mobile menu
-            const burger = document.querySelector('.navbar-burger');
-            const mobileMenu = document.getElementById('mainNavbarMobile');
-            const closeButton = document.querySelector('.mobile-menu-close');
+document.addEventListener('DOMContentLoaded', () => {
+    // Handle navbar burger toggling
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    if ($navbarBurgers.length > 0) {
+        $navbarBurgers.forEach(el => {
+            el.addEventListener('click', () => {
+                // Simple toggle without preventDefault() that was causing issues
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+            });
+        });
+    }
     
-            if (burger && mobileMenu && closeButton) {
-                burger.addEventListener('click', () => {
-                    burger.classList.toggle('is-active');
-                    mobileMenu.classList.toggle('is-active');
-                    document.body.classList.toggle('is-menu-open');
-                });
+    // Handle navbar shadow separately
+    const mainNavbar = document.querySelector('.main-navbar');
+    if (mainNavbar) {
+        const scrollThreshold = 10; 
+        const addShadow = () => mainNavbar.classList.add('has-shadow');
+        const removeShadow = () => mainNavbar.classList.remove('has-shadow');
         
-                closeButton.addEventListener('click', () => {
-                    burger.classList.remove('is-active');
-                    mobileMenu.classList.remove('is-active');
-                    document.body.classList.remove('is-menu-open');
-                });
+        // Check initial position
+        if (window.scrollY > scrollThreshold) { 
+            addShadow(); 
+        } else { 
+            removeShadow(); 
+        }
         
-                // Close menu if clicked outside the menu container
-                mobileMenu.addEventListener('click', (event) => {
-                    if (event.target === mobileMenu) {
-                        burger.classList.remove('is-active');
-                        mobileMenu.classList.remove('is-active');
-                        document.body.classList.remove('is-menu-open');
-                    }
-                });
+        // Add scroll listener
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > scrollThreshold) { 
+                addShadow(); 
+            } else { 
+                removeShadow(); 
             }
         });
-    </script>
+    }
+});
+</script>
 </body>
 </html>
