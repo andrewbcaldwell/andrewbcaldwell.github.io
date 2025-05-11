@@ -154,8 +154,12 @@ a:hover { color: var(--primary-indigo-darker); }
     align-items: center;
     justify-content: center;
     margin-right: 0.75rem;
-    font-weight: 900;
-    font-size: 20px;
+    font-size: 16px; /* Smaller than text to fit properly */
+}
+
+/* If the icon appears too large or small, adjust this size */
+.navbar-brand .logo-icon i {
+    font-size: 16px;
 }
 
 .navbar-brand .navbar-item.brand-name:hover {
