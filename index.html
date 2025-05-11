@@ -124,27 +124,30 @@
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#4338CA">
     <style>
-    /* Social buttons in navbar */
-    .social-buttons {
-        display: flex;
-        gap: 8px;
-    }
-    
-    .social-buttons .button {
-        border-color: #4338CA;
-        color: #4338CA;
-    }
-    
-    .social-buttons .button:hover {
-        background-color: #4338CA;
-        color: white;
-    }
-    
+    /* Mobile menu customization */
     @media screen and (max-width: 1023px) {
-        .social-buttons {
-            justify-content: center;
-            margin-top: 10px;
-            margin-bottom: 10px;
+        .navbar-menu.is-active {
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 100%;
+            width: auto;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(10,10,10,.1);
+            padding: 0.5rem;
+            text-align: right;
+        }
+        
+        .navbar-menu.is-active .navbar-end {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        
+        .navbar-menu.is-active .navbar-item {
+            display: flex;
+            justify-content: flex-end;
+            padding: 0.75rem 1rem;
         }
     }
     </style>
@@ -167,21 +170,10 @@
             <!-- Menu (Desktop and Mobile) -->
             <div class="navbar-menu" id="mainNavbarMobile">
                 <div class="navbar-end">
-                    <a class="navbar-item" href="cv.html">
-                        CV
-                    </a>
                     <div class="navbar-item">
-                        <div class="buttons is-centered social-buttons">
-                            <a href="https://www.linkedin.com/in/andrewbcaldwell/" class="button is-small is-outlined is-rounded" target="_blank" rel="noopener noreferrer">
-                                <span class="icon"><i class="fab fa-linkedin"></i></span>
-                            </a>
-                            <a href="https://scholar.google.com/citations?hl=en&user=yZdrmZoAAAAJ" class="button is-small is-outlined is-rounded" target="_blank" rel="noopener noreferrer">
-                                <span class="icon"><i class="fas fa-graduation-cap"></i></span>
-                            </a>
-                            <a href="https://github.com/andrewbcaldwell" class="button is-small is-outlined is-rounded" target="_blank" rel="noopener noreferrer">
-                                <span class="icon"><i class="fab fa-github"></i></span>
-                            </a>
-                        </div>
+                        <a href="cv.html" class="button is-indigo">
+                            <strong>CV</strong>
+                        </a>
                     </div>
                     <div class="navbar-item">
                         <a href="mailto:andrewbcaldwell@gmail.com" class="button is-indigo">
