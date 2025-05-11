@@ -12,18 +12,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="custom.css">
     <style>
-        .flat-button {
-            border-radius: 0 !important;
-            border: 2px solid #4338CA;
-            background-color: transparent;
-            color: #4338CA;
-            font-weight: 600;
-            transition: background-color 0.2s, color 0.2s;
+        /* Mobile menu customization */
+        @media screen and (max-width: 1023px) {
+            .navbar-menu.is-active {
+                display: block;
+                position: absolute;
+                right: 0;
+                top: 100%;
+                width: auto;
+                min-width: 200px;
+                box-shadow: 0 8px 16px rgba(10,10,10,.1);
+                padding: 0.5rem;
+                text-align: right;
+            }
+            
+            .navbar-menu.is-active .navbar-end {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+            }
+            
+            .navbar-menu.is-active .navbar-item {
+                display: flex;
+                justify-content: flex-end;
+                padding: 0.75rem 1rem;
+            }
         }
-        .flat-button:hover,
-        .flat-button.is-active {
-            background-color: #4338CA !important;
-            color: white !important;
+        
+        /* Center the curriculum vitae title */
+        .cv-title-section .hero-main-title {
+            text-align: center;
         }
     </style>
 </head>
@@ -31,76 +49,39 @@
 
     <!-- Navigation Bar -->
     <nav class="navbar is-fixed-top main-navbar" role="navigation" aria-label="main navigation">
-    <div class="container">
-        <div class="navbar-brand">
-            <a class="navbar-item brand-name" href="index.html">
-                <span class="logo-icon">A</span> Andrew B. Caldwell
-            </a>
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNavbarMobile">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-        
-        <!-- Desktop Menu -->
-        <div class="navbar-menu">
-            <div class="navbar-end">
-                <a class="navbar-item" href="cv.html">
-                    CV
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item brand-name" href="index.html">
+                    <span class="logo-icon"><i class="fas fa-dna"></i></span> Andrew B. Caldwell
                 </a>
-                <a class="navbar-item" href="contact.html">
-                    Contact
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNavbarMobile">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
                 </a>
-                <div class="navbar-item">
-                    <a href="mailto:andrewbcaldwell@gmail.com" class="button is-indigo">
-                        <strong>Email Me</strong>
-                    </a>
+            </div>
+            
+            <!-- Menu (Desktop and Mobile) -->
+            <div class="navbar-menu" id="mainNavbarMobile">
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <a href="cv.html" class="button is-indigo">
+                            <strong>CV</strong>
+                        </a>
+                    </div>
+                    <div class="navbar-item">
+                        <a href="mailto:andrewbcaldwell@gmail.com" class="button is-indigo">
+                            <strong>Email Me</strong>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</nav>
-
-<!-- Mobile Menu Overlay -->
-<div id="mainNavbarMobile" class="mobile-menu-overlay">
-    <div class="mobile-menu-container">
-        <div class="mobile-menu-header">
-            <button class="mobile-menu-close">✕</button>
-        </div>
-        
-        <div class="mobile-menu-items">
-            <a href="cv.html" class="mobile-menu-item">
-                <span class="mobile-menu-icon">📄</span> CV
-            </a>
-            <a href="contact.html" class="mobile-menu-item">
-                <span class="mobile-menu-icon">📧</span> Contact
-            </a>
-        </div>
-        
-        <div class="mobile-social-links">
-            <a href="https://www.linkedin.com/in/andrewbcaldwell/" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://scholar.google.com/citations?hl=en&user=yZdrmZoAAAAJ" target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-graduation-cap"></i>
-            </a>
-            <a href="https://github.com/andrewbcaldwell" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-github"></i>
-            </a>
-        </div>
-        
-        <div class="mobile-menu-footer">
-            <a href="mailto:andrewbcaldwell@gmail.com" class="button is-primary is-fullwidth">
-                Email Me
-            </a>
-        </div>
-    </div>
-</div>
+    </nav>
 
     <!-- CV Title Section -->
     <section class="section cv-title-section" style="padding-bottom: 0;">
-        <div class="container">
+        <div class="container has-text-centered">
             <h1 class="title is-1 is-spaced hero-main-title">Curriculum Vitae</h1>
             <!-- Download Button -->
             <div style="text-align: center; padding-bottom: 1rem;">
@@ -223,7 +204,7 @@
             <h1 class="title is-1 is-spaced hero-main-title">Interested in collaborating with me?</h1>
             <p class="subtitle is-4 hero-tagline">I'm always open to discussing new projects, research collaborations, or interesting opportunities.</p>
             <div class="mt-5">
-                <a href="mailto:your.email@example.com" class="button is-primary is-large is-rounded">
+                <a href="mailto:andrewbcaldwell@gmail.com" class="button is-primary is-large is-rounded">
                     <span class="icon"><i class="fas fa-envelope"></i></span>
                     <span>Let's talk</span>
                 </a>
@@ -234,6 +215,10 @@
     <!-- Footer -->
     <footer class="footer section indigo-description-hero is-primary" style="padding: 2rem 1.5rem; color: white !important;">
         <div class="container">
+            <!-- Find M -->
+            <h3 class="title is-5 has-text-centered mb-3" style="color: white !important;">Find Me Online</h3>
+            <div class="has-text-centered mb-4"> 
+            <div class="hero-social-links field is-grouped is-grouped-centered">
             <!-- Social Icons -->
             <div class="has-text-centered mb-4"> 
                 <div class="hero-social-links field is-grouped is-grouped-centered">
@@ -289,7 +274,10 @@
     </footer>
     
     <script>
+        // Current year in footer
         document.getElementById('current-year-cv').textContent = new Date().getFullYear();
+        
+        // Fixed Mobile Menu Toggle
         document.addEventListener('DOMContentLoaded', () => {
             // Handle navbar burger toggling
             const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
