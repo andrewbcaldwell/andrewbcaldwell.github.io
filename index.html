@@ -141,30 +141,73 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar is-fixed-top main-navbar has-background-white" role="navigation" aria-label="main navigation">
-        <div class="container">
-            <div class="navbar-brand">
-                <a class="navbar-item brand-name" href="index.html">
-                    Andrew B. Caldwell
+    <nav class="navbar is-fixed-top main-navbar" role="navigation" aria-label="main navigation">
+    <div class="container">
+        <div class="navbar-brand">
+            <a class="navbar-item brand-name" href="index.html">
+                <span class="logo-icon">A</span> Andrew B. Caldwell
+            </a>
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNavbarMobile">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+        
+        <!-- Desktop Menu -->
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item" href="cv.html">
+                    CV
                 </a>
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNavbar">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
+                <a class="navbar-item" href="contact.html">
+                    Contact
                 </a>
-            </div>
-            <div id="mainNavbar" class="navbar-menu">
-                <div class="navbar-end">
-                    <a class="navbar-item flat-button" href="cv.html">
-                        CV
-                    </a>
-                    <a class="navbar-item flat-button" href="contact.html">
-                        Contact
+                <div class="navbar-item">
+                    <a href="mailto:andrewbcaldwell@gmail.com" class="button is-indigo">
+                        <strong>Email Me</strong>
                     </a>
                 </div>
             </div>
         </div>
-    </nav>
+    </div>
+</nav>
+
+<!-- Mobile Menu Overlay -->
+<div id="mainNavbarMobile" class="mobile-menu-overlay">
+    <div class="mobile-menu-container">
+        <div class="mobile-menu-header">
+            <button class="mobile-menu-close">✕</button>
+        </div>
+        
+        <div class="mobile-menu-items">
+            <a href="cv.html" class="mobile-menu-item">
+                <span class="mobile-menu-icon">📄</span> CV
+            </a>
+            <a href="contact.html" class="mobile-menu-item">
+                <span class="mobile-menu-icon">📧</span> Contact
+            </a>
+        </div>
+        
+        <div class="mobile-social-links">
+            <a href="https://www.linkedin.com/in/andrewbcaldwell/" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://scholar.google.com/citations?hl=en&user=yZdrmZoAAAAJ" target="_blank" rel="noopener noreferrer">
+                <i class="fas fa-graduation-cap"></i>
+            </a>
+            <a href="https://github.com/andrewbcaldwell" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        
+        <div class="mobile-menu-footer">
+            <a href="mailto:andrewbcaldwell@gmail.com" class="button is-primary is-fullwidth">
+                Email Me
+            </a>
+        </div>
+    </div>
+</div>
 
     <!-- Section 1: White Intro Hero - "Bench-to-Code" -->
     <section class="section white-intro-hero">
