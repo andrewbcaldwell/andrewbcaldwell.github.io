@@ -61,7 +61,30 @@
     /* Slightly adjust the primary section in dark mode to not be too harsh */
     background-color: #362f8e !important;
 }
+/* Theme toggle positioning for mobile */
+.theme-toggle-mobile {
+    margin-left: auto;
+    margin-right: 0.5rem;
+}
 
+/* Make sure the toggle button is properly sized and positioned */
+#theme-toggle-mobile {
+    padding: 0.5rem;
+    height: 2rem;
+    width: 2rem;
+}
+
+/* Hide the desktop toggle on mobile and mobile toggle on desktop */
+@media screen and (max-width: 1023px) {
+    .navbar-menu .navbar-item #theme-toggle {
+        display: none;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .theme-toggle-mobile {
+        display: none !important;
+    }
+}
 /* --- Bulma .is-primary Color Override --- */
 .section.is-primary { 
     background-color: var(--primary-indigo) !important;
