@@ -1,4 +1,4 @@
-/* custom.css - Updated with New Navigation */
+/* custom.css - Original structure with mobile menu adjustments */
 
 /* --- Global & Theme Variables --- */
 :root {
@@ -59,29 +59,69 @@
     background-color: #362f8e !important;
 }
 
-/* Theme Dropdown Styles REMOVED */
-/* .theme-dropdown { ... } */
-/* .theme-dropdown-content { ... } */
-/* .theme-dropdown.is-active .theme-dropdown-content { ... } */
-/* .theme-item { ... } */
-/* .theme-item:hover { ... } */
-/* .theme-item.is-active { ... } */
-/* .theme-icon { ... } */
-/* .theme-icon.sun { ... } */
-/* .theme-icon.moon { ... } */
-/* .theme-icon.desktop { ... } */
+/* Theme related CSS was removed in the previous step */
 
-/* Theme toggle positioning for mobile REMOVED */
-/* .theme-toggle-mobile { ... } */
 
-/* Make sure the toggle button is properly sized and positioned REMOVED */
-/* #theme-toggle-mobile { ... } */
-/* #theme-toggle-mobile:hover { ... } */
+@media screen and (max-width: 1023px) {
+    /* ADDED: Styles for mobile dropdown menu appearance and item alignment */
+    .navbar-menu.is-active { /* This is #mainNavbarMobile when active */
+        left: auto !important; /* Override Bulma's default left: 0 */
+        width: 280px !important; /* Define a narrow width. Adjust as needed. */
+        /* right: 0; is default from Bulma and will make it stick to the right edge of viewport */
+        border-radius: 0 0 0 var(--card-border-radius); /* Optional: Rounded bottom-left corner */
+        box-shadow: -3px 3px 6px rgba(0,0,0,0.1); /* Optional: Prettier shadow */
+        background-color: var(--background-color); /* Ensure it has a background */
+    }
 
-/* Hide the desktop toggle on mobile and mobile toggle on desktop REMOVED */
-/* @media screen and (max-width: 1023px) { ... } */
-/* @media screen and (min-width: 1024px) { ... } */
+    /* Align CV and Email Me buttons to the right within the mobile menu */
+    #mainNavbarMobile > .navbar-end > .navbar-item {
+        display: flex;
+        justify-content: flex-end; /* Aligns the button to the right */
+        padding-right: 1rem; /* Add some padding so button isn't flush with menu edge */
+        padding-left: 1rem; /* Consistent padding for the item */
+    }
 
+    /* Ensure the buttons themselves are not forced to full width */
+    #mainNavbarMobile > .navbar-end > .navbar-item > .button.is-indigo {
+        flex-grow: 0; /* Don't grow to fill space */
+        /* width: auto; is default for buttons, should be fine */
+        margin-top: 0.25rem; /* Minor spacing between items if needed */
+        margin-bottom: 0.25rem;
+    }
+    /* END OF ADDED styles for mobile dropdown */
+}
+
+@media screen and (min-width: 1024px) {
+    /* Desktop specific styles from your original file */
+    .navbar-menu .navbar-item { 
+        color: var(--text-color);
+        border: none; 
+        background-color: transparent;
+        font-weight: 500;
+        border-radius: 4px !important; 
+        margin: 0 0.3rem;
+        padding: 0.5rem 0.75rem; 
+    }
+    
+    .navbar-menu .navbar-item:hover,
+    .navbar-menu .navbar-item.is-active { /* .is-active for current page links */
+        background-color: var(--primary-indigo-semitransparent) !important;
+        color: var(--primary-indigo) !important;
+        border: none !important; 
+    }
+    
+    .button.is-indigo {
+        background-color: var(--primary-indigo);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    
+    .button.is-indigo:hover {
+        background-color: var(--primary-indigo-darker);
+    }
+}
 
 /* --- Bulma .is-primary Color Override --- */
 .section.is-primary { 
@@ -177,7 +217,6 @@ a:hover { color: var(--primary-indigo-darker); }
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* Logo styling */
 .navbar-brand .navbar-item.brand-name {
     color: var(--primary-indigo);
     font-weight: 700;
@@ -213,44 +252,13 @@ a:hover { color: var(--primary-indigo-darker); }
     border: none !important;
 }
 
-/* Desktop Menu items */
-@media screen and (min-width: 1024px) {
-    .navbar-menu .navbar-item { 
-        color: var(--text-color);
-        border: none; 
-        background-color: transparent;
-        font-weight: 500;
-        border-radius: 4px !important; 
-        margin: 0 0.3rem;
-        padding: 0.5rem 0.75rem; 
-    }
-    
-    .navbar-menu .navbar-item:hover,
-    .navbar-menu .navbar-item.is-active {
-        background-color: var(--primary-indigo-semitransparent) !important;
-        color: var(--primary-indigo) !important;
-        border: none !important; 
-    }
-    
-    .button.is-indigo {
-        background-color: var(--primary-indigo);
-        color: white;
-        border: none;
-        border-radius: 4px;
-        font-weight: 700;
-    }
-    
-    .button.is-indigo:hover {
-        background-color: var(--primary-indigo-darker);
-    }
-}
-
 .navbar-burger span {
     background-color: var(--primary-indigo);
     height: 2px;
 }
 
 /* Mobile Menu Overlay (NEW) - Retaining this section as it was in your original CSS */
+/* This section might not be used if you are relying on the standard Bulma .navbar-menu.is-active behavior */
 .mobile-menu-overlay {
     display: none;
     position: fixed;
@@ -270,7 +278,7 @@ a:hover { color: var(--primary-indigo-darker); }
 
 .mobile-menu-container {
     position: relative;
-    background-color: white;
+    background-color: white; /* Consider var(--background-color) */
     width: 90%;
     max-width: 400px;
     border-radius: 16px;
@@ -289,7 +297,7 @@ a:hover { color: var(--primary-indigo-darker); }
     font-size: 24px;
     cursor: pointer;
     padding: 5px 10px;
-    color: #666;
+    color: #666; /* Consider var(--text-color) */
 }
 
 .mobile-menu-items {
@@ -300,7 +308,7 @@ a:hover { color: var(--primary-indigo-darker); }
     display: block;
     padding: 15px 20px;
     margin: 10px 0;
-    background-color: rgba(67, 56, 202, 0.05);
+    background-color: rgba(67, 56, 202, 0.05); /* Consider var(--primary-indigo-semitransparent) */
     color: var(--primary-indigo);
     border-radius: 8px;
     font-weight: 600;
