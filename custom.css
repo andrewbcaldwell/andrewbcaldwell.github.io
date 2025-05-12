@@ -1,4 +1,4 @@
-/* custom.css - Original structure with theme toggle CSS removed and mobile menu adjustments */
+/* custom.css - Theme Toggle CSS Removed, Mobile Menu Layout Adjusted */
 
 /* --- Global & Theme Variables --- */
 :root {
@@ -15,7 +15,7 @@
     
     /* CV Page Specific  */
     --text-on-indigo: var(--text-on-primary); 
-    --text-on-indigo-dim: #e0e0e0; 
+    --text-on-indigo-dim: #e0e0e0; /* Slightly dimmer for less emphasis */
     --link-on-indigo: var(--link-on-primary); 
     --link-on-indigo-hover: var(--link-on-primary-hover); 
 
@@ -59,42 +59,58 @@
     background-color: #362f8e !important;
 }
 
-/* ALL THEME RELATED CSS (dropdowns, items, icons, specific toggles) */
+/* ALL THEME RELATED CSS (dropdowns, items, icons, specific toggles) HAS BEEN REMOVED */
+/* For example: */
+/* .theme-dropdown { ... } REMOVED */
+/* .theme-dropdown-content { ... } REMOVED */
+/* .theme-item { ... } REMOVED */
+/* .theme-icon { ... } REMOVED */
+/* .theme-toggle-mobile { ... } REMOVED */
+/* #theme-toggle-mobile { ... } REMOVED */
+/* Any media queries solely for showing/hiding theme toggles are also removed or integrated below. */
+
 
 @media screen and (max-width: 1023px) {
-    /* Styles for mobile dropdown menu appearance and item alignment */
-    .navbar-menu.is-active { /* This is #mainNavbarMobile when active */
+    /* --- Mobile Menu Dropdown Styling --- */
+    #mainNavbarMobile.is-active { /* Targeting by ID for higher specificity */
+        /* Override Bulma's defaults for full-width fixed navbar dropdown */
+        display: block !important; 
+        position: absolute !important; 
+        top: 100% !important; 
         left: auto !important; 
-        right: 0 !important; /* Explicitly anchor to the right */
-        width: 220px !important; /* Narrow Width */
-        border-radius: 6px; 
-        box-shadow: 0 8px 16px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02); 
-        background-color: var(--background-color); 
-        margin-top: 0.25rem; /* Small gap from navbar */
-        /* Ensure it doesn't inherit strange positioning from other rules */
-        position: absolute; /* Explicitly set, Bulma default for fixed navbars */
-        top: 100%; /* Position below the navbar */
+        right: 0 !important; 
+        width: 230px !important; /* Define a narrow width - adjust as needed */
+        max-width: 70vw !important; 
+        
+        background-color: var(--background-color) !important; 
+        border: 1px solid var(--border-color-light, #dbdbdb) !important; 
+        border-top: none !important; 
+        border-radius: 0 0 6px 6px !important; 
+        box-shadow: 0 8px 8px rgba(10, 10, 10, 0.1) !important; 
+        
+        padding: 0.5rem 0 !important; 
+        margin-top: 0 !important; 
     }
 
-    /* Add some padding inside the narrow menu's .navbar-end */
-    #mainNavbarMobile > .navbar-end {
-        padding: 0.5rem 0; 
+    /* Ensure navbar-end takes up the full width of the now narrow menu */
+    #mainNavbarMobile.is-active > .navbar-end {
+        display: block; 
+        padding: 0; 
     }
 
     /* Align CV and Email Me buttons to the right within the mobile menu */
-    #mainNavbarMobile > .navbar-end > .navbar-item {
-        display: flex;
-        justify-content: flex-end; 
-        padding: 0.25rem 1rem; /* Padding for each item line */
+    #mainNavbarMobile.is-active > .navbar-end > .navbar-item {
+        display: flex !important;
+        justify-content: flex-end !important; 
+        padding: 0.5rem 1rem !important; 
     }
 
-    #mainNavbarMobile > .navbar-end > .navbar-item > .button.is-indigo {
-        flex-grow: 0; 
-        /* width: auto; /* Buttons should be their natural width */
-        /* margin-top: 0.25rem; /* Removed individual margins, handled by .navbar-item padding */
-        /* margin-bottom: 0.25rem; */
+    #mainNavbarMobile.is-active > .navbar-end > .navbar-item > .button.is-indigo {
+        flex-grow: 0 !important; 
+        width: auto !important; 
+        min-width: 100px; 
     }
-    /* END OF styles for mobile dropdown */
+    /* --- END OF Mobile Menu Dropdown Styling --- */
 }
 
 @media screen and (min-width: 1024px) {
@@ -264,7 +280,6 @@ a:hover { color: var(--primary-indigo-darker); }
 }
 
 /* Mobile Menu Overlay */
-/* This section might not be used if you are relying on the standard Bulma .navbar-menu.is-active behavior */
 .mobile-menu-overlay {
     display: none;
     position: fixed;
@@ -279,18 +294,20 @@ a:hover { color: var(--primary-indigo-darker); }
 }
 .mobile-menu-overlay.is-active { display: flex; }
 .mobile-menu-container {
-    position: relative; background-color: white; width: 90%; max-width: 400px;
+    position: relative; background-color: white; /* Consider var(--background-color) */
+    width: 90%; max-width: 400px;
     border-radius: 16px; box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2); overflow: hidden;
 }
 .mobile-menu-header { padding: 15px; text-align: right; }
 .mobile-menu-close {
     background: none; border: none; font-size: 24px; cursor: pointer;
-    padding: 5px 10px; color: #666;
+    padding: 5px 10px; color: #666; /* Consider var(--text-color) */
 }
 .mobile-menu-items { padding: 10px 20px 20px; }
 .mobile-menu-item {
     display: block; padding: 15px 20px; margin: 10px 0;
-    background-color: rgba(67, 56, 202, 0.05); color: var(--primary-indigo);
+    background-color: rgba(67, 56, 202, 0.05); /* Consider var(--primary-indigo-semitransparent) */
+    color: var(--primary-indigo);
     border-radius: 8px; font-weight: 600; transition: background-color 0.2s; text-decoration: none;
 }
 .mobile-menu-item:hover { background-color: rgba(67, 56, 202, 0.1); }
