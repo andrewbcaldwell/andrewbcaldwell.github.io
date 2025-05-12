@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andrew B. Caldwell PhD | Research Scientist | Systems Biologist | Bioinformatics | UC San Diego</title>
@@ -337,10 +336,12 @@
     </footer>
 
     <script>
+        // Current year in footer
         if(document.getElementById('current-year')) {
             document.getElementById('current-year').textContent = new Date().getFullYear();
         }
         
+        // Fixed Mobile Menu Toggle and Navbar Shadow
         document.addEventListener('DOMContentLoaded', () => {
             const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
             if ($navbarBurgers.length > 0) {
@@ -364,6 +365,7 @@
                     if (window.scrollY > scrollThreshold) { addShadow(); } else { removeShadow(); }
                 });
             }
+            // All theme toggle JavaScript has been removed.
         });
     </script>
 </body>
