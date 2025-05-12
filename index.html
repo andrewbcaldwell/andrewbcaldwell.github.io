@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="light-theme">
-<head>
+<html lang="en"> <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andrew B. Caldwell PhD | Research Scientist | Systems Biologist | Bioinformatics | UC San Diego</title>
@@ -119,27 +118,6 @@
                 <a class="navbar-item brand-name" href="index.html">
                     <span class="logo-icon"><i class="fas fa-dna"></i></span> Andrew B. Caldwell
                 </a>
-
-                <div class="navbar-item has-dropdown mobile-theme-toggler" id="mobile-theme-dropdown-container">
-                    <a class="navbar-link is-arrowless mobile-theme-trigger" id="mobile-theme-trigger" aria-label="theme options" aria-haspopup="true" aria-expanded="false">
-                        <span class="icon">
-                            <i class="fas fa-cog"></i> </span>
-                    </a>
-                    <div class="navbar-dropdown" id="mobile-theme-options-dropdown"> <div class="theme-item" data-theme="light">
-                            <span class="theme-icon sun"><i class="fas fa-sun"></i></span>
-                            <span>Light</span>
-                        </div>
-                        <div class="theme-item" data-theme="dark">
-                            <span class="theme-icon moon"><i class="fas fa-moon"></i></span>
-                            <span>Dark</span>
-                        </div>
-                        <div class="theme-item" data-theme="system">
-                            <span class="theme-icon desktop"><i class="fas fa-desktop"></i></span>
-                            <span>System</span>
-                        </div>
-                    </div>
-                </div>
-
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNavbarMobile">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
@@ -149,25 +127,6 @@
             
             <div class="navbar-menu" id="mainNavbarMobile">
                 <div class="navbar-end">
-                    <div class="navbar-item theme-dropdown-navbar-item"> <div class="theme-dropdown" id="desktop-theme-dropdown-container"> <button id="desktop-theme-trigger" class="button is-small" aria-label="Theme options" aria-haspopup="true" aria-expanded="false">
-                                <span class="icon">
-                                    <i class="fas fa-cog" id="desktop-theme-display-icon"></i> </span>
-                            </button>
-                            <div class="theme-dropdown-content" id="desktop-theme-options-dropdown"> <div class="theme-item" data-theme="light">
-                                    <span class="theme-icon sun"><i class="fas fa-sun"></i></span>
-                                    <span>Light</span>
-                                </div>
-                                <div class="theme-item" data-theme="dark">
-                                    <span class="theme-icon moon"><i class="fas fa-moon"></i></span>
-                                    <span>Dark</span>
-                                </div>
-                                <div class="theme-item" data-theme="system">
-                                    <span class="theme-icon desktop"><i class="fas fa-desktop"></i></span>
-                                    <span>System</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="navbar-item">
                         <a href="cv.html" class="button is-indigo">
                             <strong>CV</strong>
@@ -379,171 +338,44 @@
     </footer>
 
     <script>
+        // Current year in footer
         if(document.getElementById('current-year')) {
             document.getElementById('current-year').textContent = new Date().getFullYear();
         }
         
+        // Fixed Mobile Menu Toggle
         document.addEventListener('DOMContentLoaded', () => {
-            // Navbar burger toggle
+            // Handle navbar burger toggling
             const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
             if ($navbarBurgers.length > 0) {
                 $navbarBurgers.forEach(el => {
                     el.addEventListener('click', () => {
-                        const targetId = el.dataset.target;
-                        const $target = document.getElementById(targetId);
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
                         el.classList.toggle('is-active');
                         $target.classList.toggle('is-active');
                     });
                 });
             }
             
-            // Navbar shadow on scroll
+            // Handle navbar shadow separately
             const mainNavbar = document.querySelector('.main-navbar');
             if (mainNavbar) {
                 const scrollThreshold = 10; 
                 const addShadow = () => mainNavbar.classList.add('has-shadow');
                 const removeShadow = () => mainNavbar.classList.remove('has-shadow');
-                if (window.scrollY > scrollThreshold) { addShadow(); } else { removeShadow(); }
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY > scrollThreshold) { addShadow(); } else { removeShadow(); }
-                });
-            }
-
-            // --- Theme Toggle Logic ---
-            const allThemeItems = document.querySelectorAll('.theme-item');
-
-            // Desktop theme dropdown elements
-            const desktopThemeDropdownContainer = document.getElementById('desktop-theme-dropdown-container'); // This is the .theme-dropdown div
-            const desktopThemeTrigger = document.getElementById('desktop-theme-trigger'); // Button
-            const desktopThemeDisplayIcon = document.getElementById('desktop-theme-display-icon'); // Icon in button
-
-            // Mobile theme dropdown elements
-            const mobileThemeDropdownContainer = document.getElementById('mobile-theme-dropdown-container'); // This is the .navbar-item.has-dropdown
-            const mobileThemeTrigger = document.getElementById('mobile-theme-trigger'); // This is the <a> link trigger
-            // Mobile trigger icon is static (fa-cog), does not change with theme.
-
-            function updateTheme(theme) {
-                document.documentElement.classList.remove('light-theme', 'dark-theme');
-                let newDesktopDisplayIconClass = 'fa-cog'; // Default for desktop trigger's display icon
-
-                if (theme === 'system') {
-                    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                        document.documentElement.classList.add('dark-theme');
-                    } else {
-                        document.documentElement.classList.add('light-theme');
-                    }
-                    newDesktopDisplayIconClass = 'fa-desktop';
-                } else if (theme === 'dark') {
-                    document.documentElement.classList.add('dark-theme');
-                    newDesktopDisplayIconClass = 'fa-moon';
-                } else { // 'light' or any other case
-                    document.documentElement.classList.add('light-theme');
-                    newDesktopDisplayIconClass = 'fa-sun';
+                
+                if (window.scrollY > scrollThreshold) { 
+                    addShadow(); 
+                } else { 
+                    removeShadow(); 
                 }
                 
-                // Update desktop trigger icon
-                if(desktopThemeDisplayIcon) {
-                    desktopThemeDisplayIcon.className = 'fas ' + newDesktopDisplayIconClass;
-                }
-                // Mobile trigger icon remains 'fa-cog'
-
-                // Highlight active theme item in all dropdowns
-                allThemeItems.forEach(item => {
-                    item.classList.toggle('is-active', item.dataset.theme === theme);
-                });
-                localStorage.setItem('themePreference', theme);
-            }
-
-            // Attach click listeners to all theme items (shared by mobile and desktop)
-            allThemeItems.forEach(item => {
-                item.addEventListener('click', (event) => {
-                    event.stopPropagation(); 
-                    const newTheme = item.dataset.theme;
-                    updateTheme(newTheme);
-                    
-                    // Close the specific dropdown this item belongs to
-                    // For mobile: .navbar-item.has-dropdown.mobile-theme-toggler
-                    // For desktop: .theme-dropdown (inside .theme-dropdown-navbar-item)
-                    const parentDropdownMobile = item.closest('.mobile-theme-toggler.is-active');
-                    const parentDropdownDesktop = item.closest('.theme-dropdown.is-active');
-
-                    if (parentDropdownMobile) {
-                        parentDropdownMobile.classList.remove('is-active');
-                        const trigger = parentDropdownMobile.querySelector('.mobile-theme-trigger');
-                        if(trigger) trigger.setAttribute('aria-expanded', 'false');
-                    }
-                    if (parentDropdownDesktop) {
-                        parentDropdownDesktop.classList.remove('is-active');
-                         const trigger = parentDropdownDesktop.querySelector('#desktop-theme-trigger');
-                        if(trigger) trigger.setAttribute('aria-expanded', 'false');
-                    }
-                });
-            });
-
-            // Desktop Dropdown Toggle
-            if (desktopThemeTrigger && desktopThemeDropdownContainer) {
-                desktopThemeTrigger.addEventListener('click', (event) => {
-                    event.stopPropagation();
-                    // Ensure we are on desktop by checking if the parent navbar-item is visible
-                    const parentNavbarItem = desktopThemeDropdownContainer.closest('.theme-dropdown-navbar-item');
-                    if (parentNavbarItem && getComputedStyle(parentNavbarItem).display !== 'none') {
-                        const isActive = desktopThemeDropdownContainer.classList.toggle('is-active');
-                        desktopThemeTrigger.setAttribute('aria-expanded', isActive.toString());
-                         // Close mobile dropdown if open
-                        if (mobileThemeDropdownContainer && mobileThemeDropdownContainer.classList.contains('is-active')) {
-                            mobileThemeDropdownContainer.classList.remove('is-active');
-                            if(mobileThemeTrigger) mobileThemeTrigger.setAttribute('aria-expanded', 'false');
-                        }
-                    }
-                });
-            }
-
-            // Mobile Dropdown Toggle
-            if (mobileThemeTrigger && mobileThemeDropdownContainer) {
-                mobileThemeTrigger.addEventListener('click', (event) => {
-                    event.stopPropagation();
-                    // Ensure we are on mobile by checking if the container itself is visible
-                    // (CSS handles its visibility per breakpoint)
-                    if (getComputedStyle(mobileThemeDropdownContainer).display !== 'none') {
-                         const isActive = mobileThemeDropdownContainer.classList.toggle('is-active');
-                         mobileThemeTrigger.setAttribute('aria-expanded', isActive.toString());
-                         // Close desktop dropdown if open
-                        if (desktopThemeDropdownContainer && desktopThemeDropdownContainer.classList.contains('is-active')) {
-                            desktopThemeDropdownContainer.classList.remove('is-active');
-                            if(desktopThemeTrigger) desktopThemeTrigger.setAttribute('aria-expanded', 'false');
-                        }
-                    }
-                });
-            }
-
-            // Global click listener to close open dropdowns
-            document.addEventListener('click', (event) => {
-                // Close desktop dropdown
-                if (desktopThemeDropdownContainer && desktopThemeDropdownContainer.classList.contains('is-active') &&
-                    desktopThemeTrigger && !desktopThemeTrigger.contains(event.target) &&
-                    !desktopThemeDropdownContainer.querySelector('.theme-dropdown-content').contains(event.target)) {
-                    desktopThemeDropdownContainer.classList.remove('is-active');
-                    desktopThemeTrigger.setAttribute('aria-expanded', 'false');
-                }
-
-                // Close mobile dropdown
-                if (mobileThemeDropdownContainer && mobileThemeDropdownContainer.classList.contains('is-active') &&
-                    mobileThemeTrigger && !mobileThemeTrigger.contains(event.target) &&
-                    !mobileThemeDropdownContainer.querySelector('.navbar-dropdown').contains(event.target) ) {
-                    mobileThemeDropdownContainer.classList.remove('is-active');
-                    mobileThemeTrigger.setAttribute('aria-expanded', 'false');
-                }
-            });
-            
-            // Initial theme load - default to 'system' as per Bulma.io docs recommendation
-            const savedTheme = localStorage.getItem('themePreference') || 'system'; 
-            updateTheme(savedTheme);
-            
-            // System theme change listener
-            if (window.matchMedia) {
-                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-                    if (localStorage.getItem('themePreference') === 'system') {
-                        updateTheme('system');
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > scrollThreshold) { 
+                        addShadow(); 
+                    } else { 
+                        removeShadow(); 
                     }
                 });
             }
