@@ -175,6 +175,14 @@
                 <a class="navbar-item brand-name" href="index.html">
                     <span class="logo-icon"><i class="fas fa-dna"></i></span> Andrew B. Caldwell
                 </a>
+                <!-- Theme toggle for Mobile -->
+                <div class="navbar-item is-hidden-desktop theme-toggle-mobile">
+                    <button id="theme-toggle-mobile" class="button is-small" aria-label="Toggle dark mode">
+                        <span class="icon">
+                            <i class="fas fa-moon" id="theme-icon-mobile"></i>
+                        </span>
+                    </button>
+                </div>
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNavbarMobile">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
@@ -464,41 +472,93 @@
             }
         });
     </script>
-    <script>
-        // Current year in footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+     <script>
+        // Current year in footer 
+        if(document.getElementById('current-year-cv')) {
+            document.getElementById('current-year-cv').textContent = new Date().getFullYear();
+        } else if(document.getElementById('current-year')) {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        }
     
-        // Fixed Mobile Menu Toggle
+    // Fixed Mobile Menu Toggle
         document.addEventListener('DOMContentLoaded', () => {
-            // Your existing navbar code here...
+        // Handle navbar burger toggling 
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+            if ($navbarBurgers.length > 0) {
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+                    // Simple toggle without preventDefault() that was causing issues
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+                    });
+                });
+            }
         
-            // Add this theme toggle code
+            // Handle navbar shadow separately
+            const mainNavbar = document.querySelector('.main-navbar');
+            if (mainNavbar) {
+                const scrollThreshold = 10; 
+                const addShadow = () => mainNavbar.classList.add('has-shadow');
+                const removeShadow = () => mainNavbar.classList.remove('has-shadow');
+            
+                // Check initial position
+                if (window.scrollY > scrollThreshold) { 
+                    addShadow(); 
+                } else { 
+                    removeShadow(); 
+                }
+            
+                // Add scroll listener
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > scrollThreshold) { 
+                        addShadow(); 
+                    } else { 
+                        removeShadow(); 
+                    }
+                });
+            }
+        
+            // Theme toggle functionality
             const themeToggle = document.getElementById('theme-toggle');
+            const themeToggleMobile = document.getElementById('theme-toggle-mobile');
             const themeIcon = document.getElementById('theme-icon');
+            const themeIconMobile = document.getElementById('theme-icon-mobile');
         
             // Check if dark mode was previously enabled
             if (localStorage.getItem('darkMode') === 'enabled') {
                 document.documentElement.classList.add('dark-theme');
                 themeIcon.classList.remove('fa-moon');
                 themeIcon.classList.add('fa-sun');
+                themeIconMobile.classList.remove('fa-moon');
+                themeIconMobile.classList.add('fa-sun');
             }
         
-            // Toggle dark mode
-            themeToggle.addEventListener('click', () => {
+            // Toggle function to avoid duplicate code
+            const toggleTheme = () => {
                 if (document.documentElement.classList.contains('dark-theme')) {
-                // Switch to light mode
+                    // Switch to light mode
                     document.documentElement.classList.remove('dark-theme');
                     localStorage.setItem('darkMode', 'disabled');
                     themeIcon.classList.remove('fa-sun');
                     themeIcon.classList.add('fa-moon');
+                    themeIconMobile.classList.remove('fa-sun');
+                    themeIconMobile.classList.add('fa-moon');
                 } else {
-                // Switch to dark mode
+                    // Switch to dark mode
                     document.documentElement.classList.add('dark-theme');
                     localStorage.setItem('darkMode', 'enabled');
                     themeIcon.classList.remove('fa-moon');
                     themeIcon.classList.add('fa-sun');
+                    themeIconMobile.classList.remove('fa-moon');
+                    themeIconMobile.classList.add('fa-sun');
                 }
-            });
+            };
+        
+            // Add click listeners to both buttons
+            themeToggle.addEventListener('click', toggleTheme);
+            themeToggleMobile.addEventListener('click', toggleTheme);
         });
     </script>
 </body>
