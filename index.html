@@ -429,7 +429,7 @@
 
     <script>
         // Current year in footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+        document.getElementById('current-year-cv').textContent = new Date().getFullYear();
         
         // Fixed Mobile Menu Toggle
         document.addEventListener('DOMContentLoaded', () => {
@@ -470,6 +470,43 @@
                     }
                 });
             }
+        });
+    </script>
+    <script>
+        // Current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+        // Fixed Mobile Menu Toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            // Your existing navbar code here...
+        
+            // Add this theme toggle code
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+        
+            // Check if dark mode was previously enabled
+            if (localStorage.getItem('darkMode') === 'enabled') {
+                document.documentElement.classList.add('dark-theme');
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            }
+        
+            // Toggle dark mode
+            themeToggle.addEventListener('click', () => {
+                if (document.documentElement.classList.contains('dark-theme')) {
+                // Switch to light mode
+                    document.documentElement.classList.remove('dark-theme');
+                    localStorage.setItem('darkMode', 'disabled');
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                } else {
+                // Switch to dark mode
+                    document.documentElement.classList.add('dark-theme');
+                    localStorage.setItem('darkMode', 'enabled');
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                }
+            });
         });
     </script>
 </body>
