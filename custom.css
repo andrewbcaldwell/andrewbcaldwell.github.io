@@ -35,7 +35,7 @@
     --font-family-main: 'Lexend', sans-serif;
 }
 
-/* Dark theme class */
+/* Dark theme class (variables retained in case of manual use, but no toggle) */
 .dark-theme {
     --background-color: #121212;
     --background-color-light: #1e1e1e;
@@ -43,9 +43,6 @@
     --text-color-light: #9e9e9e;
     --border-color: #333333;
     --border-color-light: #444444;
-    
-    /* Keep the primary indigo color the same */
-    /* Perhaps lighten the semitransparent version for better visibility */
     --primary-indigo-semitransparent: rgba(67, 56, 202, 0.2);
 }
 
@@ -55,190 +52,36 @@
 }
 
 .dark-theme .bulma-logo-img {
-    filter: brightness(0) invert(1) !important; /* Make Bulma logo visible in dark mode */
+    filter: brightness(0) invert(1) !important;
 }
 
 .dark-theme .section.is-primary {
-    /* Slightly adjust the primary section in dark mode to not be too harsh */
     background-color: #362f8e !important;
 }
 
-/* Theme Dropdown Styles (Primarily for Desktop, but .theme-item is shared) */
-.theme-dropdown { /* This is the #desktop-theme-dropdown-container */
-    position: relative;
-    display: inline-block; /* The button inside makes it an inline block */
-}
+/* Theme Dropdown Styles REMOVED */
+/* .theme-dropdown { ... } */
+/* .theme-dropdown-content { ... } */
+/* .theme-dropdown.is-active .theme-dropdown-content { ... } */
+/* .theme-item { ... } */
+/* .theme-item:hover { ... } */
+/* .theme-item.is-active { ... } */
+/* .theme-icon { ... } */
+/* .theme-icon.sun { ... } */
+/* .theme-icon.moon { ... } */
+/* .theme-icon.desktop { ... } */
 
-.theme-dropdown-content { /* This is #desktop-theme-options-dropdown */
-    display: none;
-    position: absolute;
-    right: 0;
-    min-width: 180px;
-    background-color: var(--background-color);
-    border-radius: 6px;
-    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.02);
-    z-index: 40;
-    padding: 0.5rem 0;
-    border: 1px solid var(--border-color-light);
-}
+/* Theme toggle positioning for mobile REMOVED */
+/* .theme-toggle-mobile { ... } */
 
-.theme-dropdown.is-active .theme-dropdown-content {
-    display: block;
-}
+/* Make sure the toggle button is properly sized and positioned REMOVED */
+/* #theme-toggle-mobile { ... } */
+/* #theme-toggle-mobile:hover { ... } */
 
-/* Shared .theme-item styles for both mobile and desktop dropdowns */
-.theme-item {
-    display: flex;
-    align-items: center;
-    padding: 0.75rem 1rem;
-    color: var(--text-color);
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
+/* Hide the desktop toggle on mobile and mobile toggle on desktop REMOVED */
+/* @media screen and (max-width: 1023px) { ... } */
+/* @media screen and (min-width: 1024px) { ... } */
 
-.theme-item:hover {
-    background-color: var(--background-color-light);
-}
-
-.theme-item.is-active {
-    background-color: var(--primary-indigo-semitransparent);
-    font-weight: 600;
-}
-
-.theme-icon {
-    margin-right: 0.75rem;
-    width: 1.5rem;
-    text-align: center;
-}
-
-.theme-icon.sun { color: #F6C32C; }
-.theme-icon.moon { color: #A78BFA; }
-.theme-icon.desktop { color: #4ADE80; }
-
-/* REMOVED Old mobile toggle styles (.theme-toggle-mobile, #theme-toggle-mobile) */
-
-/* --- NEW Mobile Theme Dropdown (in navbar-brand) --- */
-.mobile-theme-toggler { /* This is the .navbar-item.has-dropdown in navbar-brand, with ID #mobile-theme-dropdown-container */
-    padding: 0; 
-    margin-left: auto; 
-    /* margin-right: 0.25rem; */ /* Optional spacing */
-}
-
-.mobile-theme-trigger { /* This is the <a> link trigger, with ID #mobile-theme-trigger */
-    padding: 0.5rem 0.75rem; 
-    display: flex;
-    align-items: center;
-    height: 100%; 
-    color: var(--primary-indigo); 
-    cursor: pointer;
-}
-.mobile-theme-trigger:hover,
-.mobile-theme-toggler.is-active .mobile-theme-trigger {
-    background-color: var(--primary-indigo-semitransparent);
-    border-radius: var(--button-border-radius);
-}
-
-.mobile-theme-toggler .navbar-dropdown { /* This is #mobile-theme-options-dropdown */
-    top: calc(100% + 2px); 
-    right: 0; 
-    left: auto; 
-    min-width: 160px; 
-    max-width: 180px;
-    border-radius: 6px;
-    box-shadow: 0 8px 16px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
-    background-color: var(--background-color);
-    border: 1px solid var(--border-color-light);
-    padding: 0.5rem 0; 
-    z-index: 35; 
-    /* display: none; is default for .navbar-dropdown, parent .is-active shows it */
-}
-
-
-/* Hide/Show toggles based on screen size */
-@media screen and (max-width: 1023px) { /* Mobile Styles */
-    /* Show NEW mobile theme dropdown in navbar-brand */
-    .mobile-theme-toggler { /* ID: #mobile-theme-dropdown-container */
-        display: flex !important; 
-    }
-
-    /* Hide Desktop theme dropdown (which is inside .navbar-menu) */
-    .theme-dropdown-navbar-item { /* Wrapper for #desktop-theme-dropdown-container */
-        display: none !important;
-    }
-
-    /* Styles for CV and Email Me buttons in mobile main dropdown */
-    #mainNavbarMobile .navbar-end > .navbar-item {
-        padding: 0.35rem 1rem;
-        display: flex;
-        justify-content: flex-end;
-    }
-    #mainNavbarMobile .navbar-end > .navbar-item > .button.is-indigo {
-        flex-grow: 0;
-        flex-shrink: 1;
-        width: auto;
-        min-width: 100px;
-        max-width: 160px;
-        text-align: center;
-    }
-    .navbar-menu.is-active { /* Background for the main mobile dropdown */
-        background-color: var(--background-color);
-        box-shadow: 0 8px 16px rgba(10,10,10,.1);
-        padding: 0.5rem 0;
-    }
-}
-
-@media screen and (min-width: 1024px) { /* Desktop Styles */
-    /* Hide NEW mobile theme dropdown from navbar-brand */
-    .mobile-theme-toggler { /* ID: #mobile-theme-dropdown-container */
-        display: none !important;
-    }
-
-    /* Show Desktop theme dropdown (which is inside .navbar-menu) */
-    .theme-dropdown-navbar-item { /* Wrapper for #desktop-theme-dropdown-container */
-        display: flex !important; 
-        align-items: center; 
-    }
-    
-    /* --- Your existing desktop styles for navbar-menu items --- */
-    .navbar-menu .navbar-item { 
-        color: var(--text-color);
-        border: none; 
-        background-color: transparent;
-        font-weight: 500;
-        border-radius: 4px !important; 
-        margin: 0 0.3rem;
-        padding: 0.5rem 0.75rem; 
-        display: flex; 
-        align-items: center;
-    }
-    .navbar-menu .navbar-item:hover,
-    .navbar-menu .navbar-item.is-active { /* This .is-active might be for active page links, not theme button */
-        background-color: var(--primary-indigo-semitransparent) !important;
-        color: var(--primary-indigo) !important;
-        border: none !important; 
-    }
-    #desktop-theme-trigger { /* Style the desktop trigger button specifically if needed */
-        /* display: inline-flex; */ /* Bulma button default */
-        /* align-items: center; */
-        /* justify-content: center; */
-        /* padding: calc(0.5em - 1px) 1em; */ /* Bulma button default */
-    }
-    #desktop-theme-trigger .icon { /* Icon color for desktop trigger */
-         color: var(--primary-indigo);
-    }
-
-    .button.is-indigo {
-        background-color: var(--primary-indigo);
-        color: white;
-        border: none;
-        border-radius: 4px;
-        font-weight: 700;
-    }
-    .button.is-indigo:hover {
-        background-color: var(--primary-indigo-darker);
-    }
-    /* --- End of your existing desktop styles --- */
-}
 
 /* --- Bulma .is-primary Color Override --- */
 .section.is-primary { 
@@ -248,14 +91,13 @@
 .section.is-primary .title, 
 .section.is-primary .subtitle, 
 .section.is-primary p,
-.section.is-primary .content, /* Ensure content within .is-primary sections is light */
-.section.is-primary .content p { /* And paragraphs within that content */
+.section.is-primary .content, 
+.section.is-primary .content p { 
     color: var(--text-on-primary) !important;
 }
 .section.is-primary .subtitle { 
     color: var(--link-on-primary) !important; 
 }
-/* Button specific .is-primary */
 .button.is-primary { 
     background-color: var(--primary-indigo) !important;
     border-color: var(--primary-indigo) !important;
@@ -278,7 +120,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: var(--background-color);
-    padding-top: 3.25rem; /* For fixed navbar - Adjust if navbar height changes significantly */
+    padding-top: 5rem; /* Original value from your CSS file */
 }
 
 .section { padding: 3rem 1.5rem; } 
@@ -324,22 +166,18 @@ a:hover { color: var(--primary-indigo-darker); }
     border-bottom: 1px solid var(--border-color-light); 
     font-family: var(--font-family-main);
     transition: box-shadow 0.3s ease-in-out; 
-    /* padding: 0.2rem 0; REMOVED - let min-height control */
+    padding: 0.2rem 0; /* Original value from your CSS file */
     position: fixed; 
     width: 100%;
     top: 0;
     left: 0;
     z-index: 30;
-    min-height: 3.25rem; /* Bulma default */
 }
 .navbar.main-navbar.has-shadow { 
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
 /* Logo styling */
-.navbar-brand {
-    align-items: stretch; /* Ensures items like .navbar-item can fill height for proper alignment */
-}
 .navbar-brand .navbar-item.brand-name {
     color: var(--primary-indigo);
     font-weight: 700;
@@ -362,7 +200,7 @@ a:hover { color: var(--primary-indigo-darker); }
     align-items: center;
     justify-content: center;
     margin-right: 0.75rem;
-    font-size: 16px; /* Smaller than text to fit properly */
+    font-size: 16px; 
 }
 
 .navbar-brand .logo-icon i {
@@ -375,15 +213,153 @@ a:hover { color: var(--primary-indigo-darker); }
     border: none !important;
 }
 
-.navbar-burger { /* Ensure burger is styled for visibility */
-    color: var(--primary-indigo); 
+/* Desktop Menu items */
+@media screen and (min-width: 1024px) {
+    .navbar-menu .navbar-item { 
+        color: var(--text-color);
+        border: none; 
+        background-color: transparent;
+        font-weight: 500;
+        border-radius: 4px !important; 
+        margin: 0 0.3rem;
+        padding: 0.5rem 0.75rem; 
+    }
+    
+    .navbar-menu .navbar-item:hover,
+    .navbar-menu .navbar-item.is-active {
+        background-color: var(--primary-indigo-semitransparent) !important;
+        color: var(--primary-indigo) !important;
+        border: none !important; 
+    }
+    
+    .button.is-indigo {
+        background-color: var(--primary-indigo);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-weight: 700;
+    }
+    
+    .button.is-indigo:hover {
+        background-color: var(--primary-indigo-darker);
+    }
 }
-/* .navbar-burger span default color is based on parent text color or explicit set by bulma */
 
+.navbar-burger span {
+    background-color: var(--primary-indigo);
+    height: 2px;
+}
 
-/* Mobile Menu Overlay (NEW) section from original CSS is now REMOVED */
-/* Standard Bulma mobile menu is .navbar-menu.is-active */
+/* Mobile Menu Overlay (NEW) - Retaining this section as it was in your original CSS */
+.mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 40;
+    align-items: center;
+    justify-content: center;
+}
 
+.mobile-menu-overlay.is-active {
+    display: flex;
+}
+
+.mobile-menu-container {
+    position: relative;
+    background-color: white;
+    width: 90%;
+    max-width: 400px;
+    border-radius: 16px;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.mobile-menu-header {
+    padding: 15px;
+    text-align: right;
+}
+
+.mobile-menu-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: #666;
+}
+
+.mobile-menu-items {
+    padding: 10px 20px 20px;
+}
+
+.mobile-menu-item {
+    display: block;
+    padding: 15px 20px;
+    margin: 10px 0;
+    background-color: rgba(67, 56, 202, 0.05);
+    color: var(--primary-indigo);
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+    text-decoration: none;
+}
+
+.mobile-menu-item:hover {
+    background-color: rgba(67, 56, 202, 0.1);
+}
+
+.mobile-menu-icon {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.mobile-social-links {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.mobile-social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    border-radius: 50%;
+    background-color: rgba(67, 56, 202, 0.1);
+    color: var(--primary-indigo);
+    font-size: 18px;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.mobile-social-links a:hover {
+    background-color: var(--primary-indigo);
+    color: white;
+    transform: scale(1.1);
+}
+
+.mobile-menu-footer {
+    padding: 20px;
+    background-color: var(--background-color-light);
+}
+
+.mobile-menu-footer .button.is-primary {
+    background-color: var(--primary-indigo);
+    border-color: var(--primary-indigo);
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.mobile-menu-footer .button.is-primary:hover {
+    background-color: var(--primary-indigo-darker);
+    border-color: var(--primary-indigo-darker);
+}
 
 /* --- Section 1: White Intro Hero --- */
 .white-intro-hero {
@@ -413,16 +389,16 @@ a:hover { color: var(--primary-indigo-darker); }
     margin-top: 1rem;        
     margin-bottom: 1.5rem;   
 }
-img.hero-profile-image-main { /* Profile image in white hero */
+img.hero-profile-image-main { 
     width: 256px;        
     height: 256px;       
     border-radius: 50%;  
-    object-fit: cover;   /* Prevents skewing */
+    object-fit: cover;   
     border: 5px solid var(--background-color); 
     box-shadow: 0 8px 25px rgba(0,0,0,0.12); 
     display: block;      
 }
-@media screen and (max-width: 768px) { /* Responsive adjustments for white hero */
+@media screen and (max-width: 768px) { 
     .hero-main-title { font-size: 2rem; }
     .hero-tagline { font-size: 1rem; margin-bottom: 1.5rem; }
     img.hero-profile-image-main { 
@@ -433,7 +409,6 @@ img.hero-profile-image-main { /* Profile image in white hero */
 
 /* --- Section 2: Indigo Personal Description Hero --- */
 .section.indigo-description-hero.is-primary { 
-    /* background-color handled by global .section.is-primary rule */
     padding-top: 4rem;
     padding-bottom: 4rem;
 }
@@ -441,15 +416,13 @@ img.hero-profile-image-main { /* Profile image in white hero */
 .indigo-description-hero .title.is-2 { 
     margin-bottom: 2rem;
     font-weight: 600;
-    /* color: var(--text-on-primary) !important; Handled by global .section.is-primary */
 }
 .indigo-description-hero .content p { 
-    /* color: var(--text-on-primary) !important; Handled by global .section.is-primary */
     line-height: 1.8; 
     margin-bottom: 1.25rem;
 }
 .indigo-description-hero a.link-on-indigo-bg { 
-    color: var(--link-on-primary); /* Brighter/distinct link color for on primary background */
+    color: var(--link-on-primary); 
     font-weight: 600; 
     text-decoration: none;
     border-bottom: 1px solid var(--link-on-primary); 
@@ -467,7 +440,7 @@ img.hero-profile-image-main { /* Profile image in white hero */
     padding-top: 4rem;
     padding-bottom: 4rem;
 }
-.recent-publications-section .section-title { /* This class wasn't in use in HTML, but style exists */
+.recent-publications-section .section-title {
     color: var(--text-color);
     margin-bottom: 3rem;
 }
@@ -478,7 +451,7 @@ img.hero-profile-image-main { /* Profile image in white hero */
     overflow: hidden;
     box-shadow: var(--card-shadow);
     transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-    background-color: #e0e0e0; /* Fallback background for image area */
+    background-color: #e0e0e0; 
 }
 .publication-card.portrait:hover {
     transform: translateY(-6px) scale(1.02);
@@ -486,8 +459,8 @@ img.hero-profile-image-main { /* Profile image in white hero */
 }
 .publication-image-figure { 
     position: relative;
-    padding-top: 129.4%; /* Approx 8.5x11 aspect ratio. ADJUST TO YOUR IMAGES. */
-    background-color: #f0f0f0; /* Fallback if image doesn't load */
+    padding-top: 129.4%; 
+    background-color: #f0f0f0; 
 }
 .publication-image-figure img {
     position: absolute;
@@ -525,44 +498,29 @@ img.hero-profile-image-main { /* Profile image in white hero */
 }
 .publication-overlay .title.is-5 {
     color: var(--text-on-primary) !important; 
-    margin-bottom: 0.25rem; /* Space between title and journal */
+    margin-bottom: 0;
     font-size: 0.9rem; 
     line-height: 1.25; 
-    font-weight: 500; /* Was 500, could be 600 for more emphasis */
-}
-.publication-overlay .publication-journal { /* Added for styling journal if needed */
-    font-size: 0.75rem;
-    color: var(--link-on-primary); /* Dimmer than title */
-    font-weight: 400;
+    font-weight: 500;
 }
 
-
-/* Social links (used in footer and potentially elsewhere) */
-.hero-social-links { margin-top: 2rem; } /* Used in footer context by original HTML */
+/* Social links below publications */
+.hero-social-links { margin-top: 2rem; }
 .hero-social-links .button.is-ghost {
     background: transparent;
     border: none;
-    color: var(--text-color-light); /* Default for non-primary backgrounds */
+    color: var(--text-color-light);
     font-size: 1.5rem;
     margin: 0 0.6rem;
     padding: 0.5rem;
-    transition: color 0.2s ease, transform 0.2s ease; /* Added transition */
 }
 .hero-social-links .button.is-ghost:hover {
     color: var(--primary-indigo);
     transform: scale(1.1);
 }
 .hero-social-links .button.is-ghost .icon {
-    font-size: inherit; /* Ensure icon takes button's font size */
+    font-size: inherit;
 }
-/* Specific for footer if .is-primary */
-.footer.is-primary .hero-social-links .button.is-ghost {
-    color: white !important; /* Override default for primary background */
-}
-.footer.is-primary .hero-social-links .button.is-ghost:hover {
-    color: var(--link-on-primary-hover) !important; /* Consistent hover on primary */
-}
-
 
 /* --- Generic Box Styling (CV, Contact content) --- */
 .box.content-box {
@@ -574,17 +532,25 @@ img.hero-profile-image-main { /* Profile image in white hero */
     font-family: var(--font-family-main);
     overflow: hidden; 
 }
-.cv-section-default { padding: 2rem; }
-@media screen and (min-width: 769px) { .cv-section-default { padding: 2.5rem; } }
-
+.cv-section-default {
+    padding: 2rem;
+}
+@media screen and (min-width: 769px) {
+    .cv-section-default {
+        padding: 2.5rem;
+    }
+}
 .cv-section-colored {
     background-color: var(--primary-indigo);
     color: var(--text-on-indigo); 
     padding: 2rem;
-    border-radius: 0; /* No radius if it's a full band */
+    border-radius: 0;
 }
-@media screen and (min-width: 769px) { .cv-section-colored { padding: 2.5rem; } }
-
+@media screen and (min-width: 769px) {
+    .cv-section-colored {
+        padding: 2.5rem;
+    }
+}
 .box.content-box > div:first-child {
     border-top-left-radius: var(--box-content-border-radius);
     border-top-right-radius: var(--box-content-border-radius);
@@ -641,32 +607,28 @@ img.hero-profile-image-main { /* Profile image in white hero */
 }
 
 /* --- Footer --- */
-.footer { /* Default footer style (e.g. on CV page if not primary) */
+.footer {
     background-color: var(--background-color);
-    border-top: none; /* Was: 1px solid var(--border-color-light); if you want a top border */
+    border-top: none;
     color: var(--text-color-light);
     padding: 2rem 1.5rem; 
-    margin-top: auto; /* Pushes footer to bottom if content is short */
+    margin-top: auto;
     font-family: var(--font-family-main);
     text-align: center;
 }
-/* Footer paragraphs for CV/Contact - ensure specificity if used on pages without .is-primary footer */
-.footer:not(.is-primary) .content p { 
+.footer .content p { 
     color: var(--text-color-light);
     font-size: 0.85rem; 
     line-height: 1.5;
     margin-bottom: 0.5rem; 
 }
-/* Footer paragraph for index.html - which has .is-primary on footer */
-/* The .section.is-primary rules already cover text color for .footer.is-primary */
-.footer.is-primary p { /* Ensures any direct <p> in primary footer is also styled */
-     color: var(--text-on-primary) !important;
-     font-size: 0.9rem; /* Example specific size for primary footer text */
-     line-height: 1.6;
-     margin-bottom: 0; /* From your .main-page-footer-credit p */
+.main-page-footer-credit p { /* Original selector from your CSS */
+    color: var(--text-color-light);
+    font-size: 0.9rem; 
+    line-height: 1.6;
+    margin-bottom: 0; 
 }
-
-.footer a { /* Default link color in footer */
+.footer a { 
     color: var(--primary-indigo);
     font-weight: 500;
 }
@@ -674,23 +636,18 @@ img.hero-profile-image-main { /* Profile image in white hero */
     color: var(--primary-indigo-darker);
     text-decoration: underline;
 }
-/* Links in primary colored footer */
-.footer.is-primary a {
-    color: var(--link-on-primary) !important; /* From .indigo-description-hero a.link-on-indigo-bg like style */
-}
-.footer.is-primary a:hover {
-    color: var(--link-on-primary-hover) !important;
-    text-decoration: underline;
-}
-
 .bulma-credit {
     display: inline-flex;
     align-items: center;
-    /* color handled by parent footer context a styles */
-    font-weight: normal !important; /* Override bold from general a */
+    color: var(--text-color-light) !important;
+    font-weight: normal !important;
 }
 .bulma-credit:hover {
-    /* text-decoration handled by parent footer context a:hover styles */
+    color: var(--primary-indigo) !important;
+    text-decoration: none !important;
+}
+.bulma-credit:hover .bulma-logo-img {
+    filter: none;
 }
 .bulma-logo-img {
     height: 1em;
@@ -698,22 +655,16 @@ img.hero-profile-image-main { /* Profile image in white hero */
     vertical-align: middle;
     position: relative;
     top: -0.05em; 
-    filter: grayscale(100%) opacity(0.7); /* Default for light theme, non-primary footer */
+    filter: grayscale(100%) opacity(0.7);
     transition: filter 0.2s ease-in-out;
 }
-.bulma-credit:hover .bulma-logo-img {
-    filter: none; /* Remove filter on hover for light theme, non-primary */
+.footer-social-links a { /* Original selector from your CSS */
+    margin: 0 0.5em;
+    color: var(--text-color-light) !important;
 }
-/* Bulma logo in dark theme OR on primary-colored footer (light theme) */
-.dark-theme .footer .bulma-logo-img,
-.footer.is-primary .bulma-logo-img {
-    filter: brightness(0) invert(1) !important; /* Make it white */
+.footer-social-links a:hover {
+    color: var(--primary-indigo) !important;
 }
-.dark-theme .footer .bulma-credit:hover .bulma-logo-img,
-.footer.is-primary .bulma-credit:hover .bulma-logo-img {
-    filter: brightness(0) invert(1) !important; /* Keep it white on hover too */
-}
-
 
 /* Mobile Menu Helper Styles */
 body.is-menu-open {
