@@ -119,13 +119,27 @@
                 <a class="navbar-item brand-name" href="index.html">
                     <span class="logo-icon"><i class="fas fa-dna"></i></span> Andrew B. Caldwell
                 </a>
-                <div class="theme-toggle-mobile">
-                    <button id="theme-toggle-mobile" class="button is-small" aria-label="Toggle theme">
+
+                <div class="navbar-item has-dropdown mobile-theme-toggler" id="mobile-theme-dropdown-container">
+                    <a class="navbar-link is-arrowless mobile-theme-trigger" id="mobile-theme-trigger" aria-label="theme options" aria-haspopup="true" aria-expanded="false">
                         <span class="icon">
-                            <i class="fas fa-sun" id="theme-icon-mobile"></i>
-                        </span>
-                    </button>
+                            <i class="fas fa-cog"></i> </span>
+                    </a>
+                    <div class="navbar-dropdown" id="mobile-theme-options-dropdown"> <div class="theme-item" data-theme="light">
+                            <span class="theme-icon sun"><i class="fas fa-sun"></i></span>
+                            <span>Light</span>
+                        </div>
+                        <div class="theme-item" data-theme="dark">
+                            <span class="theme-icon moon"><i class="fas fa-moon"></i></span>
+                            <span>Dark</span>
+                        </div>
+                        <div class="theme-item" data-theme="system">
+                            <span class="theme-icon desktop"><i class="fas fa-desktop"></i></span>
+                            <span>System</span>
+                        </div>
+                    </div>
                 </div>
+
                 <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNavbarMobile">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
@@ -135,15 +149,11 @@
             
             <div class="navbar-menu" id="mainNavbarMobile">
                 <div class="navbar-end">
-                    <div class="navbar-item theme-dropdown-navbar-item">
-                        <div class="theme-dropdown" id="theme-dropdown">
-                            <button id="theme-dropdown-trigger" class="button is-small" aria-label="Theme options">
+                    <div class="navbar-item theme-dropdown-navbar-item"> <div class="theme-dropdown" id="desktop-theme-dropdown-container"> <button id="desktop-theme-trigger" class="button is-small" aria-label="Theme options" aria-haspopup="true" aria-expanded="false">
                                 <span class="icon">
-                                    <i class="fas fa-sun" id="theme-dropdown-icon"></i>
-                                </span>
+                                    <i class="fas fa-cog" id="desktop-theme-display-icon"></i> </span>
                             </button>
-                            <div class="theme-dropdown-content">
-                                <div class="theme-item is-active" data-theme="light">
+                            <div class="theme-dropdown-content" id="desktop-theme-options-dropdown"> <div class="theme-item" data-theme="light">
                                     <span class="theme-icon sun"><i class="fas fa-sun"></i></span>
                                     <span>Light</span>
                                 </div>
@@ -210,6 +220,7 @@
     <section class="section recent-publications-section">
         <div class="container has-text-centered">
             <h1 class="title is-1 is-spaced hero-main-title">Recent Publications</h1>
+            
             <div class="columns is-multiline is-centered">
                 <div class="column is-one-third-desktop is-half-tablet">
                     <article class="publication-item">
@@ -276,7 +287,7 @@
                         </a>
                     </article>
                 </div>
-                <div class="column is-one-third-desktop is-half-tablet">
+                 <div class="column is-one-third-desktop is-half-tablet">
                     <article class="publication-item">
                         <a href="https://doi.org/10.1038/s12276-022-00769-1" target="_blank" rel="noopener noreferrer" class="publication-card portrait">
                             <figure class="image publication-image-figure">
@@ -290,6 +301,7 @@
                     </article>
                 </div>
             </div>
+            
             <div class="mt-5 mb-5">
                 <a href="https://scholar.google.com/citations?hl=en&user=yZdrmZoAAAAJ&view_op=list_works&authuser=1" class="button is-primary is-large is-rounded" target="_blank" rel="noopener noreferrer">
                     <span class="icon"><i class="fas fa-graduation-cap"></i></span>
@@ -367,24 +379,25 @@
     </footer>
 
     <script>
-        // Current year in footer
         if(document.getElementById('current-year')) {
             document.getElementById('current-year').textContent = new Date().getFullYear();
         }
         
         document.addEventListener('DOMContentLoaded', () => {
+            // Navbar burger toggle
             const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
             if ($navbarBurgers.length > 0) {
                 $navbarBurgers.forEach(el => {
                     el.addEventListener('click', () => {
-                        const target = el.dataset.target;
-                        const $target = document.getElementById(target);
+                        const targetId = el.dataset.target;
+                        const $target = document.getElementById(targetId);
                         el.classList.toggle('is-active');
                         $target.classList.toggle('is-active');
                     });
                 });
             }
             
+            // Navbar shadow on scroll
             const mainNavbar = document.querySelector('.main-navbar');
             if (mainNavbar) {
                 const scrollThreshold = 10; 
@@ -395,86 +408,138 @@
                     if (window.scrollY > scrollThreshold) { addShadow(); } else { removeShadow(); }
                 });
             }
-            
-            const themeDropdownTrigger = document.getElementById('theme-dropdown-trigger');
-            const themeDropdown = document.getElementById('theme-dropdown'); // This is the div wrapper for .theme-dropdown-content
-            const themeDropdownIcon = document.getElementById('theme-dropdown-icon');
-            const themeItems = document.querySelectorAll('.theme-item');
-            const themeToggleMobile = document.getElementById('theme-toggle-mobile'); // Mobile button in navbar-brand
-            const themeIconMobile = document.getElementById('theme-icon-mobile'); // Icon in mobile button
-            
-            document.addEventListener('click', (event) => {
-                if (themeDropdown && themeDropdown.classList.contains('is-active') && 
-                    themeDropdownTrigger && !themeDropdownTrigger.contains(event.target) && 
-                    !themeDropdown.contains(event.target)) {
-                    themeDropdown.classList.remove('is-active');
-                }
-            });
-            
-            if (themeDropdownTrigger && themeDropdown) {
-                themeDropdownTrigger.addEventListener('click', (event) => {
-                    // Defensive check: Only allow desktop dropdown to be toggled if its parent navbar item is visible
-                    const parentNavbarItem = themeDropdown.closest('.theme-dropdown-navbar-item');
-                    if (parentNavbarItem && getComputedStyle(parentNavbarItem).display !== 'none') {
-                        event.stopPropagation();
-                        themeDropdown.classList.toggle('is-active');
-                    }
-                });
-            }
-            
+
+            // --- Theme Toggle Logic ---
+            const allThemeItems = document.querySelectorAll('.theme-item');
+
+            // Desktop theme dropdown elements
+            const desktopThemeDropdownContainer = document.getElementById('desktop-theme-dropdown-container'); // This is the .theme-dropdown div
+            const desktopThemeTrigger = document.getElementById('desktop-theme-trigger'); // Button
+            const desktopThemeDisplayIcon = document.getElementById('desktop-theme-display-icon'); // Icon in button
+
+            // Mobile theme dropdown elements
+            const mobileThemeDropdownContainer = document.getElementById('mobile-theme-dropdown-container'); // This is the .navbar-item.has-dropdown
+            const mobileThemeTrigger = document.getElementById('mobile-theme-trigger'); // This is the <a> link trigger
+            // Mobile trigger icon is static (fa-cog), does not change with theme.
+
             function updateTheme(theme) {
                 document.documentElement.classList.remove('light-theme', 'dark-theme');
-                let newIconClass = 'fa-sun'; // Default to light
+                let newDesktopDisplayIconClass = 'fa-cog'; // Default for desktop trigger's display icon
 
                 if (theme === 'system') {
-                    newIconClass = 'fa-desktop';
                     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                         document.documentElement.classList.add('dark-theme');
                     } else {
                         document.documentElement.classList.add('light-theme');
                     }
+                    newDesktopDisplayIconClass = 'fa-desktop';
                 } else if (theme === 'dark') {
-                    newIconClass = 'fa-moon';
                     document.documentElement.classList.add('dark-theme');
-                } else { // 'light'
+                    newDesktopDisplayIconClass = 'fa-moon';
+                } else { // 'light' or any other case
                     document.documentElement.classList.add('light-theme');
+                    newDesktopDisplayIconClass = 'fa-sun';
                 }
                 
-                if(themeDropdownIcon) themeDropdownIcon.className = 'fas ' + newIconClass;
-                if(themeIconMobile) themeIconMobile.className = 'fas ' + newIconClass;
-                
-                if (themeItems) {
-                    themeItems.forEach(item => {
-                        item.classList.toggle('is-active', item.dataset.theme === theme);
-                    });
+                // Update desktop trigger icon
+                if(desktopThemeDisplayIcon) {
+                    desktopThemeDisplayIcon.className = 'fas ' + newDesktopDisplayIconClass;
                 }
+                // Mobile trigger icon remains 'fa-cog'
+
+                // Highlight active theme item in all dropdowns
+                allThemeItems.forEach(item => {
+                    item.classList.toggle('is-active', item.dataset.theme === theme);
+                });
                 localStorage.setItem('themePreference', theme);
             }
+
+            // Attach click listeners to all theme items (shared by mobile and desktop)
+            allThemeItems.forEach(item => {
+                item.addEventListener('click', (event) => {
+                    event.stopPropagation(); 
+                    const newTheme = item.dataset.theme;
+                    updateTheme(newTheme);
+                    
+                    // Close the specific dropdown this item belongs to
+                    // For mobile: .navbar-item.has-dropdown.mobile-theme-toggler
+                    // For desktop: .theme-dropdown (inside .theme-dropdown-navbar-item)
+                    const parentDropdownMobile = item.closest('.mobile-theme-toggler.is-active');
+                    const parentDropdownDesktop = item.closest('.theme-dropdown.is-active');
+
+                    if (parentDropdownMobile) {
+                        parentDropdownMobile.classList.remove('is-active');
+                        const trigger = parentDropdownMobile.querySelector('.mobile-theme-trigger');
+                        if(trigger) trigger.setAttribute('aria-expanded', 'false');
+                    }
+                    if (parentDropdownDesktop) {
+                        parentDropdownDesktop.classList.remove('is-active');
+                         const trigger = parentDropdownDesktop.querySelector('#desktop-theme-trigger');
+                        if(trigger) trigger.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+
+            // Desktop Dropdown Toggle
+            if (desktopThemeTrigger && desktopThemeDropdownContainer) {
+                desktopThemeTrigger.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    // Ensure we are on desktop by checking if the parent navbar-item is visible
+                    const parentNavbarItem = desktopThemeDropdownContainer.closest('.theme-dropdown-navbar-item');
+                    if (parentNavbarItem && getComputedStyle(parentNavbarItem).display !== 'none') {
+                        const isActive = desktopThemeDropdownContainer.classList.toggle('is-active');
+                        desktopThemeTrigger.setAttribute('aria-expanded', isActive.toString());
+                         // Close mobile dropdown if open
+                        if (mobileThemeDropdownContainer && mobileThemeDropdownContainer.classList.contains('is-active')) {
+                            mobileThemeDropdownContainer.classList.remove('is-active');
+                            if(mobileThemeTrigger) mobileThemeTrigger.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+            }
+
+            // Mobile Dropdown Toggle
+            if (mobileThemeTrigger && mobileThemeDropdownContainer) {
+                mobileThemeTrigger.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    // Ensure we are on mobile by checking if the container itself is visible
+                    // (CSS handles its visibility per breakpoint)
+                    if (getComputedStyle(mobileThemeDropdownContainer).display !== 'none') {
+                         const isActive = mobileThemeDropdownContainer.classList.toggle('is-active');
+                         mobileThemeTrigger.setAttribute('aria-expanded', isActive.toString());
+                         // Close desktop dropdown if open
+                        if (desktopThemeDropdownContainer && desktopThemeDropdownContainer.classList.contains('is-active')) {
+                            desktopThemeDropdownContainer.classList.remove('is-active');
+                            if(desktopThemeTrigger) desktopThemeTrigger.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+            }
+
+            // Global click listener to close open dropdowns
+            document.addEventListener('click', (event) => {
+                // Close desktop dropdown
+                if (desktopThemeDropdownContainer && desktopThemeDropdownContainer.classList.contains('is-active') &&
+                    desktopThemeTrigger && !desktopThemeTrigger.contains(event.target) &&
+                    !desktopThemeDropdownContainer.querySelector('.theme-dropdown-content').contains(event.target)) {
+                    desktopThemeDropdownContainer.classList.remove('is-active');
+                    desktopThemeTrigger.setAttribute('aria-expanded', 'false');
+                }
+
+                // Close mobile dropdown
+                if (mobileThemeDropdownContainer && mobileThemeDropdownContainer.classList.contains('is-active') &&
+                    mobileThemeTrigger && !mobileThemeTrigger.contains(event.target) &&
+                    !mobileThemeDropdownContainer.querySelector('.navbar-dropdown').contains(event.target) ) {
+                    mobileThemeDropdownContainer.classList.remove('is-active');
+                    mobileThemeTrigger.setAttribute('aria-expanded', 'false');
+                }
+            });
             
-            const savedTheme = localStorage.getItem('themePreference') || 'light'; // Default to 'light'
+            // Initial theme load - default to 'system' as per Bulma.io docs recommendation
+            const savedTheme = localStorage.getItem('themePreference') || 'system'; 
             updateTheme(savedTheme);
             
-            if (themeItems && themeDropdown) {
-                themeItems.forEach(item => {
-                    item.addEventListener('click', () => {
-                        const newTheme = item.dataset.theme;
-                        updateTheme(newTheme);
-                        themeDropdown.classList.remove('is-active'); // Close dropdown after selection
-                    });
-                });
-            }
-            
-            if (themeToggleMobile) {
-                themeToggleMobile.addEventListener('click', () => {
-                    const currentTheme = localStorage.getItem('themePreference') || 'light';
-                    let newTheme;
-                    if (currentTheme === 'light') newTheme = 'dark';
-                    else if (currentTheme === 'dark') newTheme = 'system';
-                    else newTheme = 'light'; // system maps to light
-                    updateTheme(newTheme);
-                });
-            }
-            
+            // System theme change listener
             if (window.matchMedia) {
                 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
                     if (localStorage.getItem('themePreference') === 'system') {
