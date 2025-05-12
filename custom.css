@@ -25,7 +25,7 @@
     --border-color-light: #f3f4f6; 
 
     --navbar-item-border-radius: 9999px; 
-    --button-border-radius: 18px;      
+    --button-border-radius: 4px;      
     --box-content-border-radius: 12px; 
     --card-border-radius: 8px;
 
@@ -114,7 +114,7 @@ a:hover { color: var(--primary-indigo-darker); }
     background-color: var(--background-color);
 }
 
-/* --- Navbar Styling (UPDATED) --- */
+/* --- Navbar Styling --- */
 .navbar.main-navbar { 
     background-color: var(--background-color); 
     border-bottom: 1px solid var(--border-color-light); 
