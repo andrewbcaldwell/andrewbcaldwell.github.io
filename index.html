@@ -6,45 +6,33 @@
     <title>Andrew B. Caldwell PhD | Research Scientist | Systems Biologist | Bioinformatics | UC San Diego</title>
     <link rel="canonical" href="https://andrewbcaldwell.com/index.html" />
     <meta name="robots" content="index, follow" />
-    <!-- Google Fonts (Lexend) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
-    <!-- Bulma CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="custom.css">
-    <!-- DNS prefetch -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
-    <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <!-- Preload critical fonts and CSS -->   
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap" as="style">
     <link rel="preload" href="custom.css" as="style">
-    <!-- Preload hero image -->
     <link rel="preload" href="images/profile.jpg" as="image">
-    <!-- Basic meta tags -->
     <meta name="description" content="Andrew B. Caldwell, Systems Biologist at UC San Diego researching Alzheimer's Disease through computational and experimental approaches.">
     <meta name="keywords" content="systems biology computational biology, Alzheimer's disease, Neurodevelopment, Andrew Caldwell, UC San Diego">
     <meta name="author" content="Andrew B. Caldwell">
-    <!-- Open Graph / Social Media -->
     <meta property="og:title" content="Andrew B. Caldwell - Systems Biologist">
     <meta property="og:description" content="From cell culture to code, translating complex data into meaningful biological insights.">
     <meta property="og:image" content="https://andrewbcaldwell.com/images/profile.jpg">
     <meta property="og:url" content="https://andrewbcaldwell.com">
     <meta property="og:type" content="website">
-    <!-- Twitter Card data -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@AndrewBCaldwell">
     <meta name="twitter:title" content="Andrew B. Caldwell - Systems Biologist">
     <meta name="twitter:description" content="From cell culture to code, translating complex data into meaningful biological insights.">
     <meta name="twitter:image" content="https://andrewbcaldwell.com/images/profile.jpg">
-     <!-- JSON-LD structured data -->
-    <script type="application/ld+json">
+     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
@@ -125,14 +113,12 @@
     <meta name="theme-color" content="#4338CA">
 </head>
 <body>
-    <!-- Navigation Bar -->
     <nav class="navbar is-fixed-top main-navbar" role="navigation" aria-label="main navigation">
         <div class="container">
             <div class="navbar-brand">
                 <a class="navbar-item brand-name" href="index.html">
                     <span class="logo-icon"><i class="fas fa-dna"></i></span> Andrew B. Caldwell
                 </a>
-                <!-- Theme toggle for Mobile -->
                 <div class="theme-toggle-mobile">
                     <button id="theme-toggle-mobile" class="button is-small" aria-label="Toggle theme">
                         <span class="icon">
@@ -147,11 +133,9 @@
                 </a>
             </div>
             
-            <!-- Menu (Desktop and Mobile) -->
             <div class="navbar-menu" id="mainNavbarMobile">
                 <div class="navbar-end">
-                    <!-- Theme Dropdown (Desktop) -->
-                    <div class="navbar-item">
+                    <div class="navbar-item theme-dropdown-navbar-item"> {/* MODIFIED: Added class here */}
                         <div class="theme-dropdown" id="theme-dropdown">
                             <button id="theme-dropdown-trigger" class="button is-small" aria-label="Theme options">
                                 <span class="icon">
@@ -174,7 +158,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- CV and Email Button -->
                     <div class="navbar-item">
                         <a href="cv.html" class="button is-indigo">
                             <strong>CV</strong>
@@ -190,7 +173,6 @@
         </div>
     </nav>
 
-    <!-- Section 1: White Intro Hero - "Bench-to-Code" -->
     <section class="section white-intro-hero">
         <div class="container has-text-centered">
             <h1 class="title is-1 is-spaced hero-main-title">Bench-to-Code Systems Biologist</h1>
@@ -201,7 +183,6 @@
         </div>
     </section>
 
-    <!-- Section 2: Personal Description  -->
     <section class="section indigo-description-hero is-primary">
         <div class="hero-body">
             <div class="container">
@@ -226,14 +207,11 @@
         </div>
     </section>
 
-    <!-- Section 3: Recent Publications -->
     <section class="section recent-publications-section">
         <div class="container has-text-centered">
-            <!-- Match main hero title styling -->
             <h1 class="title is-1 is-spaced hero-main-title">Recent Publications</h1>
             
             <div class="columns is-multiline is-centered">
-                <!-- Publication Card 1 -->
                 <div class="column is-one-third-desktop is-half-tablet">
                     <article class="publication-item">
                         <a href="https://doi.org/10.1186/s13195-024-01659-6" target="_blank" rel="noopener noreferrer" class="publication-card portrait">
@@ -247,7 +225,6 @@
                         </a>
                     </article>
                 </div>
-                <!-- Publication Card 2 -->
                 <div class="column is-one-third-desktop is-half-tablet">
                     <article class="publication-item">
                         <a href="https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/alz.12553" target="_blank" rel="noopener noreferrer" class="publication-card portrait">
@@ -261,7 +238,6 @@
                         </a>
                     </article>
                 </div>
-                <!-- Publication Card 3 -->
                 <div class="column is-one-third-desktop is-half-tablet">
                      <article class="publication-item">  
                         <a href="https://www.science.org/doi/10.1126/sciadv.aba5933" target="_blank" rel="noopener noreferrer" class="publication-card portrait">
@@ -275,7 +251,6 @@
                         </a>
                     </article>
                 </div>
-                <!-- Publication Card 4 -->
                 <div class="column is-one-third-desktop is-half-tablet">
                     <article class="publication-item">
                         <a href="https://doi.org/10.1186/s13041-022-00963-2" target="_blank" rel="noopener noreferrer" class="publication-card portrait">
@@ -289,7 +264,6 @@
                         </a>
                     </article>
                 </div>
-                <!-- Publication Card 5 -->
                 <div class="column is-one-third-desktop is-half-tablet">
                     <article class="publication-item">
                         <a href="https://doi.org/10.1038/s41398-023-02397-3" target="_blank" rel="noopener noreferrer" class="publication-card portrait">
@@ -303,8 +277,7 @@
                         </a>
                     </article>
                 </div>
-                 <!-- Publication Card 6 -->
-                <div class="column is-one-third-desktop is-half-tablet">
+                 <div class="column is-one-third-desktop is-half-tablet">
                     <article class="publication-item">
                         <a href="https://doi.org/10.1038/s12276-022-00769-1" target="_blank" rel="noopener noreferrer" class="publication-card portrait">
                             <figure class="image publication-image-figure">
@@ -319,7 +292,6 @@
                 </div>
             </div>
             
-            <!-- Button for Google Scholar -->
             <div class="mt-5 mb-5">
                 <a href="https://scholar.google.com/citations?hl=en&user=yZdrmZoAAAAJ&view_op=list_works&authuser=1" class="button is-primary is-large is-rounded" target="_blank" rel="noopener noreferrer">
                     <span class="icon"><i class="fas fa-graduation-cap"></i></span>
@@ -329,7 +301,6 @@
         </div>
     </section>
 
-    <!-- Collaboration Section -->
     <section class="section white-collab-section" style="padding-bottom: 3rem;">
         <div class="container has-text-centered">
             <h1 class="title is-1 is-spaced hero-main-title">Interested in collaborating with me?</h1>
@@ -343,10 +314,8 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer section indigo-description-hero is-primary" style="padding: 2rem 1.5rem; color: white !important;">
         <div class="container">
-            <!-- Footer social section -->
             <h3 class="title is-3 has-text-centered mb-3" style="color: white !important;">Find Me Online</h3>
             <div class="has-text-centered mb-4"> 
                 <div class="hero-social-links field is-grouped is-grouped-centered">
@@ -387,7 +356,6 @@
                     </p>
                 </div>
             </div>
-            <!-- Copyright info -->
             <div style="display: flex; justify-content: center; align-items: center;"> 
                 <p style="margin: 0; color: white !important;"> 
                     Built with
@@ -456,16 +424,18 @@
             
             // Function to close dropdown when clicking outside
             document.addEventListener('click', (event) => {
-                if (!themeDropdown.contains(event.target)) {
+                if (themeDropdown && !themeDropdown.contains(event.target) && themeDropdownTrigger && !themeDropdownTrigger.contains(event.target)) { // Check if elements exist
                     themeDropdown.classList.remove('is-active');
                 }
             });
             
             // Toggle theme dropdown
-            themeDropdownTrigger.addEventListener('click', (event) => {
-                event.stopPropagation();
-                themeDropdown.classList.toggle('is-active');
-            });
+            if (themeDropdownTrigger && themeDropdown) { // Check if elements exist
+                themeDropdownTrigger.addEventListener('click', (event) => {
+                    event.stopPropagation();
+                    themeDropdown.classList.toggle('is-active');
+                });
+            }
             
             // Update theme based on user's preference or system preference
             function updateTheme(theme) {
@@ -476,32 +446,34 @@
                     // Check system preference
                     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                         document.documentElement.classList.add('dark-theme');
-                        themeDropdownIcon.className = 'fas fa-desktop';
-                        themeIconMobile.className = 'fas fa-desktop';
+                        if(themeDropdownIcon) themeDropdownIcon.className = 'fas fa-desktop'; // Check if element exists
+                        if(themeIconMobile) themeIconMobile.className = 'fas fa-desktop'; // Check if element exists
                     } else {
                         document.documentElement.classList.add('light-theme');
-                        themeDropdownIcon.className = 'fas fa-desktop';
-                        themeIconMobile.className = 'fas fa-desktop';
+                        if(themeDropdownIcon) themeDropdownIcon.className = 'fas fa-desktop'; // Check if element exists
+                        if(themeIconMobile) themeIconMobile.className = 'fas fa-desktop'; // Check if element exists
                     }
                 } else if (theme === 'dark') {
                     document.documentElement.classList.add('dark-theme');
-                    themeDropdownIcon.className = 'fas fa-moon';
-                    themeIconMobile.className = 'fas fa-moon';
+                    if(themeDropdownIcon) themeDropdownIcon.className = 'fas fa-moon'; // Check if element exists
+                    if(themeIconMobile) themeIconMobile.className = 'fas fa-moon'; // Check if element exists
                 } else {
                     // Default to light
                     document.documentElement.classList.add('light-theme');
-                    themeDropdownIcon.className = 'fas fa-sun';
-                    themeIconMobile.className = 'fas fa-sun';
+                    if(themeDropdownIcon) themeDropdownIcon.className = 'fas fa-sun'; // Check if element exists
+                    if(themeIconMobile) themeIconMobile.className = 'fas fa-sun'; // Check if element exists
                 }
                 
                 // Update active class in dropdown
-                themeItems.forEach(item => {
-                    if (item.dataset.theme === theme) {
-                        item.classList.add('is-active');
-                    } else {
-                        item.classList.remove('is-active');
-                    }
-                });
+                if (themeItems) { // Check if element exists
+                    themeItems.forEach(item => {
+                        if (item.dataset.theme === theme) {
+                            item.classList.add('is-active');
+                        } else {
+                            item.classList.remove('is-active');
+                        }
+                    });
+                }
                 
                 // Save preference
                 localStorage.setItem('themePreference', theme);
@@ -512,32 +484,37 @@
             updateTheme(savedTheme);
             
             // Listen for theme selection clicks
-            themeItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    const theme = item.dataset.theme;
-                    updateTheme(theme);
-                    themeDropdown.classList.remove('is-active');
+            if (themeItems && themeDropdown) { // Check if elements exist
+                themeItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        const theme = item.dataset.theme;
+                        updateTheme(theme);
+                        themeDropdown.classList.remove('is-active');
+                    });
                 });
-            });
+            }
             
             // Mobile theme toggle cycles through themes
-            themeToggleMobile.addEventListener('click', () => {
-                const currentTheme = localStorage.getItem('themePreference') || 'light';
-                let newTheme;
-                
-                switch (currentTheme) {
-                    case 'light':
-                        newTheme = 'dark';
-                        break;
-                    case 'dark':
-                        newTheme = 'system';
-                        break;
-                    default:
-                        newTheme = 'light';
-                }
-                
-                updateTheme(newTheme);
-            });
+            if (themeToggleMobile) { // Check if element exists
+                themeToggleMobile.addEventListener('click', () => {
+                    const currentTheme = localStorage.getItem('themePreference') || 'light';
+                    let newTheme;
+                    
+                    switch (currentTheme) {
+                        case 'light':
+                            newTheme = 'dark';
+                            break;
+                        case 'dark':
+                            newTheme = 'system';
+                            break;
+                        default: // system or unknown
+                            newTheme = 'light';
+                            break;
+                    }
+                    
+                    updateTheme(newTheme);
+                });
+            }
             
             // Listen for system preference changes if using system theme
             if (window.matchMedia) {
