@@ -135,7 +135,7 @@
             
             <div class="navbar-menu" id="mainNavbarMobile">
                 <div class="navbar-end">
-                    <div class="navbar-item theme-dropdown-navbar-item"> 
+                    <div class="navbar-item theme-dropdown-navbar-item">
                         <div class="theme-dropdown" id="theme-dropdown">
                             <button id="theme-dropdown-trigger" class="button is-small" aria-label="Theme options">
                                 <span class="icon">
@@ -210,7 +210,6 @@
     <section class="section recent-publications-section">
         <div class="container has-text-centered">
             <h1 class="title is-1 is-spaced hero-main-title">Recent Publications</h1>
-            
             <div class="columns is-multiline is-centered">
                 <div class="column is-one-third-desktop is-half-tablet">
                     <article class="publication-item">
@@ -277,7 +276,7 @@
                         </a>
                     </article>
                 </div>
-                 <div class="column is-one-third-desktop is-half-tablet">
+                <div class="column is-one-third-desktop is-half-tablet">
                     <article class="publication-item">
                         <a href="https://doi.org/10.1038/s12276-022-00769-1" target="_blank" rel="noopener noreferrer" class="publication-card portrait">
                             <figure class="image publication-image-figure">
@@ -291,7 +290,6 @@
                     </article>
                 </div>
             </div>
-            
             <div class="mt-5 mb-5">
                 <a href="https://scholar.google.com/citations?hl=en&user=yZdrmZoAAAAJ&view_op=list_works&authuser=1" class="button is-primary is-large is-rounded" target="_blank" rel="noopener noreferrer">
                     <span class="icon"><i class="fas fa-graduation-cap"></i></span>
@@ -374,14 +372,11 @@
             document.getElementById('current-year').textContent = new Date().getFullYear();
         }
         
-        // Fixed Mobile Menu Toggle and Theme Toggle
         document.addEventListener('DOMContentLoaded', () => {
-            // Handle navbar burger toggling
             const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
             if ($navbarBurgers.length > 0) {
                 $navbarBurgers.forEach(el => {
                     el.addEventListener('click', () => {
-                        // Simple toggle without preventDefault() that was causing issues
                         const target = el.dataset.target;
                         const $target = document.getElementById(target);
                         el.classList.toggle('is-active');
@@ -390,133 +385,96 @@
                 });
             }
             
-            // Handle navbar shadow separately
             const mainNavbar = document.querySelector('.main-navbar');
             if (mainNavbar) {
                 const scrollThreshold = 10; 
                 const addShadow = () => mainNavbar.classList.add('has-shadow');
                 const removeShadow = () => mainNavbar.classList.remove('has-shadow');
-                
-                // Check initial position
-                if (window.scrollY > scrollThreshold) { 
-                    addShadow(); 
-                } else { 
-                    removeShadow(); 
-                }
-                
-                // Add scroll listener
+                if (window.scrollY > scrollThreshold) { addShadow(); } else { removeShadow(); }
                 window.addEventListener('scroll', () => {
-                    if (window.scrollY > scrollThreshold) { 
-                        addShadow(); 
-                    } else { 
-                        removeShadow(); 
-                    }
+                    if (window.scrollY > scrollThreshold) { addShadow(); } else { removeShadow(); }
                 });
             }
             
-            // Theme Dropdown Toggle
             const themeDropdownTrigger = document.getElementById('theme-dropdown-trigger');
-            const themeDropdown = document.getElementById('theme-dropdown');
+            const themeDropdown = document.getElementById('theme-dropdown'); // This is the div wrapper for .theme-dropdown-content
             const themeDropdownIcon = document.getElementById('theme-dropdown-icon');
             const themeItems = document.querySelectorAll('.theme-item');
-            const themeToggleMobile = document.getElementById('theme-toggle-mobile');
-            const themeIconMobile = document.getElementById('theme-icon-mobile');
+            const themeToggleMobile = document.getElementById('theme-toggle-mobile'); // Mobile button in navbar-brand
+            const themeIconMobile = document.getElementById('theme-icon-mobile'); // Icon in mobile button
             
-            // Function to close dropdown when clicking outside
             document.addEventListener('click', (event) => {
-                if (themeDropdown && !themeDropdown.contains(event.target) && themeDropdownTrigger && !themeDropdownTrigger.contains(event.target)) { // Check if elements exist
+                if (themeDropdown && themeDropdown.classList.contains('is-active') && 
+                    themeDropdownTrigger && !themeDropdownTrigger.contains(event.target) && 
+                    !themeDropdown.contains(event.target)) {
                     themeDropdown.classList.remove('is-active');
                 }
             });
             
-            // Toggle theme dropdown
-            if (themeDropdownTrigger && themeDropdown) { // Check if elements exist
+            if (themeDropdownTrigger && themeDropdown) {
                 themeDropdownTrigger.addEventListener('click', (event) => {
-                    event.stopPropagation();
-                    themeDropdown.classList.toggle('is-active');
+                    // Defensive check: Only allow desktop dropdown to be toggled if its parent navbar item is visible
+                    const parentNavbarItem = themeDropdown.closest('.theme-dropdown-navbar-item');
+                    if (parentNavbarItem && getComputedStyle(parentNavbarItem).display !== 'none') {
+                        event.stopPropagation();
+                        themeDropdown.classList.toggle('is-active');
+                    }
                 });
             }
             
-            // Update theme based on user's preference or system preference
             function updateTheme(theme) {
-                // Remove all theme classes
                 document.documentElement.classList.remove('light-theme', 'dark-theme');
-                
+                let newIconClass = 'fa-sun'; // Default to light
+
                 if (theme === 'system') {
-                    // Check system preference
+                    newIconClass = 'fa-desktop';
                     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                         document.documentElement.classList.add('dark-theme');
-                        if(themeDropdownIcon) themeDropdownIcon.className = 'fas fa-desktop'; // Check if element exists
-                        if(themeIconMobile) themeIconMobile.className = 'fas fa-desktop'; // Check if element exists
                     } else {
                         document.documentElement.classList.add('light-theme');
-                        if(themeDropdownIcon) themeDropdownIcon.className = 'fas fa-desktop'; // Check if element exists
-                        if(themeIconMobile) themeIconMobile.className = 'fas fa-desktop'; // Check if element exists
                     }
                 } else if (theme === 'dark') {
+                    newIconClass = 'fa-moon';
                     document.documentElement.classList.add('dark-theme');
-                    if(themeDropdownIcon) themeDropdownIcon.className = 'fas fa-moon'; // Check if element exists
-                    if(themeIconMobile) themeIconMobile.className = 'fas fa-moon'; // Check if element exists
-                } else {
-                    // Default to light
+                } else { // 'light'
                     document.documentElement.classList.add('light-theme');
-                    if(themeDropdownIcon) themeDropdownIcon.className = 'fas fa-sun'; // Check if element exists
-                    if(themeIconMobile) themeIconMobile.className = 'fas fa-sun'; // Check if element exists
                 }
                 
-                // Update active class in dropdown
-                if (themeItems) { // Check if element exists
+                if(themeDropdownIcon) themeDropdownIcon.className = 'fas ' + newIconClass;
+                if(themeIconMobile) themeIconMobile.className = 'fas ' + newIconClass;
+                
+                if (themeItems) {
                     themeItems.forEach(item => {
-                        if (item.dataset.theme === theme) {
-                            item.classList.add('is-active');
-                        } else {
-                            item.classList.remove('is-active');
-                        }
+                        item.classList.toggle('is-active', item.dataset.theme === theme);
                     });
                 }
-                
-                // Save preference
                 localStorage.setItem('themePreference', theme);
             }
             
-            // Load saved theme preference
-            const savedTheme = localStorage.getItem('themePreference') || 'light';
+            const savedTheme = localStorage.getItem('themePreference') || 'light'; // Default to 'light'
             updateTheme(savedTheme);
             
-            // Listen for theme selection clicks
-            if (themeItems && themeDropdown) { // Check if elements exist
+            if (themeItems && themeDropdown) {
                 themeItems.forEach(item => {
                     item.addEventListener('click', () => {
-                        const theme = item.dataset.theme;
-                        updateTheme(theme);
-                        themeDropdown.classList.remove('is-active');
+                        const newTheme = item.dataset.theme;
+                        updateTheme(newTheme);
+                        themeDropdown.classList.remove('is-active'); // Close dropdown after selection
                     });
                 });
             }
             
-            // Mobile theme toggle cycles through themes
-            if (themeToggleMobile) { // Check if element exists
+            if (themeToggleMobile) {
                 themeToggleMobile.addEventListener('click', () => {
                     const currentTheme = localStorage.getItem('themePreference') || 'light';
                     let newTheme;
-                    
-                    switch (currentTheme) {
-                        case 'light':
-                            newTheme = 'dark';
-                            break;
-                        case 'dark':
-                            newTheme = 'system';
-                            break;
-                        default: // system or unknown
-                            newTheme = 'light';
-                            break;
-                    }
-                    
+                    if (currentTheme === 'light') newTheme = 'dark';
+                    else if (currentTheme === 'dark') newTheme = 'system';
+                    else newTheme = 'light'; // system maps to light
                     updateTheme(newTheme);
                 });
             }
             
-            // Listen for system preference changes if using system theme
             if (window.matchMedia) {
                 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
                     if (localStorage.getItem('themePreference') === 'system') {
