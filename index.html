@@ -149,8 +149,14 @@
             justify-content: flex-end;
             padding: 0.75rem 1rem;
         }
+        .navbar-menu.is-active .navbar-item .button {
+            border-radius: 4px !important; 
+            display: block;
+            width: 100%;
+            margin: 0.25rem 0;
+        }
     }
-        /* Social icon hover effects in footer */
+    /* Social icon hover effects in footer */
         .hero-social-links .button.is-ghost {
             position: relative; /* Needed for tooltip positioning */
             transition: transform 0.2s ease, color 0.2s ease;
@@ -179,6 +185,15 @@
             <!-- Menu (Desktop and Mobile) -->
             <div class="navbar-menu" id="mainNavbarMobile">
                 <div class="navbar-end">
+                    <!-- Toggle Light/Dark -->
+                    <div class="navbar-item">
+                        <button id="theme-toggle" class="button is-small" aria-label="Toggle dark mode">
+                            <span class="icon">
+                                <i class="fas fa-moon" id="theme-icon"></i>
+                            </span>
+                        </button>
+                    </div>
+                    <!-- CV and Email Button -->
                     <div class="navbar-item">
                         <a href="cv.html" class="button is-indigo">
                             <strong>CV</strong>
@@ -191,6 +206,14 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- Add this to the navbar-end div, before the CV button -->
+        <div class="navbar-item">
+            <button id="theme-toggle" class="button is-small">
+                <span class="icon">
+                    <i class="fas fa-moon" id="theme-icon"></i>
+                </span>
+            </button>
         </div>
     </nav>
 
