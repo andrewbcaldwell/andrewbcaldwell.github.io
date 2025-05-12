@@ -12,20 +12,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="custom.css">
     <style>
-        /* Mobile Drop Down  */
+        /* Mobile menu customization */
         @media screen and (max-width: 1023px) {
-            .navbar-menu.is-active .navbar-item .button {
-                border-radius: 4px !important; /* Less curve, more box-like */
-                padding: 0.5em 1em;
-                margin: 0.25rem 0;
-                width: 100%; /* Make buttons full width in the dropdown */
+            .navbar-menu.is-active {
+                display: block;
+                position: absolute;
+                right: 0;
+                top: 100%;
+                width: auto;
+                min-width: 200px;
+                box-shadow: 0 8px 16px rgba(10,10,10,.1);
+                padding: 0.5rem;
+                text-align: right;
             }
-    
-        /* Override any other button styles to ensure consistency */
-            .navbar-menu.is-active .button.is-indigo {
-                border-radius: 4px !important;
-            }
-        }
             
             .navbar-menu.is-active .navbar-end {
                 display: flex;
@@ -44,16 +43,6 @@
         .cv-title-section .hero-main-title {
             text-align: center;
         }
-        /* Social icon hover effects in footer */
-        .hero-social-links .button.is-ghost {
-            position: relative; /* Needed for tooltip positioning */
-            transition: transform 0.2s ease, color 0.2s ease;
-        }
-
-        .hero-social-links .button.is-ghost:hover {
-            transform: scale(1.4); /* Make icon 40% bigger on hover */
-        }
-
     </style>
 </head>
 <body>
@@ -75,15 +64,6 @@
             <!-- Menu (Desktop and Mobile) -->
             <div class="navbar-menu" id="mainNavbarMobile">
                 <div class="navbar-end">
-                    <!-- Toggle Light/Dark -->
-                    <div class="navbar-item">
-                        <button id="theme-toggle" class="button is-small" aria-label="Toggle dark mode">
-                            <span class="icon">
-                                <i class="fas fa-moon" id="theme-icon"></i>
-                            </span>
-                        </button>
-                    </div>
-                    <!-- CV and Email Button -->
                     <div class="navbar-item">
                         <a href="cv.html" class="button is-indigo">
                             <strong>CV</strong>
@@ -235,7 +215,6 @@
     <!-- Footer -->
     <footer class="footer section indigo-description-hero is-primary" style="padding: 2rem 1.5rem; color: white !important;">
         <div class="container">
-            <!-- Footer social section -->
             <h3 class="title is-3 has-text-centered mb-3" style="color: white !important;">Find Me Online</h3>
             <div class="has-text-centered mb-4"> 
                 <div class="hero-social-links field is-grouped is-grouped-centered">
@@ -276,32 +255,30 @@
                     </p>
                 </div>
             </div>
-            
-            <!-- Copyright info -->
             <div style="display: flex; justify-content: center; align-items: center;"> 
                 <p style="margin: 0; color: white !important;"> 
                     Built with
                     <a href="https://bulma.io" target="_blank" rel="noopener noreferrer" class="bulma-credit" style="color: white !important;">
                     <img src="images/bulma-logo.svg" alt="Bulma CSS Framework" class="bulma-logo-img" style="filter: brightness(0) invert(1);">
                     </a>
-                    by me &copy; <span id="current-year-cv"></span>
+                    by me &copy; <span id="current-year"></span>
                 </p>
             </div>
         </div>
     </footer>
-    
+
     <script>
         // Current year in footer
-        document.getElementById('current-year-cv').textContent = new Date().getFullYear();
+        if(document.getElementById('current-year')) {
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+        }
         
-        // Fixed Mobile Menu Toggle
+        // Fixed Mobile Menu Toggle and Navbar Shadow
         document.addEventListener('DOMContentLoaded', () => {
-            // Handle navbar burger toggling
             const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
             if ($navbarBurgers.length > 0) {
                 $navbarBurgers.forEach(el => {
                     el.addEventListener('click', () => {
-                        // Simple toggle without preventDefault() that was causing issues
                         const target = el.dataset.target;
                         const $target = document.getElementById(target);
                         el.classList.toggle('is-active');
@@ -310,29 +287,17 @@
                 });
             }
             
-            // Handle navbar shadow separately
             const mainNavbar = document.querySelector('.main-navbar');
             if (mainNavbar) {
                 const scrollThreshold = 10; 
                 const addShadow = () => mainNavbar.classList.add('has-shadow');
                 const removeShadow = () => mainNavbar.classList.remove('has-shadow');
-                
-                // Check initial position
-                if (window.scrollY > scrollThreshold) { 
-                    addShadow(); 
-                } else { 
-                    removeShadow(); 
-                }
-                
-                // Add scroll listener
+                if (window.scrollY > scrollThreshold) { addShadow(); } else { removeShadow(); }
                 window.addEventListener('scroll', () => {
-                    if (window.scrollY > scrollThreshold) { 
-                        addShadow(); 
-                    } else { 
-                        removeShadow(); 
-                    }
+                    if (window.scrollY > scrollThreshold) { addShadow(); } else { removeShadow(); }
                 });
             }
+            // All theme toggle JavaScript has been removed.
         });
     </script>
 </body>
