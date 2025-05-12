@@ -63,6 +63,65 @@
     background-color: #362f8e !important;
 }
 
+/* Theme Dropdown Styles */
+.theme-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.theme-dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    min-width: 180px;
+    background-color: var(--background-color);
+    border-radius: 6px;
+    box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.02);
+    z-index: 40;
+    padding: 0.5rem 0;
+    border: 1px solid var(--border-color-light);
+}
+
+.theme-dropdown.is-active .theme-dropdown-content {
+    display: block;
+}
+
+.theme-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.theme-item:hover {
+    background-color: var(--background-color-light);
+}
+
+.theme-item.is-active {
+    background-color: rgba(67, 56, 202, 0.1);
+    font-weight: 600;
+}
+
+.theme-icon {
+    margin-right: 0.75rem;
+    width: 1.5rem;
+    text-align: center;
+}
+
+.theme-icon.sun {
+    color: #F6C32C;
+}
+
+.theme-icon.moon {
+    color: #A78BFA;
+}
+
+.theme-icon.desktop {
+    color: #4ADE80;
+}
+
 /* Theme toggle positioning for mobile */
 .theme-toggle-mobile {
     margin-left: auto;
@@ -86,7 +145,7 @@
 
 /* Hide the desktop toggle on mobile and mobile toggle on desktop */
 @media screen and (max-width: 1023px) {
-    #theme-toggle {
+    .theme-dropdown {
         display: none;
     }
 }
