@@ -124,19 +124,25 @@
 
 /* Theme toggle positioning for mobile */
 .theme-toggle-mobile {
-    margin-left: auto;
+    margin-left: auto; /* Pushes it to the right, next to the burger */
     display: flex;
     align-items: center;
+    /* Ensure it's vertically aligned with the burger if heights differ */
+    align-self: stretch; /* Make it take full height of navbar-brand if needed */
 }
 
 /* Make sure the toggle button is properly sized and positioned */
 #theme-toggle-mobile {
     padding: 0.5rem;
-    height: 2rem;
-    width: 2rem;
+    height: 2.25rem; /* Adjusted for better touch target & alignment with burger */
+    width: 2.25rem;  /* Adjusted for better touch target & alignment with burger */
     background: transparent;
     border: none;
     color: var(--primary-indigo);
+    display: inline-flex; /* For icon centering */
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px; /* Consistent rounding */
 }
 
 #theme-toggle-mobile:hover {
@@ -145,14 +151,38 @@
 
 /* Hide the desktop toggle on mobile and mobile toggle on desktop */
 @media screen and (max-width: 1023px) {
-    .theme-dropdown {
-        display: none;
+    /* .theme-dropdown rule was here, replaced by more specific rule below */
+
+    /* MODIFIED/ADDED: Ensure desktop theme toggle (and its wrapper) is completely hidden on mobile */
+    .theme-dropdown-navbar-item { 
+        display: none !important; 
+    }
+
+    /* MODIFIED/ADDED: Style CV and Email Me buttons in the mobile dropdown menu */
+    #mainNavbarMobile .navbar-end > .navbar-item {
+        padding: 0.35rem 1rem; /* Consistent padding for mobile menu items */
+        display: flex;         /* Enable flex for alignment */
+        justify-content: flex-end; /* Align button to the right */
+    }
+
+    #mainNavbarMobile .navbar-end > .navbar-item > .button.is-indigo {
+        flex-grow: 0;    /* Prevent button from growing */
+        flex-shrink: 1;  /* Allow button to shrink */
+        width: auto;     /* Let content and padding define width */
+        min-width: 100px;/* Define a "narrow" minimum width */
+        max-width: 160px;/* Optional: define a maximum width */
+        /* Ensure text within button is centered if button width is larger than text */
+        text-align: center; 
     }
 }
 
 @media screen and (min-width: 1024px) {
     .theme-toggle-mobile {
         display: none !important;
+    }
+     /* Desktop theme dropdown should be visible */
+    .theme-dropdown-navbar-item {
+        display: flex; /* Or block, depending on how navbar-item should behave */
     }
 }
 
@@ -194,7 +224,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: var(--background-color);
-    padding-top: 5rem; /* For fixed navbar - Adjust if navbar height changes significantly */
+    padding-top: 3.25rem; /* Bulma default navbar height */
 }
 
 .section { padding: 3rem 1.5rem; } 
@@ -240,12 +270,13 @@ a:hover { color: var(--primary-indigo-darker); }
     border-bottom: 1px solid var(--border-color-light); 
     font-family: var(--font-family-main);
     transition: box-shadow 0.3s ease-in-out; 
-    padding: 0.2rem 0;
+    /* padding: 0.2rem 0; Removed for standard Bulma navbar height handling */
     position: fixed; 
     width: 100%;
     top: 0;
     left: 0;
     z-index: 30;
+    min-height: 3.25rem; /* Default Bulma navbar height */
 }
 .navbar.main-navbar.has-shadow { 
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
@@ -298,6 +329,8 @@ a:hover { color: var(--primary-indigo-darker); }
         border-radius: 4px !important; 
         margin: 0 0.3rem;
         padding: 0.5rem 0.75rem; 
+        display: flex; /* Ensure proper alignment for items like theme dropdown */
+        align-items: center;
     }
     
     .navbar-menu .navbar-item:hover,
@@ -326,7 +359,10 @@ a:hover { color: var(--primary-indigo-darker); }
     height: 2px;
 }
 
-/* Mobile Menu Overlay (NEW) */
+/* Mobile Menu Overlay (NEW) - This section was in your original CSS, ensure it's intended */
+/* If this .mobile-menu-overlay is not part of the Bulma default navbar, it might be from a custom addition. */
+/* The standard Bulma .navbar-menu.is-active provides the dropdown. */
+/* I'll keep it as it was in your provided CSS. If it's unused, it can be removed. */
 .mobile-menu-overlay {
     display: none;
     position: fixed;
@@ -335,7 +371,7 @@ a:hover { color: var(--primary-indigo-darker); }
     bottom: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: 40;
+    z-index: 40; /* Ensure it's above navbar if used */
     align-items: center;
     justify-content: center;
 }
@@ -346,7 +382,7 @@ a:hover { color: var(--primary-indigo-darker); }
 
 .mobile-menu-container {
     position: relative;
-    background-color: white;
+    background-color: white; /* Consider var(--background-color) for theme consistency */
     width: 90%;
     max-width: 400px;
     border-radius: 16px;
@@ -354,29 +390,46 @@ a:hover { color: var(--primary-indigo-darker); }
     overflow: hidden;
 }
 
-.mobile-menu-header {
+/* Styles for the standard Bulma mobile menu (navbar-menu.is-active) */
+@media screen and (max-width: 1023px) {
+    .navbar-menu.is-active {
+        background-color: var(--background-color); /* Ensure themed background */
+        box-shadow: 0 8px 16px rgba(10,10,10,.1);
+        padding: 0.5rem 0;
+    }
+
+    /* This was an earlier rule, the more specific ones for .navbar-item > .button.is-indigo are better */
+    /* #mainNavbarMobile .navbar-item .button.is-indigo {
+        display: block; 
+        text-align: center; 
+    } */
+}
+
+
+/* Styles for items within the standard Bulma mobile menu */
+.mobile-menu-header { /* For custom mobile overlay, if used */
     padding: 15px;
     text-align: right;
 }
 
-.mobile-menu-close {
+.mobile-menu-close { /* For custom mobile overlay, if used */
     background: none;
     border: none;
     font-size: 24px;
     cursor: pointer;
     padding: 5px 10px;
-    color: #666;
+    color: #666; /* Consider var(--text-color) */
 }
 
-.mobile-menu-items {
+.mobile-menu-items { /* For custom mobile overlay, if used */
     padding: 10px 20px 20px;
 }
 
-.mobile-menu-item {
+.mobile-menu-item { /* For custom mobile overlay, if used */
     display: block;
     padding: 15px 20px;
     margin: 10px 0;
-    background-color: rgba(67, 56, 202, 0.05);
+    background-color: rgba(67, 56, 202, 0.05); /* Consider var(--primary-indigo-semitransparent) */
     color: var(--primary-indigo);
     border-radius: 8px;
     font-weight: 600;
@@ -384,22 +437,22 @@ a:hover { color: var(--primary-indigo-darker); }
     text-decoration: none;
 }
 
-.mobile-menu-item:hover {
+.mobile-menu-item:hover {  /* For custom mobile overlay, if used */
     background-color: rgba(67, 56, 202, 0.1);
 }
 
-.mobile-menu-icon {
+.mobile-menu-icon { /* For custom mobile overlay, if used */
     margin-right: 10px;
     font-size: 18px;
 }
 
-.mobile-social-links {
+.mobile-social-links { /* For custom mobile overlay, if used */
     display: flex;
     justify-content: center;
     margin: 20px 0;
 }
 
-.mobile-social-links a {
+.mobile-social-links a { /* For custom mobile overlay, if used */
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -413,18 +466,18 @@ a:hover { color: var(--primary-indigo-darker); }
     transition: background-color 0.2s, transform 0.2s;
 }
 
-.mobile-social-links a:hover {
+.mobile-social-links a:hover { /* For custom mobile overlay, if used */
     background-color: var(--primary-indigo);
     color: white;
     transform: scale(1.1);
 }
 
-.mobile-menu-footer {
+.mobile-menu-footer { /* For custom mobile overlay, if used */
     padding: 20px;
     background-color: var(--background-color-light);
 }
 
-.mobile-menu-footer .button.is-primary {
+.mobile-menu-footer .button.is-primary { /* For custom mobile overlay, if used */
     background-color: var(--primary-indigo);
     border-color: var(--primary-indigo);
     font-weight: 600;
@@ -432,10 +485,11 @@ a:hover { color: var(--primary-indigo-darker); }
     padding: 12px;
 }
 
-.mobile-menu-footer .button.is-primary:hover {
+.mobile-menu-footer .button.is-primary:hover { /* For custom mobile overlay, if used */
     background-color: var(--primary-indigo-darker);
     border-color: var(--primary-indigo-darker);
 }
+
 
 /* --- Section 1: White Intro Hero --- */
 .white-intro-hero {
@@ -687,7 +741,7 @@ img.hero-profile-image-main { /* Profile image in white hero */
 
 /* --- Footer --- */
 .footer {
-    background-color: var(--background-color);
+    background-color: var(--background-color); /* Will be overridden by .indigo-description-hero on main page */
     border-top: none;
     color: var(--text-color-light);
     padding: 2rem 1.5rem; 
@@ -695,40 +749,49 @@ img.hero-profile-image-main { /* Profile image in white hero */
     font-family: var(--font-family-main);
     text-align: center;
 }
-/* Footer paragraphs for CV/Contact */
-.footer .content p { 
+/* Footer paragraphs for CV/Contact (if footer is not .is-primary) */
+.footer:not(.is-primary) .content p { 
     color: var(--text-color-light);
     font-size: 0.85rem; 
     line-height: 1.5;
     margin-bottom: 0.5rem; 
 }
-/* Footer paragraph for index.html */
-.main-page-footer-credit p { 
-    color: var(--text-color-light);
+/* Footer paragraph specific for index.html's primary colored footer */
+.footer.is-primary .content p, .footer.is-primary p { 
+    color: var(--text-on-primary) !important; /* Ensures text is light on primary bg */
     font-size: 0.9rem; 
     line-height: 1.6;
     margin-bottom: 0; 
 }
 .footer a { 
-    color: var(--primary-indigo);
+    color: var(--primary-indigo); /* Default link color */
     font-weight: 500;
 }
+.footer.is-primary a {
+    color: var(--link-on-primary) !important; /* Link color on primary bg */
+}
 .footer a:hover {
-    color: var(--primary-indigo-darker);
+    color: var(--primary-indigo-darker); /* Default link hover */
+}
+.footer.is-primary a:hover {
+    color: var(--link-on-primary-hover) !important; /* Link hover on primary bg */
     text-decoration: underline;
 }
 .bulma-credit {
     display: inline-flex;
     align-items: center;
-    color: var(--text-color-light) !important;
     font-weight: normal !important;
+    /* color var(--text-color-light) or var(--link-on-primary) handled by specificity above */
 }
 .bulma-credit:hover {
-    color: var(--primary-indigo) !important;
     text-decoration: none !important;
 }
 .bulma-credit:hover .bulma-logo-img {
-    filter: none;
+    filter: none; /* Default for dark text, will be inverted by .dark-theme if needed */
+}
+.dark-theme .footer.is-primary .bulma-logo-img,
+.footer.is-primary .bulma-logo-img { /* For light theme primary footer */
+     filter: brightness(0) invert(1) !important;
 }
 .bulma-logo-img {
     height: 1em;
@@ -736,15 +799,15 @@ img.hero-profile-image-main { /* Profile image in white hero */
     vertical-align: middle;
     position: relative;
     top: -0.05em; 
-    filter: grayscale(100%) opacity(0.7);
+    filter: grayscale(100%) opacity(0.7); /* Default for light theme non-primary footer */
     transition: filter 0.2s ease-in-out;
 }
-.footer-social-links a {
+.footer-social-links a { /* For primary colored footer */
     margin: 0 0.5em;
-    color: var(--text-color-light) !important;
+    color: var(--link-on-primary) !important;
 }
 .footer-social-links a:hover {
-    color: var(--primary-indigo) !important;
+    color: var(--link-on-primary-hover) !important;
 }
 
 /* Mobile Menu Helper Styles */
