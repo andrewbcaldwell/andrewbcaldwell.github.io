@@ -9,13 +9,12 @@
 
     --text-color: #2c3e50; 
     --text-color-light: #7f8c8d;   
-    --text-on-primary: #ffffff; /* For general text on indigo backgrounds */    
-    --link-on-primary: #d1d5db; /* For general links on indigo backgrounds */    
+    --text-on-primary: #ffffff; 
+    --link-on-primary: #d1d5db; 
     --link-on-primary-hover: #ffffff; 
     
-    /* CV Page Specific (can be same as above if no difference needed) */
     --text-on-indigo: var(--text-on-primary); 
-    --text-on-indigo-dim: #e0e0e0; /* Slightly dimmer for less emphasis */
+    --text-on-indigo-dim: #e0e0e0; 
     --link-on-indigo: var(--link-on-primary); 
     --link-on-indigo-hover: var(--link-on-primary-hover); 
 
@@ -35,7 +34,6 @@
     --font-family-main: 'Lexend', sans-serif;
 }
 
-/* Dark theme class */
 .dark-theme {
     --background-color: #121212;
     --background-color-light: #1e1e1e;
@@ -43,33 +41,25 @@
     --text-color-light: #9e9e9e;
     --border-color: #333333;
     --border-color-light: #444444;
-    
-    /* Keep the primary indigo color the same */
-    /* Perhaps lighten the semitransparent version for better visibility */
     --primary-indigo-semitransparent: rgba(67, 56, 202, 0.2);
 }
 
-/* Extra styles specific to dark mode */
 .dark-theme .navbar.main-navbar {
     background-color: var(--background-color);
 }
-
 .dark-theme .bulma-logo-img {
-    filter: brightness(0) invert(1) !important; /* Make Bulma logo visible in dark mode */
+    filter: brightness(0) invert(1) !important;
 }
-
 .dark-theme .section.is-primary {
-    /* Slightly adjust the primary section in dark mode to not be too harsh */
     background-color: #362f8e !important;
 }
 
-/* Theme Dropdown Styles */
-.theme-dropdown {
+/* --- Theme Dropdown (Desktop) --- */
+.theme-dropdown { /* Wrapper for button and content */
     position: relative;
-    display: inline-block;
+    display: inline-block; /* Or flex if needed by parent .navbar-item */
 }
-
-.theme-dropdown-content {
+.theme-dropdown-content { /* The actual dropdown box */
     display: none;
     position: absolute;
     right: 0;
@@ -77,15 +67,13 @@
     background-color: var(--background-color);
     border-radius: 6px;
     box-shadow: 0 0.5em 1em -0.125em rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.02);
-    z-index: 40;
+    z-index: 40; /* Ensure it's above other navbar items */
     padding: 0.5rem 0;
     border: 1px solid var(--border-color-light);
 }
-
 .theme-dropdown.is-active .theme-dropdown-content {
     display: block;
 }
-
 .theme-item {
     display: flex;
     align-items: center;
@@ -94,97 +82,89 @@
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
-
 .theme-item:hover {
     background-color: var(--background-color-light);
 }
-
 .theme-item.is-active {
-    background-color: rgba(67, 56, 202, 0.1);
+    background-color: var(--primary-indigo-semitransparent);
     font-weight: 600;
 }
+.theme-icon { margin-right: 0.75rem; width: 1.5rem; text-align: center; }
+.theme-icon.sun { color: #F6C32C; }
+.theme-icon.moon { color: #A78BFA; }
+.theme-icon.desktop { color: #4ADE80; }
 
-.theme-icon {
-    margin-right: 0.75rem;
-    width: 1.5rem;
-    text-align: center;
-}
 
-.theme-icon.sun {
-    color: #F6C32C;
-}
+/* --- Theme Toggles Visibility Control --- */
 
-.theme-icon.moon {
-    color: #A78BFA;
-}
-
-.theme-icon.desktop {
-    color: #4ADE80;
-}
-
-/* Theme toggle positioning for mobile */
-.theme-toggle-mobile {
-    margin-left: auto; /* Pushes it to the right, next to the burger */
-    display: flex;
-    align-items: center;
-    /* Ensure it's vertically aligned with the burger if heights differ */
-    align-self: stretch; /* Make it take full height of navbar-brand if needed */
-}
-
-/* Make sure the toggle button is properly sized and positioned */
-#theme-toggle-mobile {
-    padding: 0.5rem;
-    height: 2.25rem; /* Adjusted for better touch target & alignment with burger */
-    width: 2.25rem;  /* Adjusted for better touch target & alignment with burger */
-    background: transparent;
-    border: none;
-    color: var(--primary-indigo);
-    display: inline-flex; /* For icon centering */
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px; /* Consistent rounding */
-}
-
-#theme-toggle-mobile:hover {
-    background-color: var(--primary-indigo-semitransparent);
-}
-
-/* Hide the desktop toggle on mobile and mobile toggle on desktop */
+/* Mobile View Specifics (max-width: 1023px) */
 @media screen and (max-width: 1023px) {
-    /* .theme-dropdown rule was here, replaced by more specific rule below */
-
-    /* MODIFIED/ADDED: Ensure desktop theme toggle (and its wrapper) is completely hidden on mobile */
-    .theme-dropdown-navbar-item { 
-        display: none !important; 
-    }
-
-    /* MODIFIED/ADDED: Style CV and Email Me buttons in the mobile dropdown menu */
-    #mainNavbarMobile .navbar-end > .navbar-item {
-        padding: 0.35rem 1rem; /* Consistent padding for mobile menu items */
-        display: flex;         /* Enable flex for alignment */
-        justify-content: flex-end; /* Align button to the right */
-    }
-
-    #mainNavbarMobile .navbar-end > .navbar-item > .button.is-indigo {
-        flex-grow: 0;    /* Prevent button from growing */
-        flex-shrink: 1;  /* Allow button to shrink */
-        width: auto;     /* Let content and padding define width */
-        min-width: 100px;/* Define a "narrow" minimum width */
-        max-width: 160px;/* Optional: define a maximum width */
-        /* Ensure text within button is centered if button width is larger than text */
-        text-align: center; 
-    }
-}
-
-@media screen and (min-width: 1024px) {
+    /* Ensure mobile toggle div is visible and positioned */
     .theme-toggle-mobile {
+        display: flex !important; /* Show the wrapper for mobile button */
+        align-items: center;
+        margin-left: auto; /* Pushes it to the right, before the burger if burger also has margin-left:auto */
+        order: 1; /* Try to force it before burger if burger has order 2 or higher */
+    }
+    /* Ensure the mobile button itself is visible */
+    #theme-toggle-mobile {
+        display: inline-flex !important; /* Show the mobile button */
+        padding: 0.5rem;
+        height: 2.25rem; 
+        width: 2.25rem;  
+        background: transparent;
+        border: none;
+        color: var(--primary-indigo);
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+    }
+    #theme-toggle-mobile:hover {
+        background-color: var(--primary-indigo-semitransparent);
+    }
+
+    /* Ensure desktop theme dropdown (and its wrapper navbar-item) is HIDDEN on mobile */
+    .theme-dropdown-navbar-item {
         display: none !important;
     }
-     /* Desktop theme dropdown should be visible */
-    .theme-dropdown-navbar-item {
-        display: flex; /* Or block, depending on how navbar-item should behave */
+
+    /* Styles for CV and Email Me buttons in mobile dropdown */
+    #mainNavbarMobile .navbar-end > .navbar-item {
+        padding: 0.35rem 1rem;
+        display: flex;
+        justify-content: flex-end;
+    }
+    #mainNavbarMobile .navbar-end > .navbar-item > .button.is-indigo {
+        flex-grow: 0;
+        flex-shrink: 1;
+        width: auto;
+        min-width: 100px;
+        max-width: 160px;
+        text-align: center;
+    }
+    /* Ensure mobile menu background is themed */
+    .navbar-menu.is-active {
+        background-color: var(--background-color);
+        box-shadow: 0 8px 16px rgba(10,10,10,.1);
+        padding: 0.5rem 0;
     }
 }
+
+/* Desktop View Specifics (min-width: 1024px) */
+@media screen and (min-width: 1024px) {
+    /* Ensure mobile toggle (div and button) is HIDDEN on desktop */
+    .theme-toggle-mobile,
+    #theme-toggle-mobile {
+        display: none !important;
+    }
+
+    /* Ensure desktop theme dropdown wrapper is VISIBLE on desktop */
+    .theme-dropdown-navbar-item {
+        display: flex !important; /* Bulma navbar-items are often flex */
+        align-items: center;
+    }
+}
+
 
 /* --- Bulma .is-primary Color Override --- */
 .section.is-primary { 
@@ -194,14 +174,13 @@
 .section.is-primary .title, 
 .section.is-primary .subtitle, 
 .section.is-primary p,
-.section.is-primary .content, /* Ensure content within .is-primary sections is light */
-.section.is-primary .content p { /* And paragraphs within that content */
+.section.is-primary .content,
+.section.is-primary .content p {
     color: var(--text-on-primary) !important;
 }
 .section.is-primary .subtitle { 
     color: var(--link-on-primary) !important; 
 }
-/* Button specific .is-primary */
 .button.is-primary { 
     background-color: var(--primary-indigo) !important;
     border-color: var(--primary-indigo) !important;
@@ -224,7 +203,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: var(--background-color);
-    padding-top: 3.25rem; /* Bulma default navbar height */
+    padding-top: 3.25rem; 
 }
 
 .section { padding: 3rem 1.5rem; } 
@@ -270,19 +249,20 @@ a:hover { color: var(--primary-indigo-darker); }
     border-bottom: 1px solid var(--border-color-light); 
     font-family: var(--font-family-main);
     transition: box-shadow 0.3s ease-in-out; 
-    /* padding: 0.2rem 0; Removed for standard Bulma navbar height handling */
     position: fixed; 
     width: 100%;
     top: 0;
     left: 0;
     z-index: 30;
-    min-height: 3.25rem; /* Default Bulma navbar height */
+    min-height: 3.25rem; 
 }
 .navbar.main-navbar.has-shadow { 
     box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-/* Logo styling */
+.navbar-brand {
+    align-items: stretch; /* Ensure items in navbar-brand can stretch vertically */
+}
 .navbar-brand .navbar-item.brand-name {
     color: var(--primary-indigo);
     font-weight: 700;
@@ -294,7 +274,6 @@ a:hover { color: var(--primary-indigo-darker); }
     display: flex;
     align-items: center;
 }
-
 .navbar-brand .logo-icon {
     background-color: var(--primary-indigo);
     color: white;
@@ -305,19 +284,19 @@ a:hover { color: var(--primary-indigo-darker); }
     align-items: center;
     justify-content: center;
     margin-right: 0.75rem;
-    font-size: 16px; /* Smaller than text to fit properly */
+    font-size: 16px; 
 }
-
-/* If the icon appears too large or small, adjust this size */
-.navbar-brand .logo-icon i {
-    font-size: 16px;
-}
-
+.navbar-brand .logo-icon i { font-size: 16px; }
 .navbar-brand .navbar-item.brand-name:hover {
     background-color: var(--primary-indigo-semitransparent) !important;
     color: var(--primary-indigo) !important;
     border: none !important;
 }
+
+/* Bulma's navbar-burger default style pushes it to the right on mobile */
+/* No need to style .navbar-burger span explicitly here if Bulma defaults are fine */
+/* .navbar-burger span { background-color: var(--primary-indigo); height: 2px; } */
+
 
 /* Desktop Menu items */
 @media screen and (min-width: 1024px) {
@@ -329,18 +308,15 @@ a:hover { color: var(--primary-indigo-darker); }
         border-radius: 4px !important; 
         margin: 0 0.3rem;
         padding: 0.5rem 0.75rem; 
-        display: flex; /* Ensure proper alignment for items like theme dropdown */
+        display: flex; 
         align-items: center;
     }
-    
     .navbar-menu .navbar-item:hover,
     .navbar-menu .navbar-item.is-active {
         background-color: var(--primary-indigo-semitransparent) !important;
         color: var(--primary-indigo) !important;
         border: none !important; 
     }
-    
-    /* Indigo button */
     .button.is-indigo {
         background-color: var(--primary-indigo);
         color: white;
@@ -348,148 +324,10 @@ a:hover { color: var(--primary-indigo-darker); }
         border-radius: 4px;
         font-weight: 700;
     }
-    
     .button.is-indigo:hover {
         background-color: var(--primary-indigo-darker);
     }
 }
-
-.navbar-burger span {
-    background-color: var(--primary-indigo);
-    height: 2px;
-}
-
-/* Mobile Menu Overlay (NEW) - This section was in your original CSS, ensure it's intended */
-/* If this .mobile-menu-overlay is not part of the Bulma default navbar, it might be from a custom addition. */
-/* The standard Bulma .navbar-menu.is-active provides the dropdown. */
-/* I'll keep it as it was in your provided CSS. If it's unused, it can be removed. */
-.mobile-menu-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 40; /* Ensure it's above navbar if used */
-    align-items: center;
-    justify-content: center;
-}
-
-.mobile-menu-overlay.is-active {
-    display: flex;
-}
-
-.mobile-menu-container {
-    position: relative;
-    background-color: white; /* Consider var(--background-color) for theme consistency */
-    width: 90%;
-    max-width: 400px;
-    border-radius: 16px;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
-}
-
-/* Styles for the standard Bulma mobile menu (navbar-menu.is-active) */
-@media screen and (max-width: 1023px) {
-    .navbar-menu.is-active {
-        background-color: var(--background-color); /* Ensure themed background */
-        box-shadow: 0 8px 16px rgba(10,10,10,.1);
-        padding: 0.5rem 0;
-    }
-
-    /* This was an earlier rule, the more specific ones for .navbar-item > .button.is-indigo are better */
-    /* #mainNavbarMobile .navbar-item .button.is-indigo {
-        display: block; 
-        text-align: center; 
-    } */
-}
-
-
-/* Styles for items within the standard Bulma mobile menu */
-.mobile-menu-header { /* For custom mobile overlay, if used */
-    padding: 15px;
-    text-align: right;
-}
-
-.mobile-menu-close { /* For custom mobile overlay, if used */
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 5px 10px;
-    color: #666; /* Consider var(--text-color) */
-}
-
-.mobile-menu-items { /* For custom mobile overlay, if used */
-    padding: 10px 20px 20px;
-}
-
-.mobile-menu-item { /* For custom mobile overlay, if used */
-    display: block;
-    padding: 15px 20px;
-    margin: 10px 0;
-    background-color: rgba(67, 56, 202, 0.05); /* Consider var(--primary-indigo-semitransparent) */
-    color: var(--primary-indigo);
-    border-radius: 8px;
-    font-weight: 600;
-    transition: background-color 0.2s;
-    text-decoration: none;
-}
-
-.mobile-menu-item:hover {  /* For custom mobile overlay, if used */
-    background-color: rgba(67, 56, 202, 0.1);
-}
-
-.mobile-menu-icon { /* For custom mobile overlay, if used */
-    margin-right: 10px;
-    font-size: 18px;
-}
-
-.mobile-social-links { /* For custom mobile overlay, if used */
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
-.mobile-social-links a { /* For custom mobile overlay, if used */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    margin: 0 10px;
-    border-radius: 50%;
-    background-color: rgba(67, 56, 202, 0.1);
-    color: var(--primary-indigo);
-    font-size: 18px;
-    transition: background-color 0.2s, transform 0.2s;
-}
-
-.mobile-social-links a:hover { /* For custom mobile overlay, if used */
-    background-color: var(--primary-indigo);
-    color: white;
-    transform: scale(1.1);
-}
-
-.mobile-menu-footer { /* For custom mobile overlay, if used */
-    padding: 20px;
-    background-color: var(--background-color-light);
-}
-
-.mobile-menu-footer .button.is-primary { /* For custom mobile overlay, if used */
-    background-color: var(--primary-indigo);
-    border-color: var(--primary-indigo);
-    font-weight: 600;
-    border-radius: 8px;
-    padding: 12px;
-}
-
-.mobile-menu-footer .button.is-primary:hover { /* For custom mobile overlay, if used */
-    background-color: var(--primary-indigo-darker);
-    border-color: var(--primary-indigo-darker);
-}
-
 
 /* --- Section 1: White Intro Hero --- */
 .white-intro-hero {
@@ -519,298 +357,122 @@ a:hover { color: var(--primary-indigo-darker); }
     margin-top: 1rem;        
     margin-bottom: 1.5rem;   
 }
-img.hero-profile-image-main { /* Profile image in white hero */
-    width: 256px;        
-    height: 256px;       
-    border-radius: 50%;  
-    object-fit: cover;   /* Prevents skewing */
-    border: 5px solid var(--background-color); 
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12); 
-    display: block;      
+img.hero-profile-image-main { 
+    width: 256px; height: 256px; border-radius: 50%; object-fit: cover;   
+    border: 5px solid var(--background-color); box-shadow: 0 8px 25px rgba(0,0,0,0.12); display: block;      
 }
-@media screen and (max-width: 768px) { /* Responsive adjustments for white hero */
+@media screen and (max-width: 768px) { 
     .hero-main-title { font-size: 2rem; }
     .hero-tagline { font-size: 1rem; margin-bottom: 1.5rem; }
-    img.hero-profile-image-main { 
-        width: 180px; 
-        height: 180px; 
-    }
+    img.hero-profile-image-main { width: 180px; height: 180px; }
 }
 
 /* --- Section 2: Indigo Personal Description Hero --- */
-.section.indigo-description-hero.is-primary { 
-    /* background-color handled by global .section.is-primary rule */
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-}
+.section.indigo-description-hero.is-primary { padding-top: 4rem; padding-bottom: 4rem; }
 .indigo-description-hero .hero-body { padding: 2rem 0; } 
-.indigo-description-hero .title.is-2 { 
-    margin-bottom: 2rem;
-    font-weight: 600;
-    /* color: var(--text-on-primary) !important; Handled by global .section.is-primary */
-}
-.indigo-description-hero .content p { 
-    /* color: var(--text-on-primary) !important; Handled by global .section.is-primary */
-    line-height: 1.8; 
-    margin-bottom: 1.25rem;
-}
+.indigo-description-hero .title.is-2 { margin-bottom: 2rem; font-weight: 600; }
+.indigo-description-hero .content p { line-height: 1.8; margin-bottom: 1.25rem; }
 .indigo-description-hero a.link-on-indigo-bg { 
-    color: var(--link-on-primary); /* Brighter/distinct link color for on primary background */
-    font-weight: 600; 
-    text-decoration: none;
-    border-bottom: 1px solid var(--link-on-primary); 
-    padding-bottom: 1px;
+    color: var(--link-on-primary); font-weight: 600; text-decoration: none;
+    border-bottom: 1px solid var(--link-on-primary); padding-bottom: 1px;
     transition: color 0.2s ease, border-bottom-color 0.2s ease;
 }
 .indigo-description-hero a.link-on-indigo-bg:hover {
-    color: var(--link-on-primary-hover);
-    border-bottom-color: var(--link-on-primary-hover);
+    color: var(--link-on-primary-hover); border-bottom-color: var(--link-on-primary-hover);
 }
 
 /* --- Section 3: Recent Publications --- */
-.recent-publications-section {
-    background-color: var(--background-color);
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-}
-.recent-publications-section .section-title {
-    color: var(--text-color);
-    margin-bottom: 3rem;
-}
+.recent-publications-section { background-color: var(--background-color); padding-top: 4rem; padding-bottom: 4rem; }
+.recent-publications-section .section-title { color: var(--text-color); margin-bottom: 3rem; }
 .publication-card.portrait { 
-    display: block;
-    position: relative;
-    border-radius: var(--card-border-radius);
-    overflow: hidden;
-    box-shadow: var(--card-shadow);
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    display: block; position: relative; border-radius: var(--card-border-radius); overflow: hidden;
+    box-shadow: var(--card-shadow); transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
     background-color: #e0e0e0; 
 }
-.publication-card.portrait:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: var(--card-shadow-hover);
-}
-.publication-image-figure { 
-    position: relative;
-    padding-top: 129.4%; /* Approx 8.5x11 aspect ratio (11/8.5 * 100). ADJUST TO YOUR IMAGES. */
-    background-color: #f0f0f0; 
-}
+.publication-card.portrait:hover { transform: translateY(-6px) scale(1.02); box-shadow: var(--card-shadow-hover); }
+.publication-image-figure { position: relative; padding-top: 129.4%; background-color: #f0f0f0; }
 .publication-image-figure img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    display: block;
-    transition: transform 0.5s ease;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; 
+    display: block; transition: transform 0.5s ease;
 }
-.publication-card.portrait:hover img {
-    transform: scale(1.05); 
-}
+.publication-card.portrait:hover img { transform: scale(1.05); }
 .publication-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--primary-indigo-overlay);
-    color: var(--text-on-primary);
-    padding: 1rem 1.25rem;
-    opacity: 0; 
-    transform: translateY(100%); 
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out; 
-    text-align: left;
-    min-height: auto; 
-    display: flex;
-    flex-direction: column; 
-    justify-content: flex-end; 
+    position: absolute; bottom: 0; left: 0; right: 0; background: var(--primary-indigo-overlay);
+    color: var(--text-on-primary); padding: 1rem 1.25rem; opacity: 0; 
+    transform: translateY(100%); transition: opacity 0.3s ease-out, transform 0.3s ease-out; 
+    text-align: left; min-height: auto; display: flex; flex-direction: column; justify-content: flex-end; 
 }
-.publication-card.portrait:hover .publication-overlay { 
-    opacity: 1;
-    transform: translateY(0);
-}
+.publication-card.portrait:hover .publication-overlay { opacity: 1; transform: translateY(0); }
 .publication-overlay .title.is-5 {
-    color: var(--text-on-primary) !important; 
-    margin-bottom: 0;
-    font-size: 0.9rem; 
-    line-height: 1.25; 
-    font-weight: 500;
+    color: var(--text-on-primary) !important; margin-bottom: 0; font-size: 0.9rem; 
+    line-height: 1.25; font-weight: 500;
 }
 
-/* Social links below publications */
 .hero-social-links { margin-top: 2rem; }
 .hero-social-links .button.is-ghost {
-    background: transparent;
-    border: none;
-    color: var(--text-color-light);
-    font-size: 1.5rem;
-    margin: 0 0.6rem;
-    padding: 0.5rem;
+    background: transparent; border: none; color: var(--text-color-light);
+    font-size: 1.5rem; margin: 0 0.6rem; padding: 0.5rem;
 }
-.hero-social-links .button.is-ghost:hover {
-    color: var(--primary-indigo);
-    transform: scale(1.1);
-}
-.hero-social-links .button.is-ghost .icon {
-    font-size: inherit;
-}
+.hero-social-links .button.is-ghost:hover { color: var(--primary-indigo); transform: scale(1.1); }
+.hero-social-links .button.is-ghost .icon { font-size: inherit; }
 
 /* --- Generic Box Styling (CV, Contact content) --- */
 .box.content-box {
-    background-color: var(--background-color);
-    border: 1px solid var(--border-color);
-    border-radius: var(--box-content-border-radius); 
-    box-shadow: var(--card-shadow);
-    padding: 0; 
-    font-family: var(--font-family-main);
-    overflow: hidden; 
+    background-color: var(--background-color); border: 1px solid var(--border-color);
+    border-radius: var(--box-content-border-radius); box-shadow: var(--card-shadow);
+    padding: 0; font-family: var(--font-family-main); overflow: hidden; 
 }
-.cv-section-default {
-    padding: 2rem;
-}
-@media screen and (min-width: 769px) {
-    .cv-section-default {
-        padding: 2.5rem;
-    }
-}
+.cv-section-default { padding: 2rem; }
+@media screen and (min-width: 769px) { .cv-section-default { padding: 2.5rem; } }
 .cv-section-colored {
-    background-color: var(--primary-indigo);
-    color: var(--text-on-indigo); /* Uses specific CV text color variable */
-    padding: 2rem;
-    border-radius: 0;
+    background-color: var(--primary-indigo); color: var(--text-on-indigo); 
+    padding: 2rem; border-radius: 0;
 }
-@media screen and (min-width: 769px) {
-    .cv-section-colored {
-        padding: 2.5rem;
-    }
-}
-.box.content-box > div:first-child {
-    border-top-left-radius: var(--box-content-border-radius);
-    border-top-right-radius: var(--box-content-border-radius);
-}
-.box.content-box > div:last-child {
-    border-bottom-left-radius: var(--box-content-border-radius);
-    border-bottom-right-radius: var(--box-content-border-radius);
-}
-.cv-section-colored .title,
-.cv-section-colored .subtitle,
-.cv-section-colored strong {
-    color: var(--text-on-indigo) !important; 
-}
-.cv-section-colored .subtitle {
-    color: var(--text-on-indigo-dim) !important;
-}
-.cv-section-colored address, .cv-section-colored p, .cv-section-colored li {
-    color: var(--text-on-indigo);
-}
-.cv-section-colored a { /* Links within CV colored section */
-    color: var(--link-on-indigo); 
-    font-weight: 600; 
-}
-.cv-section-colored a:hover {
-    color: var(--link-on-indigo-hover); 
-    text-decoration: underline;
-}
-.cv-section-colored abbr { 
-    border-bottom-color: var(--text-on-indigo-dim); 
-    color: var(--text-on-indigo);
-}
-.section-title-indigo { /* For CV titles like "Publications" on white bg */
-    color: var(--primary-indigo) !important; 
-}
-.content-box .title.is-4 { 
-    padding-bottom: 0.5em;
-    margin-top: 1.5rem;
-    margin-bottom: 1em;
-    font-size: 1.5rem;
-}
-.content-box .cv-section-default .title.is-4 { 
-    border-bottom: 1px solid var(--border-color-light);
-}
-.content-box div:first-child > .title.is-4:first-of-type { 
-    margin-top: 0;
-}
-.content-box hr { 
-    background-color: var(--border-color-light);
-    height: 1px;
-    margin: 1.5rem 0;
-}
-.cv-section-colored hr { 
-    background-color: rgba(255, 255, 255, 0.2); 
-}
+@media screen and (min-width: 769px) { .cv-section-colored { padding: 2.5rem; } }
+.box.content-box > div:first-child { border-top-left-radius: var(--box-content-border-radius); border-top-right-radius: var(--box-content-border-radius); }
+.box.content-box > div:last-child { border-bottom-left-radius: var(--box-content-border-radius); border-bottom-right-radius: var(--box-content-border-radius); }
+.cv-section-colored .title, .cv-section-colored .subtitle, .cv-section-colored strong { color: var(--text-on-indigo) !important; }
+.cv-section-colored .subtitle { color: var(--text-on-indigo-dim) !important; }
+.cv-section-colored address, .cv-section-colored p, .cv-section-colored li { color: var(--text-on-indigo); }
+.cv-section-colored a { color: var(--link-on-indigo); font-weight: 600; }
+.cv-section-colored a:hover { color: var(--link-on-indigo-hover); text-decoration: underline; }
+.cv-section-colored abbr { border-bottom-color: var(--text-on-indigo-dim); color: var(--text-on-indigo); }
+.section-title-indigo { color: var(--primary-indigo) !important; }
+.content-box .title.is-4 { padding-bottom: 0.5em; margin-top: 1.5rem; margin-bottom: 1em; font-size: 1.5rem; }
+.content-box .cv-section-default .title.is-4 { border-bottom: 1px solid var(--border-color-light); }
+.content-box div:first-child > .title.is-4:first-of-type { margin-top: 0; }
+.content-box hr { background-color: var(--border-color-light); height: 1px; margin: 1.5rem 0; }
+.cv-section-colored hr { background-color: rgba(255, 255, 255, 0.2); }
 
 /* --- Footer --- */
 .footer {
-    background-color: var(--background-color); /* Will be overridden by .indigo-description-hero on main page */
-    border-top: none;
-    color: var(--text-color-light);
-    padding: 2rem 1.5rem; 
-    margin-top: auto;
-    font-family: var(--font-family-main);
-    text-align: center;
+    background-color: var(--background-color); 
+    border-top: none; color: var(--text-color-light); padding: 2rem 1.5rem; 
+    margin-top: auto; font-family: var(--font-family-main); text-align: center;
 }
-/* Footer paragraphs for CV/Contact (if footer is not .is-primary) */
 .footer:not(.is-primary) .content p { 
-    color: var(--text-color-light);
-    font-size: 0.85rem; 
-    line-height: 1.5;
-    margin-bottom: 0.5rem; 
+    color: var(--text-color-light); font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.5rem; 
 }
-/* Footer paragraph specific for index.html's primary colored footer */
 .footer.is-primary .content p, .footer.is-primary p { 
-    color: var(--text-on-primary) !important; /* Ensures text is light on primary bg */
-    font-size: 0.9rem; 
-    line-height: 1.6;
-    margin-bottom: 0; 
+    color: var(--text-on-primary) !important; font-size: 0.9rem; line-height: 1.6; margin-bottom: 0; 
 }
-.footer a { 
-    color: var(--primary-indigo); /* Default link color */
-    font-weight: 500;
-}
-.footer.is-primary a {
-    color: var(--link-on-primary) !important; /* Link color on primary bg */
-}
-.footer a:hover {
-    color: var(--primary-indigo-darker); /* Default link hover */
-}
-.footer.is-primary a:hover {
-    color: var(--link-on-primary-hover) !important; /* Link hover on primary bg */
-    text-decoration: underline;
-}
-.bulma-credit {
-    display: inline-flex;
-    align-items: center;
-    font-weight: normal !important;
-    /* color var(--text-color-light) or var(--link-on-primary) handled by specificity above */
-}
-.bulma-credit:hover {
-    text-decoration: none !important;
-}
-.bulma-credit:hover .bulma-logo-img {
-    filter: none; /* Default for dark text, will be inverted by .dark-theme if needed */
-}
+.footer a { color: var(--primary-indigo); font-weight: 500; }
+.footer.is-primary a { color: var(--link-on-primary) !important; }
+.footer a:hover { color: var(--primary-indigo-darker); }
+.footer.is-primary a:hover { color: var(--link-on-primary-hover) !important; text-decoration: underline; }
+.bulma-credit { display: inline-flex; align-items: center; font-weight: normal !important; }
+.bulma-credit:hover { text-decoration: none !important; }
+.bulma-credit:hover .bulma-logo-img { filter: none; }
 .dark-theme .footer.is-primary .bulma-logo-img,
-.footer.is-primary .bulma-logo-img { /* For light theme primary footer */
-     filter: brightness(0) invert(1) !important;
-}
+.footer.is-primary .bulma-logo-img { filter: brightness(0) invert(1) !important; }
 .bulma-logo-img {
-    height: 1em;
-    margin-left: 0.3em; 
-    vertical-align: middle;
-    position: relative;
-    top: -0.05em; 
-    filter: grayscale(100%) opacity(0.7); /* Default for light theme non-primary footer */
-    transition: filter 0.2s ease-in-out;
+    height: 1em; margin-left: 0.3em; vertical-align: middle; position: relative;
+    top: -0.05em; filter: grayscale(100%) opacity(0.7); transition: filter 0.2s ease-in-out;
 }
-.footer-social-links a { /* For primary colored footer */
-    margin: 0 0.5em;
-    color: var(--link-on-primary) !important;
-}
-.footer-social-links a:hover {
-    color: var(--link-on-primary-hover) !important;
-}
+.footer-social-links a { margin: 0 0.5em; color: var(--link-on-primary) !important; }
+.footer-social-links a:hover { color: var(--link-on-primary-hover) !important; }
 
 /* Mobile Menu Helper Styles */
 body.is-menu-open {
-    overflow: hidden;
+    overflow: hidden; /* Prevents scrolling of body when mobile menu is open */
 }
