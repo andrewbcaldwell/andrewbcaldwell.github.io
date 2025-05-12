@@ -51,33 +51,9 @@
         }
 
         .hero-social-links .button.is-ghost:hover {
-            transform: scale(1.3); /* Make icon 30% bigger on hover */
+            transform: scale(1.4); /* Make icon 40% bigger on hover */
         }
 
-        /* Tooltip styling - updated for indigo background */
-        .hero-social-links .button.is-ghost:after {
-            content: attr(title); /* Use the title attribute as tooltip text */
-            position: absolute;
-            bottom: -25px; /* Position below the icon */
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(0, 0, 0, 0.7); /* Dark background */
-            color: white; /* White text */
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 0.7rem;
-            white-space: nowrap;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
-            pointer-events: none; /* Prevents tooltip from blocking other elements */
-            font-weight: 500;
-        }
-
-        .hero-social-links .button.is-ghost:hover:after {
-            opacity: 1;
-            visibility: visible;
-        }
     </style>
 </head>
 <body>
