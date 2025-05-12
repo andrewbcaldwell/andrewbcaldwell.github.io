@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en"> <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andrew B. Caldwell PhD | Research Scientist | Systems Biologist | Bioinformatics | UC San Diego</title>
@@ -179,7 +180,6 @@
     <section class="section recent-publications-section">
         <div class="container has-text-centered">
             <h1 class="title is-1 is-spaced hero-main-title">Recent Publications</h1>
-            
             <div class="columns is-multiline is-centered">
                 <div class="column is-one-third-desktop is-half-tablet">
                     <article class="publication-item">
@@ -246,7 +246,7 @@
                         </a>
                     </article>
                 </div>
-                 <div class="column is-one-third-desktop is-half-tablet">
+                <div class="column is-one-third-desktop is-half-tablet">
                     <article class="publication-item">
                         <a href="https://doi.org/10.1038/s12276-022-00769-1" target="_blank" rel="noopener noreferrer" class="publication-card portrait">
                             <figure class="image publication-image-figure">
@@ -260,7 +260,6 @@
                     </article>
                 </div>
             </div>
-            
             <div class="mt-5 mb-5">
                 <a href="https://scholar.google.com/citations?hl=en&user=yZdrmZoAAAAJ&view_op=list_works&authuser=1" class="button is-primary is-large is-rounded" target="_blank" rel="noopener noreferrer">
                     <span class="icon"><i class="fas fa-graduation-cap"></i></span>
@@ -338,14 +337,11 @@
     </footer>
 
     <script>
-        // Current year in footer
         if(document.getElementById('current-year')) {
             document.getElementById('current-year').textContent = new Date().getFullYear();
         }
         
-        // Fixed Mobile Menu Toggle
         document.addEventListener('DOMContentLoaded', () => {
-            // Handle navbar burger toggling
             const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
             if ($navbarBurgers.length > 0) {
                 $navbarBurgers.forEach(el => {
@@ -358,25 +354,14 @@
                 });
             }
             
-            // Handle navbar shadow separately
             const mainNavbar = document.querySelector('.main-navbar');
             if (mainNavbar) {
                 const scrollThreshold = 10; 
                 const addShadow = () => mainNavbar.classList.add('has-shadow');
                 const removeShadow = () => mainNavbar.classList.remove('has-shadow');
-                
-                if (window.scrollY > scrollThreshold) { 
-                    addShadow(); 
-                } else { 
-                    removeShadow(); 
-                }
-                
+                if (window.scrollY > scrollThreshold) { addShadow(); } else { removeShadow(); }
                 window.addEventListener('scroll', () => {
-                    if (window.scrollY > scrollThreshold) { 
-                        addShadow(); 
-                    } else { 
-                        removeShadow(); 
-                    }
+                    if (window.scrollY > scrollThreshold) { addShadow(); } else { removeShadow(); }
                 });
             }
         });
