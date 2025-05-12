@@ -1,4 +1,4 @@
-/* custom.css - Original structure with mobile menu adjustments */
+/* custom.css - Original structure with theme toggle CSS removed and mobile menu adjustments */
 
 /* --- Global & Theme Variables --- */
 :root {
@@ -13,9 +13,9 @@
     --link-on-primary: #d1d5db; /* For general links on indigo backgrounds */    
     --link-on-primary-hover: #ffffff; 
     
-    /* CV Page Specific (can be same as above if no difference needed) */
+    /* CV Page Specific  */
     --text-on-indigo: var(--text-on-primary); 
-    --text-on-indigo-dim: #e0e0e0; /* Slightly dimmer for less emphasis */
+    --text-on-indigo-dim: #e0e0e0; 
     --link-on-indigo: var(--link-on-primary); 
     --link-on-indigo-hover: var(--link-on-primary-hover); 
 
@@ -35,7 +35,7 @@
     --font-family-main: 'Lexend', sans-serif;
 }
 
-/* Dark theme class (variables retained in case of manual use, but no toggle) */
+/* Dark theme class - variables retained in case of manual use, but no active toggle */
 .dark-theme {
     --background-color: #121212;
     --background-color-light: #1e1e1e;
@@ -46,7 +46,7 @@
     --primary-indigo-semitransparent: rgba(67, 56, 202, 0.2);
 }
 
-/* Extra styles specific to dark mode */
+/* Extra styles specific to dark mode if .dark-theme class is manually applied */
 .dark-theme .navbar.main-navbar {
     background-color: var(--background-color);
 }
@@ -59,36 +59,42 @@
     background-color: #362f8e !important;
 }
 
-/* Theme related CSS was removed in the previous step */
-
+/* ALL THEME RELATED CSS (dropdowns, items, icons, specific toggles) */
 
 @media screen and (max-width: 1023px) {
-    /* ADDED: Styles for mobile dropdown menu appearance and item alignment */
+    /* Styles for mobile dropdown menu appearance and item alignment */
     .navbar-menu.is-active { /* This is #mainNavbarMobile when active */
-        left: auto !important; /* Override Bulma's default left: 0 */
-        width: 280px !important; /* Define a narrow width. Adjust as needed. */
-        /* right: 0; is default from Bulma and will make it stick to the right edge of viewport */
-        border-radius: 0 0 0 var(--card-border-radius); /* Optional: Rounded bottom-left corner */
-        box-shadow: -3px 3px 6px rgba(0,0,0,0.1); /* Optional: Prettier shadow */
-        background-color: var(--background-color); /* Ensure it has a background */
+        left: auto !important; 
+        right: 0 !important; /* Explicitly anchor to the right */
+        width: 220px !important; /* Narrow Width */
+        border-radius: 6px; 
+        box-shadow: 0 8px 16px rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02); 
+        background-color: var(--background-color); 
+        margin-top: 0.25rem; /* Small gap from navbar */
+        /* Ensure it doesn't inherit strange positioning from other rules */
+        position: absolute; /* Explicitly set, Bulma default for fixed navbars */
+        top: 100%; /* Position below the navbar */
+    }
+
+    /* Add some padding inside the narrow menu's .navbar-end */
+    #mainNavbarMobile > .navbar-end {
+        padding: 0.5rem 0; 
     }
 
     /* Align CV and Email Me buttons to the right within the mobile menu */
     #mainNavbarMobile > .navbar-end > .navbar-item {
         display: flex;
-        justify-content: flex-end; /* Aligns the button to the right */
-        padding-right: 1rem; /* Add some padding so button isn't flush with menu edge */
-        padding-left: 1rem; /* Consistent padding for the item */
+        justify-content: flex-end; 
+        padding: 0.25rem 1rem; /* Padding for each item line */
     }
 
-    /* Ensure the buttons themselves are not forced to full width */
     #mainNavbarMobile > .navbar-end > .navbar-item > .button.is-indigo {
-        flex-grow: 0; /* Don't grow to fill space */
-        /* width: auto; is default for buttons, should be fine */
-        margin-top: 0.25rem; /* Minor spacing between items if needed */
-        margin-bottom: 0.25rem;
+        flex-grow: 0; 
+        /* width: auto; /* Buttons should be their natural width */
+        /* margin-top: 0.25rem; /* Removed individual margins, handled by .navbar-item padding */
+        /* margin-bottom: 0.25rem; */
     }
-    /* END OF ADDED styles for mobile dropdown */
+    /* END OF styles for mobile dropdown */
 }
 
 @media screen and (min-width: 1024px) {
@@ -160,7 +166,7 @@ body {
     display: flex;
     flex-direction: column;
     background-color: var(--background-color);
-    padding-top: 5rem; /* Original value from your CSS file */
+    padding-top: 5rem; 
 }
 
 .section { padding: 3rem 1.5rem; } 
@@ -206,7 +212,7 @@ a:hover { color: var(--primary-indigo-darker); }
     border-bottom: 1px solid var(--border-color-light); 
     font-family: var(--font-family-main);
     transition: box-shadow 0.3s ease-in-out; 
-    padding: 0.2rem 0; /* Original value from your CSS file */
+    padding: 0.2rem 0; 
     position: fixed; 
     width: 100%;
     top: 0;
@@ -257,7 +263,7 @@ a:hover { color: var(--primary-indigo-darker); }
     height: 2px;
 }
 
-/* Mobile Menu Overlay (NEW) - Retaining this section as it was in your original CSS */
+/* Mobile Menu Overlay */
 /* This section might not be used if you are relying on the standard Bulma .navbar-menu.is-active behavior */
 .mobile-menu-overlay {
     display: none;
@@ -271,410 +277,159 @@ a:hover { color: var(--primary-indigo-darker); }
     align-items: center;
     justify-content: center;
 }
-
-.mobile-menu-overlay.is-active {
-    display: flex;
-}
-
+.mobile-menu-overlay.is-active { display: flex; }
 .mobile-menu-container {
-    position: relative;
-    background-color: white; /* Consider var(--background-color) */
-    width: 90%;
-    max-width: 400px;
-    border-radius: 16px;
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
+    position: relative; background-color: white; width: 90%; max-width: 400px;
+    border-radius: 16px; box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2); overflow: hidden;
 }
-
-.mobile-menu-header {
-    padding: 15px;
-    text-align: right;
-}
-
+.mobile-menu-header { padding: 15px; text-align: right; }
 .mobile-menu-close {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 5px 10px;
-    color: #666; /* Consider var(--text-color) */
+    background: none; border: none; font-size: 24px; cursor: pointer;
+    padding: 5px 10px; color: #666;
 }
-
-.mobile-menu-items {
-    padding: 10px 20px 20px;
-}
-
+.mobile-menu-items { padding: 10px 20px 20px; }
 .mobile-menu-item {
-    display: block;
-    padding: 15px 20px;
-    margin: 10px 0;
-    background-color: rgba(67, 56, 202, 0.05); /* Consider var(--primary-indigo-semitransparent) */
-    color: var(--primary-indigo);
-    border-radius: 8px;
-    font-weight: 600;
-    transition: background-color 0.2s;
-    text-decoration: none;
+    display: block; padding: 15px 20px; margin: 10px 0;
+    background-color: rgba(67, 56, 202, 0.05); color: var(--primary-indigo);
+    border-radius: 8px; font-weight: 600; transition: background-color 0.2s; text-decoration: none;
 }
-
-.mobile-menu-item:hover {
-    background-color: rgba(67, 56, 202, 0.1);
-}
-
-.mobile-menu-icon {
-    margin-right: 10px;
-    font-size: 18px;
-}
-
-.mobile-social-links {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-}
-
+.mobile-menu-item:hover { background-color: rgba(67, 56, 202, 0.1); }
+.mobile-menu-icon { margin-right: 10px; font-size: 18px; }
+.mobile-social-links { display: flex; justify-content: center; margin: 20px 0; }
 .mobile-social-links a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    margin: 0 10px;
-    border-radius: 50%;
-    background-color: rgba(67, 56, 202, 0.1);
-    color: var(--primary-indigo);
-    font-size: 18px;
-    transition: background-color 0.2s, transform 0.2s;
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 40px; height: 40px; margin: 0 10px; border-radius: 50%;
+    background-color: rgba(67, 56, 202, 0.1); color: var(--primary-indigo);
+    font-size: 18px; transition: background-color 0.2s, transform 0.2s;
 }
-
-.mobile-social-links a:hover {
-    background-color: var(--primary-indigo);
-    color: white;
-    transform: scale(1.1);
-}
-
-.mobile-menu-footer {
-    padding: 20px;
-    background-color: var(--background-color-light);
-}
-
+.mobile-social-links a:hover { background-color: var(--primary-indigo); color: white; transform: scale(1.1); }
+.mobile-menu-footer { padding: 20px; background-color: var(--background-color-light); }
 .mobile-menu-footer .button.is-primary {
-    background-color: var(--primary-indigo);
-    border-color: var(--primary-indigo);
-    font-weight: 600;
-    border-radius: 8px;
-    padding: 12px;
+    background-color: var(--primary-indigo); border-color: var(--primary-indigo);
+    font-weight: 600; border-radius: 8px; padding: 12px;
 }
-
-.mobile-menu-footer .button.is-primary:hover {
-    background-color: var(--primary-indigo-darker);
-    border-color: var(--primary-indigo-darker);
-}
+.mobile-menu-footer .button.is-primary:hover { background-color: var(--primary-indigo-darker); border-color: var(--primary-indigo-darker); }
 
 /* --- Section 1: White Intro Hero --- */
 .white-intro-hero {
-    background-color: var(--background-color);
-    padding-top: 5rem;      
-    padding-bottom: 3rem;  
-    text-align: center;     
+    background-color: var(--background-color); padding-top: 5rem; padding-bottom: 3rem; text-align: center;     
 }
 .hero-main-title { 
-    font-size: 2.4rem;   
-    font-weight: 700;   
-    color: var(--text-color) !important; 
-    margin-bottom: 0.5rem !important; 
+    font-size: 2.4rem; font-weight: 700; color: var(--text-color) !important; margin-bottom: 0.5rem !important; 
 }
 .hero-tagline { 
-    font-size: 1.1rem; 
-    color: var(--primary-indigo) !important; 
-    margin-bottom: 2rem !important; 
-    max-width: 550px; 
-    margin-left: auto;
-    margin-right: auto;
-    font-weight: 400; 
+    font-size: 1.1rem; color: var(--primary-indigo) !important; margin-bottom: 2rem !important; 
+    max-width: 550px; margin-left: auto; margin-right: auto; font-weight: 400; 
 }
 .white-hero-profile-image-wrapper {
-    display: flex;           
-    justify-content: center; 
-    margin-top: 1rem;        
-    margin-bottom: 1.5rem;   
+    display: flex; justify-content: center; margin-top: 1rem; margin-bottom: 1.5rem;   
 }
 img.hero-profile-image-main { 
-    width: 256px;        
-    height: 256px;       
-    border-radius: 50%;  
-    object-fit: cover;   
-    border: 5px solid var(--background-color); 
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12); 
-    display: block;      
+    width: 256px; height: 256px; border-radius: 50%; object-fit: cover;   
+    border: 5px solid var(--background-color); box-shadow: 0 8px 25px rgba(0,0,0,0.12); display: block;      
 }
 @media screen and (max-width: 768px) { 
     .hero-main-title { font-size: 2rem; }
     .hero-tagline { font-size: 1rem; margin-bottom: 1.5rem; }
-    img.hero-profile-image-main { 
-        width: 180px; 
-        height: 180px; 
-    }
+    img.hero-profile-image-main { width: 180px; height: 180px; }
 }
 
 /* --- Section 2: Indigo Personal Description Hero --- */
-.section.indigo-description-hero.is-primary { 
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-}
+.section.indigo-description-hero.is-primary { padding-top: 4rem; padding-bottom: 4rem; }
 .indigo-description-hero .hero-body { padding: 2rem 0; } 
-.indigo-description-hero .title.is-2 { 
-    margin-bottom: 2rem;
-    font-weight: 600;
-}
-.indigo-description-hero .content p { 
-    line-height: 1.8; 
-    margin-bottom: 1.25rem;
-}
+.indigo-description-hero .title.is-2 { margin-bottom: 2rem; font-weight: 600; }
+.indigo-description-hero .content p { line-height: 1.8; margin-bottom: 1.25rem; }
 .indigo-description-hero a.link-on-indigo-bg { 
-    color: var(--link-on-primary); 
-    font-weight: 600; 
-    text-decoration: none;
-    border-bottom: 1px solid var(--link-on-primary); 
-    padding-bottom: 1px;
+    color: var(--link-on-primary); font-weight: 600; text-decoration: none;
+    border-bottom: 1px solid var(--link-on-primary); padding-bottom: 1px;
     transition: color 0.2s ease, border-bottom-color 0.2s ease;
 }
-.indigo-description-hero a.link-on-indigo-bg:hover {
-    color: var(--link-on-primary-hover);
-    border-bottom-color: var(--link-on-primary-hover);
-}
+.indigo-description-hero a.link-on-indigo-bg:hover { color: var(--link-on-primary-hover); border-bottom-color: var(--link-on-primary-hover); }
 
 /* --- Section 3: Recent Publications --- */
-.recent-publications-section {
-    background-color: var(--background-color);
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-}
-.recent-publications-section .section-title {
-    color: var(--text-color);
-    margin-bottom: 3rem;
-}
+.recent-publications-section { background-color: var(--background-color); padding-top: 4rem; padding-bottom: 4rem; }
+.recent-publications-section .section-title { color: var(--text-color); margin-bottom: 3rem; }
 .publication-card.portrait { 
-    display: block;
-    position: relative;
-    border-radius: var(--card-border-radius);
-    overflow: hidden;
-    box-shadow: var(--card-shadow);
-    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    display: block; position: relative; border-radius: var(--card-border-radius); overflow: hidden;
+    box-shadow: var(--card-shadow); transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
     background-color: #e0e0e0; 
 }
-.publication-card.portrait:hover {
-    transform: translateY(-6px) scale(1.02);
-    box-shadow: var(--card-shadow-hover);
-}
-.publication-image-figure { 
-    position: relative;
-    padding-top: 129.4%; 
-    background-color: #f0f0f0; 
-}
+.publication-card.portrait:hover { transform: translateY(-6px) scale(1.02); box-shadow: var(--card-shadow-hover); }
+.publication-image-figure { position: relative; padding-top: 129.4%; background-color: #f0f0f0; }
 .publication-image-figure img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    display: block;
-    transition: transform 0.5s ease;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; 
+    display: block; transition: transform 0.5s ease;
 }
-.publication-card.portrait:hover img {
-    transform: scale(1.05); 
-}
+.publication-card.portrait:hover img { transform: scale(1.05); }
 .publication-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--primary-indigo-overlay);
-    color: var(--text-on-primary);
-    padding: 1rem 1.25rem;
-    opacity: 0; 
-    transform: translateY(100%); 
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out; 
-    text-align: left;
-    min-height: auto; 
-    display: flex;
-    flex-direction: column; 
-    justify-content: flex-end; 
+    position: absolute; bottom: 0; left: 0; right: 0; background: var(--primary-indigo-overlay);
+    color: var(--text-on-primary); padding: 1rem 1.25rem; opacity: 0; 
+    transform: translateY(100%); transition: opacity 0.3s ease-out, transform 0.3s ease-out; 
+    text-align: left; min-height: auto; display: flex; flex-direction: column; justify-content: flex-end; 
 }
-.publication-card.portrait:hover .publication-overlay { 
-    opacity: 1;
-    transform: translateY(0);
-}
+.publication-card.portrait:hover .publication-overlay { opacity: 1; transform: translateY(0); }
 .publication-overlay .title.is-5 {
-    color: var(--text-on-primary) !important; 
-    margin-bottom: 0;
-    font-size: 0.9rem; 
-    line-height: 1.25; 
-    font-weight: 500;
+    color: var(--text-on-primary) !important; margin-bottom: 0; font-size: 0.9rem; 
+    line-height: 1.25; font-weight: 500;
 }
-
 /* Social links below publications */
 .hero-social-links { margin-top: 2rem; }
 .hero-social-links .button.is-ghost {
-    background: transparent;
-    border: none;
-    color: var(--text-color-light);
-    font-size: 1.5rem;
-    margin: 0 0.6rem;
-    padding: 0.5rem;
+    background: transparent; border: none; color: var(--text-color-light);
+    font-size: 1.5rem; margin: 0 0.6rem; padding: 0.5rem;
 }
-.hero-social-links .button.is-ghost:hover {
-    color: var(--primary-indigo);
-    transform: scale(1.1);
-}
-.hero-social-links .button.is-ghost .icon {
-    font-size: inherit;
-}
+.hero-social-links .button.is-ghost:hover { color: var(--primary-indigo); transform: scale(1.1); }
+.hero-social-links .button.is-ghost .icon { font-size: inherit; }
 
 /* --- Generic Box Styling (CV, Contact content) --- */
 .box.content-box {
-    background-color: var(--background-color);
-    border: 1px solid var(--border-color);
-    border-radius: var(--box-content-border-radius); 
-    box-shadow: var(--card-shadow);
-    padding: 0; 
-    font-family: var(--font-family-main);
-    overflow: hidden; 
+    background-color: var(--background-color); border: 1px solid var(--border-color);
+    border-radius: var(--box-content-border-radius); box-shadow: var(--card-shadow);
+    padding: 0; font-family: var(--font-family-main); overflow: hidden; 
 }
-.cv-section-default {
-    padding: 2rem;
-}
-@media screen and (min-width: 769px) {
-    .cv-section-default {
-        padding: 2.5rem;
-    }
-}
+.cv-section-default { padding: 2rem; }
+@media screen and (min-width: 769px) { .cv-section-default { padding: 2.5rem; } }
 .cv-section-colored {
-    background-color: var(--primary-indigo);
-    color: var(--text-on-indigo); 
-    padding: 2rem;
-    border-radius: 0;
+    background-color: var(--primary-indigo); color: var(--text-on-indigo); 
+    padding: 2rem; border-radius: 0;
 }
-@media screen and (min-width: 769px) {
-    .cv-section-colored {
-        padding: 2.5rem;
-    }
-}
-.box.content-box > div:first-child {
-    border-top-left-radius: var(--box-content-border-radius);
-    border-top-right-radius: var(--box-content-border-radius);
-}
-.box.content-box > div:last-child {
-    border-bottom-left-radius: var(--box-content-border-radius);
-    border-bottom-right-radius: var(--box-content-border-radius);
-}
-.cv-section-colored .title,
-.cv-section-colored .subtitle,
-.cv-section-colored strong {
-    color: var(--text-on-indigo) !important; 
-}
-.cv-section-colored .subtitle {
-    color: var(--text-on-indigo-dim) !important;
-}
-.cv-section-colored address, .cv-section-colored p, .cv-section-colored li {
-    color: var(--text-on-indigo);
-}
-.cv-section-colored a { 
-    color: var(--link-on-indigo); 
-    font-weight: 600; 
-}
-.cv-section-colored a:hover {
-    color: var(--link-on-indigo-hover); 
-    text-decoration: underline;
-}
-.cv-section-colored abbr { 
-    border-bottom-color: var(--text-on-indigo-dim); 
-    color: var(--text-on-indigo);
-}
-.section-title-indigo { 
-    color: var(--primary-indigo) !important; 
-}
-.content-box .title.is-4 { 
-    padding-bottom: 0.5em;
-    margin-top: 1.5rem;
-    margin-bottom: 1em;
-    font-size: 1.5rem;
-}
-.content-box .cv-section-default .title.is-4 { 
-    border-bottom: 1px solid var(--border-color-light);
-}
-.content-box div:first-child > .title.is-4:first-of-type { 
-    margin-top: 0;
-}
-.content-box hr { 
-    background-color: var(--border-color-light);
-    height: 1px;
-    margin: 1.5rem 0;
-}
-.cv-section-colored hr { 
-    background-color: rgba(255, 255, 255, 0.2); 
-}
+@media screen and (min-width: 769px) { .cv-section-colored { padding: 2.5rem; } }
+.box.content-box > div:first-child { border-top-left-radius: var(--box-content-border-radius); border-top-right-radius: var(--box-content-border-radius); }
+.box.content-box > div:last-child { border-bottom-left-radius: var(--box-content-border-radius); border-bottom-right-radius: var(--box-content-border-radius); }
+.cv-section-colored .title, .cv-section-colored .subtitle, .cv-section-colored strong { color: var(--text-on-indigo) !important; }
+.cv-section-colored .subtitle { color: var(--text-on-indigo-dim) !important; }
+.cv-section-colored address, .cv-section-colored p, .cv-section-colored li { color: var(--text-on-indigo); }
+.cv-section-colored a { color: var(--link-on-indigo); font-weight: 600; }
+.cv-section-colored a:hover { color: var(--link-on-indigo-hover); text-decoration: underline; }
+.cv-section-colored abbr { border-bottom-color: var(--text-on-indigo-dim); color: var(--text-on-indigo); }
+.section-title-indigo { color: var(--primary-indigo) !important; }
+.content-box .title.is-4 { padding-bottom: 0.5em; margin-top: 1.5rem; margin-bottom: 1em; font-size: 1.5rem; }
+.content-box .cv-section-default .title.is-4 { border-bottom: 1px solid var(--border-color-light); }
+.content-box div:first-child > .title.is-4:first-of-type { margin-top: 0; }
+.content-box hr { background-color: var(--border-color-light); height: 1px; margin: 1.5rem 0; }
+.cv-section-colored hr { background-color: rgba(255, 255, 255, 0.2); }
 
 /* --- Footer --- */
 .footer {
-    background-color: var(--background-color);
-    border-top: none;
-    color: var(--text-color-light);
-    padding: 2rem 1.5rem; 
-    margin-top: auto;
-    font-family: var(--font-family-main);
-    text-align: center;
+    background-color: var(--background-color); border-top: none;
+    color: var(--text-color-light); padding: 2rem 1.5rem; margin-top: auto;
+    font-family: var(--font-family-main); text-align: center;
 }
-.footer .content p { 
-    color: var(--text-color-light);
-    font-size: 0.85rem; 
-    line-height: 1.5;
-    margin-bottom: 0.5rem; 
-}
-.main-page-footer-credit p { /* Original selector from your CSS */
-    color: var(--text-color-light);
-    font-size: 0.9rem; 
-    line-height: 1.6;
-    margin-bottom: 0; 
-}
-.footer a { 
-    color: var(--primary-indigo);
-    font-weight: 500;
-}
-.footer a:hover {
-    color: var(--primary-indigo-darker);
-    text-decoration: underline;
-}
+.footer .content p { color: var(--text-color-light); font-size: 0.85rem; line-height: 1.5; margin-bottom: 0.5rem; }
+.main-page-footer-credit p { color: var(--text-color-light); font-size: 0.9rem; line-height: 1.6; margin-bottom: 0; }
+.footer a { color: var(--primary-indigo); font-weight: 500; }
+.footer a:hover { color: var(--primary-indigo-darker); text-decoration: underline; }
 .bulma-credit {
-    display: inline-flex;
-    align-items: center;
-    color: var(--text-color-light) !important;
-    font-weight: normal !important;
+    display: inline-flex; align-items: center; color: var(--text-color-light) !important; font-weight: normal !important;
 }
-.bulma-credit:hover {
-    color: var(--primary-indigo) !important;
-    text-decoration: none !important;
-}
-.bulma-credit:hover .bulma-logo-img {
-    filter: none;
-}
+.bulma-credit:hover { color: var(--primary-indigo) !important; text-decoration: none !important; }
+.bulma-credit:hover .bulma-logo-img { filter: none; }
 .bulma-logo-img {
-    height: 1em;
-    margin-left: 0.3em; 
-    vertical-align: middle;
-    position: relative;
-    top: -0.05em; 
-    filter: grayscale(100%) opacity(0.7);
-    transition: filter 0.2s ease-in-out;
+    height: 1em; margin-left: 0.3em; vertical-align: middle; position: relative;
+    top: -0.05em; filter: grayscale(100%) opacity(0.7); transition: filter 0.2s ease-in-out;
 }
-.footer-social-links a { /* Original selector from your CSS */
-    margin: 0 0.5em;
-    color: var(--text-color-light) !important;
-}
-.footer-social-links a:hover {
-    color: var(--primary-indigo) !important;
-}
+.footer-social-links a { margin: 0 0.5em; color: var(--text-color-light) !important; }
+.footer-social-links a:hover { color: var(--primary-indigo) !important; }
 
 /* Mobile Menu Helper Styles */
-body.is-menu-open {
-    overflow: hidden;
-}
+body.is-menu-open { overflow: hidden; }
