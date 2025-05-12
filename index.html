@@ -3,50 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Andrew B. Caldwell PhD</title>
+    <title>Andrew B. Caldwell PhD | Research Scientist | Systems Biologist | Bioinformatics | UC San Diego</title>
+    <link rel="canonical" href="https://andrewbcaldwell.com/index.html" />
+    <meta name="robots" content="index, follow" />
     <!-- Google Fonts (Lexend) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Bulma CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="custom.css">
+    <!-- DNS prefetch -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <!-- Preload critical fonts and CSS -->   
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap" as="style">
+    <link rel="preload" href="custom.css" as="style">
+    <!-- Preload hero image -->
+    <link rel="preload" href="images/profile.jpg" as="image">
+    <!-- Basic meta tags -->
+    <meta name="description" content="Andrew B. Caldwell, Systems Biologist at UC San Diego researching Alzheimer's Disease through computational and experimental approaches.">
+    <meta name="keywords" content="systems biology computational biology, Alzheimer's disease, Neurodevelopment, Andrew Caldwell, UC San Diego">
+    <meta name="author" content="Andrew B. Caldwell">
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Andrew B. Caldwell - Systems Biologist">
+    <meta property="og:description" content="From cell culture to code, translating complex data into meaningful biological insights.">
+    <meta property="og:image" content="https://andrewbcaldwell.com/images/profile.jpg">
+    <meta property="og:url" content="https://andrewbcaldwell.com">
+    <meta property="og:type" content="website">
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@AndrewBCaldwell">
+    <meta name="twitter:title" content="Andrew B. Caldwell - Systems Biologist">
+    <meta name="twitter:description" content="From cell culture to code, translating complex data into meaningful biological insights.">
+    <meta name="twitter:image" content="https://andrewbcaldwell.com/images/profile.jpg">
+     <!-- JSON-LD structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Andrew B. Caldwell",
+      "jobTitle": "Research Scientist, Systems Biology",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "UC San Diego",
+        "url": "https://ucsd.edu/"
+      },
+      "url": "https://andrewbcaldwell.com",
+      "sameAs": [
+        "https://www.linkedin.com/in/andrewbcaldwell/",
+        "https://scholar.google.com/citations?hl=en&user=yZdrmZoAAAAJ",
+        "https://orcid.org/0000-0002-2850-7677",
+        "https://github.com/andrewbcaldwell"
+      ],
+      "knowsAbout": ["Systems Biology", "Alzheimer's Disease", "Multiomics", "Computational Biology"],
+      "workLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "9500 Gilman Drive",
+          "addressLocality": "La Jolla",
+          "addressRegion": "CA",
+          "postalCode": "92093",
+          "addressCountry": "USA"
+        }
+      },
+      "workExample": [
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Integrative multiomics reveals common endotypes across PSEN1, PSEN2, and APP mutations in familial Alzheimer's disease",
+          "author": [
+            {
+              "@type": "Person",
+              "name": "Andrew B. Caldwell"
+            }
+          ],
+          "datePublished": "2025",
+          "isAccessibleForFree": true,
+          "url": "https://doi.org/10.1186/s13195-024-01659-6",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Alzheimer's Research & Therapy"
+          },
+          "description": "Study examining common molecular patterns across different genetic mutations in familial Alzheimer's disease",
+          "keywords": "Alzheimer's disease, multiomics, PSEN1, PSEN2, APP, endotypes"
+        },
+        {
+          "@type": "ScholarlyArticle",
+          "headline": "Dedifferentiation and neuronal repression define familial Alzheimer's disease",
+          "author": [
+            {
+              "@type": "Person",
+              "name": "Andrew B. Caldwell"
+            }
+          ],
+          "datePublished": "2020",
+          "url": "https://advances.sciencemag.org/content/6/46/eaba5933",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Science Advances"
+          },
+          "identifier": {
+            "@type": "PropertyValue",
+            "propertyID": "DOI",
+            "value": "10.1126/sciadv.aba5933"
+          },
+          "description": "Research on cellular mechanisms underlying familial Alzheimer's disease",
+          "keywords": "Alzheimer's disease, dedifferentiation, neuronal repression"
+        }
+      ],
+      "email": "andrewbcaldwell@gmail.com"
+    }
+    </script>
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#4338CA">
     <style>
-        /* Mobile menu customization */
-        @media screen and (max-width: 1023px) {
-            .navbar-menu.is-active {
-                display: block;
-                position: absolute;
-                right: 0;
-                top: 100%;
-                width: auto;
-                min-width: 200px;
-                box-shadow: 0 8px 16px rgba(10,10,10,.1);
-                padding: 0.5rem;
-                text-align: right;
-            }
-            
-            .navbar-menu.is-active .navbar-end {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-end;
-            }
-            
-            .navbar-menu.is-active .navbar-item {
-                display: flex;
-                justify-content: flex-end;
-                padding: 0.75rem 1rem;
-            }
+    /* Social buttons in navbar */
+    .social-buttons {
+        display: flex;
+        gap: 8px;
+    }
+    
+    .social-buttons .button {
+        border-color: #4338CA;
+        color: #4338CA;
+    }
+    
+    .social-buttons .button:hover {
+        background-color: #4338CA;
+        color: white;
+    }
+    
+    @media screen and (max-width: 1023px) {
+        .social-buttons {
+            justify-content: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
         }
-        
-        /* Center the curriculum vitae title */
-        .cv-title-section .hero-main-title {
-            text-align: center;
-        }
+    }
     </style>
 </head>
 <body>
-
     <!-- Navigation Bar -->
     <nav class="navbar is-fixed-top main-navbar" role="navigation" aria-label="main navigation">
         <div class="container">
@@ -64,10 +167,21 @@
             <!-- Menu (Desktop and Mobile) -->
             <div class="navbar-menu" id="mainNavbarMobile">
                 <div class="navbar-end">
+                    <a class="navbar-item" href="cv.html">
+                        CV
+                    </a>
                     <div class="navbar-item">
-                        <a href="cv.html" class="button is-indigo">
-                            <strong>CV</strong>
-                        </a>
+                        <div class="buttons is-centered social-buttons">
+                            <a href="https://www.linkedin.com/in/andrewbcaldwell/" class="button is-small is-outlined is-rounded" target="_blank" rel="noopener noreferrer">
+                                <span class="icon"><i class="fab fa-linkedin"></i></span>
+                            </a>
+                            <a href="https://scholar.google.com/citations?hl=en&user=yZdrmZoAAAAJ" class="button is-small is-outlined is-rounded" target="_blank" rel="noopener noreferrer">
+                                <span class="icon"><i class="fas fa-graduation-cap"></i></span>
+                            </a>
+                            <a href="https://github.com/andrewbcaldwell" class="button is-small is-outlined is-rounded" target="_blank" rel="noopener noreferrer">
+                                <span class="icon"><i class="fab fa-github"></i></span>
+                            </a>
+                        </div>
                     </div>
                     <div class="navbar-item">
                         <a href="mailto:andrewbcaldwell@gmail.com" class="button is-indigo">
@@ -79,125 +193,145 @@
         </div>
     </nav>
 
-    <!-- CV Title Section -->
-    <section class="section cv-title-section" style="padding-bottom: 0;">
+    <!-- Section 1: White Intro Hero - "Bench-to-Code" -->
+    <section class="section white-intro-hero">
         <div class="container has-text-centered">
-            <h1 class="title is-1 is-spaced hero-main-title">Curriculum Vitae</h1>
-            <!-- Download Button -->
-            <div style="text-align: center; padding-bottom: 1rem;">
-                <a href="images/AndrewBCaldwell_CV_2025.pdf" class="button is-primary" title="Download CV as PDF">
-                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                    <span>Download CV</span>
+            <h1 class="title is-1 is-spaced hero-main-title">Bench-to-Code Systems Biologist</h1>
+            <p class="subtitle is-4 hero-tagline">From cell culture to code, I translate complex data into meaningful biological insights.</p>
+            <div class="white-hero-profile-image-wrapper">
+                <img src="images/profile.jpg" alt="Andrew B. Caldwell, Systems Biologist specializing in Alzheimer's Disease research" width="256" height="256" class="hero-profile-image-main is-rounded">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Personal Description  -->
+    <section class="section indigo-description-hero is-primary">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-three-quarters-desktop is-full-tablet">
+                        <div itemscope itemtype="http://data-vocabulary.org/Person" class="content">
+                            <h2 class="title is-2 has-text-centered">Hi, I'm Andrew.</h2>
+                            <p class="is-size-5">
+                                I'm a <span itemprop="title">Research Scientist</span> at UC San Diego integrating experimental biology with computational approaches to understand complex diseases.
+                                I work across the full spectrum of biomedical research—designing experiments, conducting wet lab work, and performing advanced computational analyses. This end-to-end perspective allows me to bridge traditional laboratory techniques with modern data science to extract meaningful biological insights.
+                            </p>
+                            <p class="is-size-5">
+                                My work has been published in <a href="https://advances.sciencemag.org/content/6/46/eaba5933" target="_blank" rel="noopener noreferrer" class="has-text-weight-semibold link-on-indigo-bg">Science Advances</a>, <a href="https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/alz.12553" target="_blank" rel="noopener noreferrer" class="has-text-weight-semibold link-on-indigo-bg">Alzheimer's & Dementia</a>, and <a href="https://doi.org/10.1186/s13195-024-01659-6" target="_blank" rel="noopener noreferrer" class="has-text-weight-semibold link-on-indigo-bg">Alzheimer's Research & Therapy</a>, where I focus on uncovering new mechanisms in Alzheimer's Disease biogenesis.
+                            </p>
+                            <p class="is-size-5">
+                                I'm driven by the challenge of decoding the complexities of neurodevelopment and neurodegeneration, applying systems-level thinking with deep knowledge of human biology to advance our understanding of these critical health challenges and potentially inform future therapeutic strategies.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Recent Publications -->
+    <section class="section recent-publications-section">
+        <div class="container has-text-centered">
+            <!-- Match main hero title styling -->
+            <h1 class="title is-1 is-spaced hero-main-title">Recent Publications</h1>
+            
+            <div class="columns is-multiline is-centered">
+                <!-- Publication Card 1 -->
+                <div class="column is-one-third-desktop is-half-tablet">
+                    <article class="publication-item">
+                        <a href="https://doi.org/10.1186/s13195-024-01659-6" target="_blank" rel="noopener noreferrer" class="publication-card portrait">
+                            <figure class="image publication-image-figure"> 
+                                <img src="images/pub_portrait_valdes2025.jpg" alt="Research on common patterns across genetic mutations in familial Alzheimer's disease" loading="lazy" width="300" height="400">
+                            </figure>
+                            <div class="publication-overlay">
+                                <h3 class="title is-5">Integrative multiomics reveals common endotypes across PSEN1, PSEN2, and APP mutations...</h3>
+                                <p class="publication-journal">Alzheimer's Research & Therapy (2025)</p>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+                <!-- Publication Card 2 -->
+                <div class="column is-one-third-desktop is-half-tablet">
+                    <article class="publication-item">
+                        <a href="https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/alz.12553" target="_blank" rel="noopener noreferrer" class="publication-card portrait">
+                            <figure class="image publication-image-figure">
+                                <img src="images/pub_portrait_caldwell2022_alzdem.jpg" alt="Endotype reversal strategy for screening drugs targeting familial Alzheimer's disease" loading="lazy" width="300" height="400">
+                            </figure>
+                            <div class="publication-overlay">
+                                <h3 class="title is-5">Endotype reversal as a novel strategy for screening drugs targeting familial Alzheimer's disease.</h3>
+                                <p class="publication-journal">Alzheimer's & Dementia (2022)</p>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+                <!-- Publication Card 3 -->
+                <div class="column is-one-third-desktop is-half-tablet">
+                     <article class="publication-item">  
+                        <a href="https://www.science.org/doi/10.1126/sciadv.aba5933" target="_blank" rel="noopener noreferrer" class="publication-card portrait">
+                            <figure class="image publication-image-figure">
+                                <img src="images/pub_portrait_caldwell2020.jpg" alt="Dedifferentiation and neuronal repression in familial Alzheimer's disease research" loading="lazy" width="300" height="400">
+                            </figure>
+                            <div class="publication-overlay">
+                                <h3 class="title is-5">Dedifferentiation and neuronal repression define familial Alzheimer's disease.</h3>
+                                <p class="publication-journal">Science Advances (2020)</p>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+                <!-- Publication Card 4 -->
+                <div class="column is-one-third-desktop is-half-tablet">
+                    <article class="publication-item">
+                        <a href="https://doi.org/10.1186/s13041-022-00963-2" target="_blank" rel="noopener noreferrer" class="publication-card portrait">
+                            <figure class="image publication-image-figure">
+                                 <img src="images/pub_portrait_caldwell2022_molbrain.jpg" alt="Transcriptomic profiling of sporadic Alzheimer's disease patients research" loading="lazy" width="300" height="400">
+                            </figure>
+                            <div class="publication-overlay">
+                                <h3 class="title is-5">Transcriptomic profiling of sporadic Alzheimer's disease patients.</h3>
+                                <p class="publication-journal">Molecular Brain (2022)</p>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+                <!-- Publication Card 5 -->
+                <div class="column is-one-third-desktop is-half-tablet">
+                    <article class="publication-item">
+                        <a href="https://doi.org/10.1038/s41398-023-02397-3" target="_blank" rel="noopener noreferrer" class="publication-card portrait">
+                            <figure class="image publication-image-figure">
+                                 <img src="images/pub_portrait_dwivedi2023.jpg" alt="Methadone's effects on transcriptional programs in human cortical organoids" loading="lazy" width="300" height="400">
+                            </figure>
+                            <div class="publication-overlay">
+                                <h3 class="title is-5">Methadone alters transcriptional programs associated with synapse formation in human cortical organoids.</h3>
+                                <p class="publication-journal">Translational Psychiatry (2023)</p>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+                 <!-- Publication Card 6 -->
+                <div class="column is-one-third-desktop is-half-tablet">
+                    <article class="publication-item">
+                        <a href="https://doi.org/10.1038/s12276-022-00769-1" target="_blank" rel="noopener noreferrer" class="publication-card portrait">
+                            <figure class="image publication-image-figure">
+                                <img src="images/pub_portrait_azad2022.jpg" alt="ARID1B research on molecular suppression of erythropoiesis and Monge's disease" loading="lazy" width="300" height="400">
+                            </figure>
+                            <div class="publication-overlay">
+                                <h3 class="title is-5">ARID1B, a molecular suppressor of erythropoiesis, is essential for the prevention of Monge's disease.</h3>
+                                <p class="publication-journal">Experimental & Molecular Medicine (2022)</p>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </div>
+            
+            <!-- Button for Google Scholar -->
+            <div class="mt-5 mb-5">
+                <a href="https://scholar.google.com/citations?hl=en&user=yZdrmZoAAAAJ&view_op=list_works&authuser=1" class="button is-primary is-large is-rounded" target="_blank" rel="noopener noreferrer">
+                    <span class="icon"><i class="fas fa-graduation-cap"></i></span>
+                    <span>More on Google Scholar</span>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- About Me -->
-    <section class="section indigo-description-hero is-primary" style="padding-top: 2rem; padding-bottom: 2rem; color: white !important;">
-        <div class="container">
-            <div class="columns is-centered">
-                <div class="column is-three-quarters-desktop is-full-tablet">
-                    <div class="mb-5">
-                        <h1 class="title is-3" style="color: white !important;">Andrew B. Caldwell</h1>
-                        <p class="subtitle is-5" style="color: white !important;">Research Scientist, Bioinformatics and Systems Biology</p>
-                        
-                        <p class="is-size-5 mt-4" style="font-style: italic; color: white !important;">UC San Diego</p>
-                        
-                        <p class="is-size-5" style="color: white !important;"><span style="text-decoration: underline; color: white !important;">Subramaniam Lab</span>, Department of Bioengineering</p>
-                        
-                        <p class="is-size-5" style="color: white !important;">9500 Gilman Drive</p>
-                        
-                        <p class="is-size-5" style="color: white !important;">La Jolla, CA 92093</p>
-                    </div>
-                    
-                    <div class="content mb-5">
-                        <p class="is-size-5" style="color: white !important;">Systems Biologist working on Alzheimer's Disease focusing on experimental methods in sequencing, bioinformatics data processing and analysis, chromatin dynamics, -omics data integration, and systems-level mechanistic disease models.</p>
-                    </div>
-                    
-                    <h2 class="title is-4" style="color: white !important;">Degrees</h2>
-                    <div class="content cv-entry">
-                        <p class="is-size-5" style="color: white !important;"><strong style="color: white !important;">PhD in Biochemistry, UC San Diego, 2014</strong><br>
-                        <em style="color: white !important;">Towards a Quantitative Understanding of TNF's Signaling Functions</em></p>
-                        
-                        <p class="is-size-5" style="color: white !important;"><strong style="color: white !important;">MS in Biochemistry, UC San Diego, 2010</strong></p>
-                        
-                        <p class="is-size-5" style="color: white !important;"><strong style="color: white !important;">BS in Chemistry and Biochemistry, Seattle Pacific University, 2008</strong></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Publications Section (White Background) -->
-    <section class="section">
-        <div class="container">
-            <div class="columns is-centered">
-                <div class="column is-three-quarters-desktop is-full-tablet">
-                    <div class="box content-box">
-                        <div class="cv-section-default">
-                            <h2 class="title is-4 section-title-indigo">Publications</h2>
-                            <div class="content cv-entry">
-                                <ul>
-                                    <li class="mb-3">Valdes P<sup>*</sup>, <b>Caldwell AB<sup>*</sup></b>, Qing L, Fitzgerald MQ, Ramachandran S, Karch CM, Dominantly Inherited Alzheimer Network (DIAN), Galasko DR, Yuan SH, Wagner SL, Subramaniam S. 2025. Integrative multiomics reveals common endotypes across <i>PSEN1</i>, <i>PSEN2</i>, and <i>APP</i> mutations in familial Alzheimer's disease. <i>Alzheimer's Research & Therapy</i> 17,5. <a href="https://doi.org/10.1186/s13195-024-01659-6" target="_blank" rel="noopener noreferrer">Valdes et al. 2025</a></li>
-                                    <li class="mb-3">Valdes P, Henry KW, Fitzgerald MQ, Muralidharan K, <b>Caldwell AB</b>, Ramachandran S, Goldstein LSB, Mobley WC, Galasko DR, Subramaniam S. 2023. Limitations of the human iPSC-derived neuron model for early-onset Alzheimer's disease. <i>Molecular Brain</i> 16,75. <a href="https://doi.org/10.1186/s13041-023-01063-5" target="_blank" rel="noopener noreferrer">Valdes et al. 2023</a></li>
-                                    <li class="mb-3">Patel AO, <b>Caldwell AB</b>, Ramachandran S, Subramaniam S. 2023. Endotype Characterization Reveals Mechanistic Differences Across Brain Regions in Sporadic Alzheimer's Disease. <i> Journal of Alzheimer's Disease Reports</i> 7, 1:957-972. <a href="https://doi.org/10.3233/ADR-220098" target="_blank" rel="noopener noreferrer">Patel et al. 2023</a></li>    
-                                    <li class="mb-3">Dwivedi I, <b>Caldwell AB<sup>*</sup></b>, Zhou D<sup>*</sup>, Wu W, Subramaniam S, Haddad GG. 2023. Methadone alters transcriptional programs associated with synapse formation in human cortical organoids. <i>Translational Psychiatry</i> 13, 151. <a href="https://doi.org/10.1038/s41398-023-02397-3" target="_blank" rel="noopener noreferrer">Dwivedi et al. 2023</a></li>    
-                                    <li class="mb-3"><b>Caldwell AB</b>, Anantharaman BG, Ramachandran S, Nguyen P, Liu Q, Trinh I, Galasko D, Desplats PA, Wagner SL, Subramaniam S. 2022. Transcriptomic profiling of sporadic Alzheimer's disease patients. <i>Molecular Brain</i> 15:83. <a href="https://doi.org/10.1186/s13041-022-00963-2" target="_blank" rel="noopener noreferrer">Caldwell et al. 2022</a></li>
-                                    <li class="mb-3">Azad P, <b>Caldwell AB</b>, Ramachandran S, Spann NJ, Akbari A, Villafuerte FC, Bermudez D, Zhao H, Poulson O, Zhou D, Bafna V, Subramaniam S, Haddad GG. 2022. ARID1B, a molecular suppressor of erythropoiesis, is essential for the prevention of Monge's disease. <i>Experimental & Molecular Medicine</i> 54:777–787. <a href="https://doi.org/10.1038/s12276-022-00769-1" target="_blank" rel="noopener noreferrer">Azad et al. 2022</a></li>
-                                    <li class="mb-3"><b>Caldwell AB</b>, Qing L, Zhang C, Schroth GP, Galasko DR, Rynearson KD, Tanzi RE, Yuan SH, Wagner SL, Subramaniam S. 2022. Endotype reversal as a novel strategy for screening drugs targeting familial Alzheimer's disease. <i>Alzheimer's & Dementia</i>, alz12553. <a href="https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/alz.12553" target="_blank" rel="noopener noreferrer">Caldwell et al. 2022</a></li>
-                                    <li class="mb-3"><b>Caldwell AB</b>, Qing L, Schroth GP, Galasko DR, Yuan SH, Wagner SL, Subramaniam S. 2020. Dedifferentiation and neuronal repression define familial Alzheimer's disease. <i>Science Advances</i> 6, 46, eaba5933. <a href="https://advances.sciencemag.org/content/6/46/eaba5933" target="_blank" rel="noopener noreferrer">Caldwell et al. 2020</a></li>
-                                    <li class="mb-3"><b>Caldwell AB</b>, Cheng Z, Vargas JA, Birnbaum H, Hoffmann A. 2014. Network dynamics determine the autocrine and paracrine signaling functions of TNF. <i>Genes & Development</i> 28:2120-2133. <a href="http://genesdev.cshlp.org/content/28/19/2120.full" target="_blank" rel="noopener noreferrer">Caldwell et al. 2014</a></li>
-                                    <li class="mb-3">Culpepper DJ, Maddox MK, <b>Caldwell AB</b>, McFarland BJ. 2011. Systematic mutation and thermodynamic analysis of central tyrosine pairs in polyspecific NKG2D receptor interactions. <i>Molecular Immunology</i> 48:516-523. <a href="https://www.sciencedirect.com/science/article/pii/S0161589010005870?via%3Dihub" target="_blank" rel="noopener noreferrer">Culpepper et al. 2011</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Software Section -->
-    <section class="section" style="padding-top: 0;">
-        <div class="container">
-            <div class="columns is-centered">
-                <div class="column is-three-quarters-desktop is-full-tablet">
-                    <div class="box content-box">
-                        <div class="cv-section-default">
-                            <h2 class="title is-4 section-title-indigo">Software</h2>
-                            <div class="content cv-entry">
-                                <ul>
-                                    <li class="mb-3">Choudhary KS, <b>Caldwell AB</b>, Subramaniam S. 2021. DEGenR: An R Shiny app for differential gene expression and enrichment analysis (Version v1.0.0). <i>Zenodo</i> doi.org/10.5281/zenodo.4815134. <a href="http://doi.org/10.5281/zenodo.4815134" target="_blank" rel="noopener noreferrer">DEGenR v1.0.0</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Reviews Section (White Background) -->
-    <section class="section" style="padding-top: 0;">
-        <div class="container">
-            <div class="columns is-centered">
-                <div class="column is-three-quarters-desktop is-full-tablet">
-                    <div class="box content-box">
-                        <div class="cv-section-default">
-                            <h2 class="title is-4 section-title-indigo">Reviews</h2>
-                            <div class="content cv-entry">
-                                <ul>
-                                    <li class="mb-3">Shih VF, Tsui R, <b>Caldwell AB</b>, Hoffmann A. 2011. A single NFκB system for both canonical and non-canonical signaling. <i>Cell Research</i> 21: 86-102. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3193412/" target="_blank" rel="noopener noreferrer">Shih et al. 2011</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
     <!-- Collaboration Section -->
     <section class="section white-collab-section" style="padding-bottom: 3rem;">
         <div class="container has-text-centered">
@@ -211,7 +345,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- Footer -->
     <footer class="footer section indigo-description-hero is-primary" style="padding: 2rem 1.5rem; color: white !important;">
         <div class="container">
