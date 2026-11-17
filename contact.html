@@ -3,237 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Andrew B. Caldwell</title>
-    <!-- Google Fonts (Lexend) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Contact | Andrew B. Caldwell PhD</title>
+    <meta name="description" content="Contact Andrew B. Caldwell, PhD, Senior Research Scientist at UC San Diego, by email or through his research and social profiles.">
+    <meta name="author" content="Andrew B. Caldwell">
+    <link rel="canonical" href="https://andrewbcaldwell.com/contact.html">
+
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://andrewbcaldwell.com/contact.html">
+    <meta property="og:title" content="Contact Andrew B. Caldwell">
+    <meta property="og:description" content="Email and research profiles.">
+    <meta property="og:image" content="https://andrewbcaldwell.com/images/profile.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@AndrewBCaldwell">
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="images/icon-192.png" sizes="192x192" type="image/png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4338CA">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" integrity="sha384-HmYpsz2Aa9Gh3JlkCoh8kUJ2mUKJKTnkyC2Lzt8aLzpPOpnDe8KpFE2xNiBpMDou" crossorigin="anonymous">
     <link rel="stylesheet" href="custom.css">
-    <style>
-        .flat-button {
-            border-radius: 0 !important;
-            border: 2px solid #4338CA;
-            background-color: transparent;
-            color: #4338CA;
-            font-weight: 600;
-            transition: background-color 0.2s, color 0.2s;
-        }
-        .flat-button:hover,
-        .flat-button.is-active {
-            background-color: #4338CA !important;
-            color: white !important;
-        }
-    </style>
+    <script src="site.js" defer></script>
 </head>
 <body>
-
     <!-- Navigation Bar -->
-    <nav class="navbar is-fixed-top main-navbar" role="navigation" aria-label="main navigation">
-    <div class="container">
-        <div class="navbar-brand">
-            <a class="navbar-item brand-name" href="index.html">
-                <span class="logo-icon">A</span> Andrew B. Caldwell
-            </a>
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNavbarMobile">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
-        </div>
-        
-        <!-- Desktop Menu -->
-        <div class="navbar-menu">
-            <div class="navbar-end">
-                <a class="navbar-item" href="cv.html">
-                    CV
+    <nav class="navbar is-fixed-top main-navbar" aria-label="Main navigation">
+        <div class="container">
+            <div class="navbar-brand">
+                <a class="navbar-item brand-name" href="./">
+                    <span class="logo-icon" aria-hidden="true"><span class="icon"><svg><use href="icons.svg#i-dna"></use></svg></span></span> Andrew B. Caldwell
                 </a>
-                <a class="navbar-item" href="contact.html">
-                    Contact
-                </a>
-                <div class="navbar-item">
-                    <a href="mailto:andrewbcaldwell@gmail.com" class="button is-indigo">
-                        <strong>Email Me</strong>
-                    </a>
+                <button type="button" class="navbar-burger" aria-label="Menu" aria-expanded="false" aria-controls="mainNavbarMenu" data-target="mainNavbarMenu">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="navbar-menu" id="mainNavbarMenu">
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <a href="cv.html" class="button is-indigo">CV</a>
+                    </div>
+                    <div class="navbar-item">
+                        <a href="mailto:andrewbcaldwell@gmail.com" class="button is-indigo">Email Me</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
-<!-- Mobile Menu Overlay -->
-<div id="mainNavbarMobile" class="mobile-menu-overlay">
-    <div class="mobile-menu-container">
-        <div class="mobile-menu-header">
-            <button class="mobile-menu-close">✕</button>
-        </div>
-        
-        <div class="mobile-menu-items">
-            <a href="cv.html" class="mobile-menu-item">
-                <span class="mobile-menu-icon">📄</span> CV
-            </a>
-            <a href="contact.html" class="mobile-menu-item">
-                <span class="mobile-menu-icon">📧</span> Contact
-            </a>
-        </div>
-        
-        <div class="mobile-social-links">
-            <a href="https://www.linkedin.com/in/andrewbcaldwell/" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://scholar.google.com/citations?hl=en&user=yZdrmZoAAAAJ" target="_blank" rel="noopener noreferrer">
-                <i class="fas fa-graduation-cap"></i>
-            </a>
-            <a href="https://github.com/andrewbcaldwell" target="_blank" rel="noopener noreferrer">
-                <i class="fab fa-github"></i>
-            </a>
-        </div>
-        
-        <div class="mobile-menu-footer">
-            <a href="mailto:andrewbcaldwell@gmail.com" class="button is-primary is-fullwidth">
-                Email Me
-            </a>
-        </div>
-    </div>
-</div>
-    <!-- Contact Content Section -->
-    <section class="section contact-section">
-        <div class="container">
-            <h1 class="title is-1 is-spaced hero-main-title has-text-centered">Get In Touch</h1>
-            
-            <div class="columns is-centered"> 
-                <div class="column is-three-quarters-desktop is-full-tablet contact-content-wrapper"> 
-                    <p class="is-size-5 has-text-centered">
-                        I'm always open to discussing new projects, research collaborations, or interesting opportunities!
-                    </p>
-                    <div class="field mt-4 mb-5 is-flex is-justify-content-center">
-                        <p class="control">
-                            <a href="mailto:andrewbcaldwell@gmail.com" class="button is-primary is-large is-rounded">
-                            <span class="icon is-small"><i class="fas fa-envelope"></i></span>
-                            <span>Email Me</span>
-                            </a>
+    <main>
+        <section class="section">
+            <div class="container">
+                <h1 class="title is-1 is-spaced hero-main-title has-text-centered">Get In Touch</h1>
+                <div class="columns is-centered">
+                    <div class="column is-three-quarters-desktop is-full-tablet">
+                        <p class="is-size-5 has-text-centered">
+                            I'm always open to discussing new projects, research collaborations, or interesting opportunities!
                         </p>
-                    </div>
-                    <hr class="contact-hr"> <!-- Keep hr if desired, style with CSS -->
-                    <h3 class="title is-5 has-text-centered mb-4">Find me online</h3>
-                    <div class="content">
-                        <ul class="contact-links-list"> 
-                            <li><a href="https://www.linkedin.com/in/andrewbcaldwell/" target="_blank" rel="noopener noreferrer"><span class="icon is-small"><i class="fab fa-linkedin"></i></span>&nbsp;LinkedIn</a></li>
-                            <li><a href="https://scholar.google.com/citations?hl=en&user=yZdrmZoAAAAJ&view_op=list_works&authuser=1" target="_blank" rel="noopener noreferrer"><span class="icon is-small"><i class="fas fa-graduation-cap"></i></span>&nbsp;Google Scholar</a></li>
-                            <li><a href="https://orcid.org/0000-0002-2850-7677" target="_blank" rel="noopener noreferrer"><span class="icon is-small"><i class="fab fa-orcid"></i></span>&nbsp;ORCID</a></li>
-                            <li><a href="https://www.researchgate.net/profile/Andrew_Caldwell2" target="_blank" rel="noopener noreferrer"><span class="icon is-small"><i class="fab fa-researchgate"></i></span>&nbsp;ResearchGate</a></li>
-                            <li><a href="https://www.webofscience.com/wos/author/record/FTQ-4923-2022" target="_blank" rel="noopener noreferrer"><span class="icon is-small"><i class="fas fa-flask"></i></span>&nbsp;Web of Science</a></li> <!-- Using a generic science icon -->
-                            <li><a href="https://oapolicy.universityofcalifornia.edu/userprofile.html?uid=318367" target="_blank" rel="noopener noreferrer"><span class="icon is-small"><i class="fas fa-university"></i></span>&nbsp;UC San Diego Digital Science</a></li>    
-                            <li><a href="https://github.com/andrewbcaldwell" target="_blank" rel="noopener noreferrer"><span class="icon is-small"><i class="fab fa-github"></i></span>&nbsp;GitHub</a></li>
-                            <li><a href="https://bsky.app/profile/andrewbcaldwell.bsky.social" target="_blank" rel="noopener noreferrer"><span class="icon is-small"><i class="fas fa-cloud"></i></span>&nbsp;Bluesky</a></li>
-                            <li><a href="https://www.twitter.com/AndrewBCaldwell" target="_blank" rel="noopener noreferrer"><span class="icon is-small"><i class="fab fa-x-twitter"></i></span>&nbsp;Twitter (X)</a></li>
+                        <div class="mt-4 mb-5 has-text-centered">
+                            <a href="mailto:andrewbcaldwell@gmail.com" class="button is-primary is-large is-rounded">
+                                <span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-envelope"></use></svg></span>
+                                <span>Email Me</span>
+                            </a>
+                        </div>
+                        <hr class="contact-hr">
+                        <h2 class="title is-5 has-text-centered mb-4">Find me online</h2>
+                        <ul class="contact-links-list">
+                            <li><a href="https://www.linkedin.com/in/andrewbcaldwell/" target="_blank" rel="noopener noreferrer"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-linkedin"></use></svg></span>LinkedIn</a></li>
+                            <li><a href="https://scholar.google.com/citations?user=yZdrmZoAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-scholar"></use></svg></span>Google Scholar</a></li>
+                            <li><a href="https://orcid.org/0000-0002-2850-7677" target="_blank" rel="noopener noreferrer"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-orcid"></use></svg></span>ORCID</a></li>
+                            <li><a href="https://www.researchgate.net/profile/Andrew_Caldwell2" target="_blank" rel="noopener noreferrer"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-researchgate"></use></svg></span>ResearchGate</a></li>
+                            <li><a href="https://www.webofscience.com/wos/author/record/FTQ-4923-2022" target="_blank" rel="noopener noreferrer"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-flask"></use></svg></span>Web of Science</a></li>
+                            <li><a href="https://oapolicy.universityofcalifornia.edu/userprofile.html?uid=318367" target="_blank" rel="noopener noreferrer"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-university"></use></svg></span>UC San Diego Digital Science</a></li>
+                            <li><a href="https://github.com/andrewbcaldwell" target="_blank" rel="noopener noreferrer"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-github"></use></svg></span>GitHub</a></li>
+                            <li><a href="https://bsky.app/profile/andrewbcaldwell.bsky.social" target="_blank" rel="noopener noreferrer"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-bluesky"></use></svg></span>Bluesky</a></li>
+                            <li><a href="https://x.com/AndrewBCaldwell" target="_blank" rel="noopener noreferrer"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-x"></use></svg></span>X (Twitter)</a></li>
                         </ul>
                     </div>
                 </div>
-            </div> <!-- Closing .columns.is-centered -->
-        </div> <!-- Closing .container for contact-section -->
-    </section>
+            </div>
+        </section>
+    </main>
+
     <!-- Footer -->
-    <footer class="footer section indigo-description-hero is-primary" style="padding: 2rem 1.5rem; color: white !important;">
+    <footer class="site-footer">
         <div class="container">
-            <!-- Social Icons -->
-            <div class="has-text-centered mb-4"> 
-                <div class="hero-social-links field is-grouped is-grouped-centered">
-                    <p class="control">
-                        <a href="https://www.linkedin.com/in/andrewbcaldwell/" title="LinkedIn" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
-                            <span class="icon"><i class="fab fa-linkedin"></i></span>
-                        </a>
-                    </p>
-                    <p class="control">
-                        <a href="https://scholar.google.com/citations?hl=en&user=yZdrmZoAAAAJ&view_op=list_works&authuser=1" title="Google Scholar" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
-                            <span class="icon"><i class="fas fa-graduation-cap"></i></span>
-                        </a>
-                    </p>
-                    <p class="control">
-                        <a href="https://orcid.org/0000-0002-2850-7677" title="ORCID (0000-0002-2850-7677)" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
-                            <span class="icon"><i class="fab fa-orcid"></i></span>
-                        </a>
-                    </p>
-                    <p class="control">
-                        <a href="https://www.researchgate.net/profile/Andrew_Caldwell2" title="ResearchGate" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
-                            <span class="icon"><i class="fab fa-researchgate"></i></span>
-                        </a>
-                    </p>
-                    <p class="control">
-                        <a href="https://github.com/andrewbcaldwell" title="GitHub" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
-                            <span class="icon"><i class="fab fa-github"></i></span>
-                        </a>
-                    </p>
-                    <p class="control">
-                        <a href="https://www.twitter.com/AndrewBCaldwell" title="X (Twitter)" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
-                            <span class="icon"><i class="fab fa-x-twitter"></i></span>
-                        </a>
-                    </p>
-                    <p class="control">
-                        <a href="https://bsky.app/profile/andrewbcaldwell.bsky.social" title="Bluesky" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
-                            <span class="icon"><i class="fas fa-cloud"></i></span>
-                        </a>
-                    </p>
-                </div>
+            <div class="footer-social-links field is-grouped is-grouped-centered is-flex-wrap-wrap">
+                <p class="control"><a href="https://www.linkedin.com/in/andrewbcaldwell/" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" class="button is-ghost"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-linkedin"></use></svg></span></a></p>
+                <p class="control"><a href="https://scholar.google.com/citations?user=yZdrmZoAAAAJ&amp;hl=en" title="Google Scholar" aria-label="Google Scholar" target="_blank" rel="noopener noreferrer" class="button is-ghost"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-scholar"></use></svg></span></a></p>
+                <p class="control"><a href="https://orcid.org/0000-0002-2850-7677" title="ORCID 0000-0002-2850-7677" aria-label="ORCID" target="_blank" rel="noopener noreferrer" class="button is-ghost"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-orcid"></use></svg></span></a></p>
+                <p class="control"><a href="https://www.researchgate.net/profile/Andrew_Caldwell2" title="ResearchGate" aria-label="ResearchGate" target="_blank" rel="noopener noreferrer" class="button is-ghost"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-researchgate"></use></svg></span></a></p>
+                <p class="control"><a href="https://github.com/andrewbcaldwell" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer" class="button is-ghost"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-github"></use></svg></span></a></p>
+                <p class="control"><a href="https://bsky.app/profile/andrewbcaldwell.bsky.social" title="Bluesky" aria-label="Bluesky" target="_blank" rel="noopener noreferrer" class="button is-ghost"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-bluesky"></use></svg></span></a></p>
+                <p class="control"><a href="https://x.com/AndrewBCaldwell" title="X (Twitter)" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer" class="button is-ghost"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-x"></use></svg></span></a></p>
             </div>
-            <!-- Copyright info -->
-            <div style="display: flex; justify-content: center; align-items: center;"> 
-                <p style="margin: 0; color: white !important;"> 
-                    Built with
-                    <a href="https://bulma.io" target="_blank" rel="noopener noreferrer" class="bulma-credit" style="color: white !important;">
-                    <img src="images/bulma-logo.svg" alt="Bulma CSS Framework" class="bulma-logo-img" style="filter: brightness(0) invert(1);">
-                    </a>
-                    by me &copy; <span id="current-year-contact"></span>
-                </p>
-            </div>
+            <p>
+                Built with
+                <a href="https://bulma.io" target="_blank" rel="noopener noreferrer" class="bulma-credit"><img src="images/bulma-logo.svg" alt="Bulma" class="bulma-logo-img"></a>
+                by me &copy; <span data-current-year>2026</span>
+            </p>
         </div>
     </footer>
-
-    <script>
-        // Current year in footer
-        document.getElementById('current-year-contact').textContent = new Date().getFullYear();
-        
-        // Fixed Mobile Menu Toggle
-        document.addEventListener('DOMContentLoaded', () => {
-            // Handle navbar burger toggling
-            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-            if ($navbarBurgers.length > 0) {
-                $navbarBurgers.forEach(el => {
-                    el.addEventListener('click', () => {
-                        // Simple toggle without preventDefault() that was causing issues
-                        const target = el.dataset.target;
-                        const $target = document.getElementById(target);
-                        el.classList.toggle('is-active');
-                        $target.classList.toggle('is-active');
-                    });
-                });
-            }
-            
-            // Handle navbar shadow separately
-            const mainNavbar = document.querySelector('.main-navbar');
-            if (mainNavbar) {
-                const scrollThreshold = 10; 
-                const addShadow = () => mainNavbar.classList.add('has-shadow');
-                const removeShadow = () => mainNavbar.classList.remove('has-shadow');
-                
-                // Check initial position
-                if (window.scrollY > scrollThreshold) { 
-                    addShadow(); 
-                } else { 
-                    removeShadow(); 
-                }
-                
-                // Add scroll listener
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY > scrollThreshold) { 
-                        addShadow(); 
-                    } else { 
-                        removeShadow(); 
-                    }
-                });
-            }
-        });
-    </script>
 </body>
 </html>

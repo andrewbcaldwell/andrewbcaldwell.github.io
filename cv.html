@@ -3,322 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Andrew B. Caldwell PhD</title>
-    <!-- Google Fonts (Lexend) -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://cdn.jsdelivr.net https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>CV | Andrew B. Caldwell PhD</title>
+    <meta name="description" content="Curriculum vitae of Andrew B. Caldwell, PhD, Senior Research Scientist in bioinformatics and systems biology at UC San Diego: degrees, publications, software, reviews and preprints.">
+    <meta name="author" content="Andrew B. Caldwell">
+    <link rel="canonical" href="https://andrewbcaldwell.com/cv.html">
+
+    <meta property="og:type" content="profile">
+    <meta property="og:url" content="https://andrewbcaldwell.com/cv.html">
+    <meta property="og:title" content="Andrew B. Caldwell - Curriculum Vitae">
+    <meta property="og:description" content="Degrees, publications, software, reviews and preprints.">
+    <meta property="og:image" content="https://andrewbcaldwell.com/images/profile.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@AndrewBCaldwell">
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="images/icon-192.png" sizes="192x192" type="image/png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4338CA">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" integrity="sha384-HmYpsz2Aa9Gh3JlkCoh8kUJ2mUKJKTnkyC2Lzt8aLzpPOpnDe8KpFE2xNiBpMDou" crossorigin="anonymous">
     <link rel="stylesheet" href="custom.css">
-    <style>
-        /* Mobile menu customization */
-        @media screen and (max-width: 1023px) {
-            .navbar-menu.is-active {
-                display: block;
-                position: absolute;
-                right: 0;
-                top: 100%;
-                width: auto;
-                min-width: 200px;
-                box-shadow: 0 8px 16px rgba(10,10,10,.1);
-                padding: 0.5rem;
-                text-align: right;
-            }
-            
-            .navbar-menu.is-active .navbar-end {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-end;
-            }
-            
-            .navbar-menu.is-active .navbar-item {
-                display: flex;
-                justify-content: flex-end;
-                padding: 0.75rem 1rem;
-            }
-        }
-        
-        /* Center the curriculum vitae title */
-        .cv-title-section .hero-main-title {
-            text-align: center;
-        }
-    </style>
+    <script src="site.js" defer></script>
 </head>
 <body>
-
     <!-- Navigation Bar -->
-    <nav class="navbar is-fixed-top main-navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar is-fixed-top main-navbar" aria-label="Main navigation">
         <div class="container">
             <div class="navbar-brand">
-                <a class="navbar-item brand-name" href="index.html">
-                    <span class="logo-icon"><i class="fas fa-dna"></i></span> Andrew B. Caldwell
+                <a class="navbar-item brand-name" href="./">
+                    <span class="logo-icon" aria-hidden="true"><span class="icon"><svg><use href="icons.svg#i-dna"></use></svg></span></span> Andrew B. Caldwell
                 </a>
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="mainNavbarMobile">
+                <button type="button" class="navbar-burger" aria-label="Menu" aria-expanded="false" aria-controls="mainNavbarMenu" data-target="mainNavbarMenu">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
-                </a>
+                </button>
             </div>
-            
-            <!-- Menu (Desktop and Mobile) -->
-            <div class="navbar-menu" id="mainNavbarMobile">
+            <div class="navbar-menu" id="mainNavbarMenu">
                 <div class="navbar-end">
                     <div class="navbar-item">
-                        <a href="cv.html" class="button is-indigo">
-                            <strong>CV</strong>
-                        </a>
+                        <a href="cv.html" class="button is-indigo">CV</a>
                     </div>
                     <div class="navbar-item">
-                        <a href="mailto:andrewbcaldwell@gmail.com" class="button is-indigo">
-                            <strong>Email Me</strong>
-                        </a>
+                        <a href="mailto:andrewbcaldwell@gmail.com" class="button is-indigo">Email Me</a>
                     </div>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- CV Title Section -->
-    <section class="section cv-title-section" style="padding-bottom: 0;">
-        <div class="container has-text-centered">
-            <h1 class="title is-1 is-spaced hero-main-title">Curriculum Vitae</h1>
-            <!-- Download Button -->
-            <div style="text-align: center; padding-bottom: 1rem;">
-                <a href="images/AndrewBCaldwell_CV_2025.pdf" class="button is-primary" title="Download CV as PDF">
-                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                    <span>Download CV</span>
-                </a>
+    <main>
+        <!-- Title -->
+        <section class="section cv-title-section">
+            <div class="container has-text-centered">
+                <h1 class="title is-1 is-spaced hero-main-title">Curriculum Vitae</h1>
+                <div class="cv-download">
+                    <a href="images/AndrewBCaldwell_CV_2025.pdf" class="button is-primary" title="Download CV as PDF">
+                        <span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-file-pdf"></use></svg></span>
+                        <span>Download CV</span>
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Me -->
-    <section class="section indigo-description-hero is-primary" style="padding-top: 2rem; padding-bottom: 2rem; color: white !important;">
-        <div class="container">
-            <div class="columns is-centered">
-                <div class="column is-three-quarters-desktop is-full-tablet">
-                    <div class="mb-5">
-                        <h1 class="title is-3" style="color: white !important;">Andrew B. Caldwell</h1>
-                        <p class="subtitle is-5" style="color: white !important;">Research Scientist, Bioinformatics and Systems Biology</p>
-                        
-                        <p class="is-size-5 mt-4" style="font-style: italic; color: white !important;">UC San Diego</p>
-                        
-                        <p class="is-size-5" style="color: white !important;"><span style="text-decoration: underline; color: white !important;">Subramaniam Lab</span>, Department of Bioengineering</p>
-                        
-                        <p class="is-size-5" style="color: white !important;">9500 Gilman Drive</p>
-                        
-                        <p class="is-size-5" style="color: white !important;">La Jolla, CA 92093</p>
-                    </div>
-                    
-                    <div class="content mb-5">
-                        <p class="is-size-5" style="color: white !important;">Systems Biologist working on neurodevelopment and neurodegeneration focusing on experimental methods in sequencing, bioinformatics data processing and analysis, chromatin dynamics, -omics data integration, and systems-level mechanistic disease models.</p>
-                    </div>
-                    
-                    <h2 class="title is-4" style="color: white !important;">Degrees</h2>
-                    <div class="content cv-entry">
-                        <p class="is-size-5" style="color: white !important;"><strong style="color: white !important;">PhD in Biochemistry, UC San Diego, 2014</strong><br>
-                        <em style="color: white !important;">Towards a Quantitative Understanding of TNF's Signaling Functions</em></p>
-                        
-                        <p class="is-size-5" style="color: white !important;"><strong style="color: white !important;">MS in Biochemistry, UC San Diego, 2010</strong></p>
-                        
-                        <p class="is-size-5" style="color: white !important;"><strong style="color: white !important;">BS in Chemistry and Biochemistry, Seattle Pacific University, 2008</strong></p>
+        <!-- About -->
+        <section class="section is-primary cv-about">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-three-quarters-desktop is-full-tablet">
+                        <div class="mb-5">
+                            <h2 class="title is-3">Andrew B. Caldwell</h2>
+                            <p class="subtitle is-5">Senior Research Scientist, Bioinformatics and Systems Biology</p>
+                            <p class="is-size-5 mt-4 cv-affiliation">UC San Diego</p>
+                            <p class="is-size-5">Subramaniam Lab, Department of Bioengineering</p>
+                            <p class="is-size-5">9500 Gilman Drive</p>
+                            <p class="is-size-5">La Jolla, CA 92093</p>
+                        </div>
+
+                        <div class="content mb-5">
+                            <p class="is-size-5">Systems Biologist working on neurodevelopment and neurodegeneration focusing on experimental methods in sequencing, bioinformatics data processing and analysis, chromatin dynamics, -omics data integration, and systems-level mechanistic disease models.</p>
+                        </div>
+
+                        <h3 class="title is-4">Degrees</h3>
+                        <div class="content">
+                            <p class="is-size-5"><strong>PhD in Biochemistry, UC San Diego, 2014</strong><br>
+                            <em>Towards a Quantitative Understanding of TNF's Signaling Functions</em></p>
+                            <p class="is-size-5"><strong>MS in Biochemistry, UC San Diego, 2010</strong></p>
+                            <p class="is-size-5"><strong>BS in Chemistry and Biochemistry, Seattle Pacific University, 2008</strong></p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Publications Section (White Background) -->
-    <section class="section">
-        <div class="container">
-            <div class="columns is-centered">
-                <div class="column is-three-quarters-desktop is-full-tablet">
-                    <div class="box content-box">
-                        <div class="cv-section-default">
-                            <h2 class="title is-4 section-title-indigo">Publications</h2>
-                            <div class="content cv-entry">
-                                <ul>
-                                    <li class="mb-3">Valdes P<sup>*</sup>, <b>Caldwell AB<sup>*</sup></b>, Qing L, Fitzgerald MQ, Ramachandran S, Karch CM, Dominantly Inherited Alzheimer Network (DIAN), Galasko DR, Yuan SH, Wagner SL, Subramaniam S. 2025. Integrative multiomics reveals common endotypes across <i>PSEN1</i>, <i>PSEN2</i>, and <i>APP</i> mutations in familial Alzheimer's disease. <i>Alzheimer's Research & Therapy</i> 17,5. <a href="https://doi.org/10.1186/s13195-024-01659-6" target="_blank" rel="noopener noreferrer">Valdes et al. 2025</a></li>
-                                    <li class="mb-3">Valdes P, Henry KW, Fitzgerald MQ, Muralidharan K, <b>Caldwell AB</b>, Ramachandran S, Goldstein LSB, Mobley WC, Galasko DR, Subramaniam S. 2023. Limitations of the human iPSC-derived neuron model for early-onset Alzheimer's disease. <i>Molecular Brain</i> 16,75. <a href="https://doi.org/10.1186/s13041-023-01063-5" target="_blank" rel="noopener noreferrer">Valdes et al. 2023</a></li>
-                                    <li class="mb-3">Patel AO, <b>Caldwell AB</b>, Ramachandran S, Subramaniam S. 2023. Endotype Characterization Reveals Mechanistic Differences Across Brain Regions in Sporadic Alzheimer's Disease. <i> Journal of Alzheimer's Disease Reports</i> 7, 1:957-972. <a href="https://doi.org/10.3233/ADR-220098" target="_blank" rel="noopener noreferrer">Patel et al. 2023</a></li>    
-                                    <li class="mb-3">Dwivedi I, <b>Caldwell AB<sup>*</sup></b>, Zhou D<sup>*</sup>, Wu W, Subramaniam S, Haddad GG. 2023. Methadone alters transcriptional programs associated with synapse formation in human cortical organoids. <i>Translational Psychiatry</i> 13, 151. <a href="https://doi.org/10.1038/s41398-023-02397-3" target="_blank" rel="noopener noreferrer">Dwivedi et al. 2023</a></li>    
-                                    <li class="mb-3"><b>Caldwell AB</b>, Anantharaman BG, Ramachandran S, Nguyen P, Liu Q, Trinh I, Galasko D, Desplats PA, Wagner SL, Subramaniam S. 2022. Transcriptomic profiling of sporadic Alzheimer's disease patients. <i>Molecular Brain</i> 15:83. <a href="https://doi.org/10.1186/s13041-022-00963-2" target="_blank" rel="noopener noreferrer">Caldwell et al. 2022</a></li>
-                                    <li class="mb-3">Azad P, <b>Caldwell AB</b>, Ramachandran S, Spann NJ, Akbari A, Villafuerte FC, Bermudez D, Zhao H, Poulson O, Zhou D, Bafna V, Subramaniam S, Haddad GG. 2022. ARID1B, a molecular suppressor of erythropoiesis, is essential for the prevention of Monge's disease. <i>Experimental & Molecular Medicine</i> 54:777–787. <a href="https://doi.org/10.1038/s12276-022-00769-1" target="_blank" rel="noopener noreferrer">Azad et al. 2022</a></li>
-                                    <li class="mb-3"><b>Caldwell AB</b>, Qing L, Zhang C, Schroth GP, Galasko DR, Rynearson KD, Tanzi RE, Yuan SH, Wagner SL, Subramaniam S. 2022. Endotype reversal as a novel strategy for screening drugs targeting familial Alzheimer's disease. <i>Alzheimer's & Dementia</i>, alz12553. <a href="https://alz-journals.onlinelibrary.wiley.com/doi/10.1002/alz.12553" target="_blank" rel="noopener noreferrer">Caldwell et al. 2022</a></li>
-                                    <li class="mb-3"><b>Caldwell AB</b>, Qing L, Schroth GP, Galasko DR, Yuan SH, Wagner SL, Subramaniam S. 2020. Dedifferentiation and neuronal repression define familial Alzheimer's disease. <i>Science Advances</i> 6, 46, eaba5933. <a href="https://advances.sciencemag.org/content/6/46/eaba5933" target="_blank" rel="noopener noreferrer">Caldwell et al. 2020</a></li>
-                                    <li class="mb-3"><b>Caldwell AB</b>, Cheng Z, Vargas JA, Birnbaum H, Hoffmann A. 2014. Network dynamics determine the autocrine and paracrine signaling functions of TNF. <i>Genes & Development</i> 28:2120-2133. <a href="http://genesdev.cshlp.org/content/28/19/2120.full" target="_blank" rel="noopener noreferrer">Caldwell et al. 2014</a></li>
-                                    <li class="mb-3">Culpepper DJ, Maddox MK, <b>Caldwell AB</b>, McFarland BJ. 2011. Systematic mutation and thermodynamic analysis of central tyrosine pairs in polyspecific NKG2D receptor interactions. <i>Molecular Immunology</i> 48:516-523. <a href="https://www.sciencedirect.com/science/article/pii/S0161589010005870?via%3Dihub" target="_blank" rel="noopener noreferrer">Culpepper et al. 2011</a></li>
-                                </ul>
+        <!-- Publications -->
+        <section class="section">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-three-quarters-desktop is-full-tablet">
+                        <div class="box content-box">
+                            <div class="cv-section-default">
+                                <h2 class="title is-4 section-title-indigo">Publications</h2>
+                                <div class="content">
+                                    <ul>
+                                        <li class="mb-3">Valdes P<sup>*</sup>, <b>Caldwell AB<sup>*</sup></b>, Liu Q, Fitzgerald MQ, Ramachandran S, Karch CM, Dominantly Inherited Alzheimer Network (DIAN), Galasko DR, Yuan SH, Wagner SL, Subramaniam S. 2025. Integrative multiomics reveals common endotypes across <i>PSEN1</i>, <i>PSEN2</i>, and <i>APP</i> mutations in familial Alzheimer's disease. <i>Alzheimer's Research &amp; Therapy</i> 17:5. <a href="https://doi.org/10.1186/s13195-024-01659-6" target="_blank" rel="noopener noreferrer">doi:10.1186/s13195-024-01659-6</a></li>
+                                        <li class="mb-3">Valdes P, Henry KW, Fitzgerald MQ, Muralidharan K, <b>Caldwell AB</b>, Ramachandran S, Goldstein LSB, Mobley WC, Galasko DR, Subramaniam S. 2023. Limitations of the human iPSC-derived neuron model for early-onset Alzheimer's disease. <i>Molecular Brain</i> 16:75. <a href="https://doi.org/10.1186/s13041-023-01063-5" target="_blank" rel="noopener noreferrer">doi:10.1186/s13041-023-01063-5</a></li>
+                                        <li class="mb-3">Patel AO, <b>Caldwell AB</b>, Ramachandran S, Subramaniam S. 2023. Endotype characterization reveals mechanistic differences across brain regions in sporadic Alzheimer's disease. <i>Journal of Alzheimer's Disease Reports</i> 7(1):957–972. <a href="https://doi.org/10.3233/ADR-220098" target="_blank" rel="noopener noreferrer">doi:10.3233/ADR-220098</a></li>
+                                        <li class="mb-3">Dwivedi I, <b>Caldwell AB<sup>*</sup></b>, Zhou D<sup>*</sup>, Wu W, Subramaniam S, Haddad GG. 2023. Methadone alters transcriptional programs associated with synapse formation in human cortical organoids. <i>Translational Psychiatry</i> 13:151. <a href="https://doi.org/10.1038/s41398-023-02397-3" target="_blank" rel="noopener noreferrer">doi:10.1038/s41398-023-02397-3</a></li>
+                                        <li class="mb-3"><b>Caldwell AB</b>, Anantharaman BG, Ramachandran S, Nguyen P, Liu Q, Trinh I, Galasko DR, Desplats PA, Wagner SL, Subramaniam S. 2022. Transcriptomic profiling of sporadic Alzheimer's disease patients. <i>Molecular Brain</i> 15:83. <a href="https://doi.org/10.1186/s13041-022-00963-2" target="_blank" rel="noopener noreferrer">doi:10.1186/s13041-022-00963-2</a></li>
+                                        <li class="mb-3">Azad P, <b>Caldwell AB</b>, Ramachandran S, Spann NJ, Akbari A, Villafuerte FC, Bermudez D, Zhao H, Poulsen O, Zhou D, Bafna V, Subramaniam S, Haddad GG. 2022. ARID1B, a molecular suppressor of erythropoiesis, is essential for the prevention of Monge's disease. <i>Experimental &amp; Molecular Medicine</i> 54(6):777–787. <a href="https://doi.org/10.1038/s12276-022-00769-1" target="_blank" rel="noopener noreferrer">doi:10.1038/s12276-022-00769-1</a></li>
+                                        <li class="mb-3"><b>Caldwell AB</b>, Liu Q, Zhang C, Schroth GP, Galasko DR, Rynearson KD, Tanzi RE, Yuan SH, Wagner SL, Subramaniam S. 2022. Endotype reversal as a novel strategy for screening drugs targeting familial Alzheimer's disease. <i>Alzheimer's &amp; Dementia</i> 18(11):2117–2130. <a href="https://doi.org/10.1002/alz.12553" target="_blank" rel="noopener noreferrer">doi:10.1002/alz.12553</a></li>
+                                        <li class="mb-3"><b>Caldwell AB</b>, Liu Q, Schroth GP, Galasko DR, Yuan SH, Wagner SL, Subramaniam S. 2020. Dedifferentiation and neuronal repression define familial Alzheimer's disease. <i>Science Advances</i> 6(46):eaba5933. <a href="https://doi.org/10.1126/sciadv.aba5933" target="_blank" rel="noopener noreferrer">doi:10.1126/sciadv.aba5933</a></li>
+                                        <li class="mb-3"><b>Caldwell AB</b>, Cheng Z, Vargas JD, Birnbaum HA, Hoffmann A. 2014. Network dynamics determine the autocrine and paracrine signaling functions of TNF. <i>Genes &amp; Development</i> 28(19):2120–2133. <a href="https://doi.org/10.1101/gad.244749.114" target="_blank" rel="noopener noreferrer">doi:10.1101/gad.244749.114</a></li>
+                                        <li class="mb-3">Culpepper DJ, Maddox MK, <b>Caldwell AB</b>, McFarland BJ. 2011. Systematic mutation and thermodynamic analysis of central tyrosine pairs in polyspecific NKG2D receptor interactions. <i>Molecular Immunology</i> 48(4):516–523. <a href="https://doi.org/10.1016/j.molimm.2010.10.007" target="_blank" rel="noopener noreferrer">doi:10.1016/j.molimm.2010.10.007</a></li>
+                                    </ul>
+                                    <p class="cv-note"><sup>*</sup> Equal contribution</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Software Section -->
-    <section class="section" style="padding-top: 0;">
-        <div class="container">
-            <div class="columns is-centered">
-                <div class="column is-three-quarters-desktop is-full-tablet">
-                    <div class="box content-box">
-                        <div class="cv-section-default">
-                            <h2 class="title is-4 section-title-indigo">Software</h2>
-                            <div class="content cv-entry">
-                                <ul>
-                                    <li class="mb-3">Choudhary KS, <b>Caldwell AB</b>, Subramaniam S. 2021. DEGenR: An R Shiny app for differential gene expression and enrichment analysis (Version v1.0.0). <i>Zenodo</i> doi.org/10.5281/zenodo.4815134. <a href="http://doi.org/10.5281/zenodo.4815134" target="_blank" rel="noopener noreferrer">DEGenR v1.0.0</a></li>
-                                </ul>
+        <!-- Software -->
+        <section class="section pt-0">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-three-quarters-desktop is-full-tablet">
+                        <div class="box content-box">
+                            <div class="cv-section-default">
+                                <h2 class="title is-4 section-title-indigo">Software</h2>
+                                <div class="content">
+                                    <ul>
+                                        <li class="mb-3">Choudhary KS, <b>Caldwell AB</b>, Subramaniam S. 2021. DEGenR: An R Shiny app for differential gene expression and enrichment analysis (Version v1.0.0). <i>Zenodo</i>. <a href="https://doi.org/10.5281/zenodo.4815134" target="_blank" rel="noopener noreferrer">doi:10.5281/zenodo.4815134</a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Reviews Section (White Background) -->
-    <section class="section" style="padding-top: 0;">
-        <div class="container">
-            <div class="columns is-centered">
-                <div class="column is-three-quarters-desktop is-full-tablet">
-                    <div class="box content-box">
-                        <div class="cv-section-default">
-                            <h2 class="title is-4 section-title-indigo">Reviews</h2>
-                            <div class="content cv-entry">
-                                <ul>
-                                    <li class="mb-3">Shih VF, Tsui R, <b>Caldwell AB</b>, Hoffmann A. 2011. A single NFκB system for both canonical and non-canonical signaling. <i>Cell Research</i> 21: 86-102. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3193412/" target="_blank" rel="noopener noreferrer">Shih et al. 2011</a></li>
-                                </ul>
+        <!-- Reviews -->
+        <section class="section pt-0">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-three-quarters-desktop is-full-tablet">
+                        <div class="box content-box">
+                            <div class="cv-section-default">
+                                <h2 class="title is-4 section-title-indigo">Reviews</h2>
+                                <div class="content">
+                                    <ul>
+                                        <li class="mb-3">Shih VFS, Tsui R, <b>Caldwell AB</b>, Hoffmann A. 2011. A single NFκB system for both canonical and non-canonical signaling. <i>Cell Research</i> 21(1):86–102. <a href="https://doi.org/10.1038/cr.2010.161" target="_blank" rel="noopener noreferrer">doi:10.1038/cr.2010.161</a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-        <!-- Preprint Section (White Background) -->
-    <section class="section" style="padding-top: 0;">
-        <div class="container">
-            <div class="columns is-centered">
-                <div class="column is-three-quarters-desktop is-full-tablet">
-                    <div class="box content-box">
-                        <div class="cv-section-default">
-                            <h2 class="title is-4 section-title-indigo">Preprints</h2>
-                            <div class="content cv-entry">
-                                <ul>
-                                    <li class="mb-3">Azad P*, <b>Caldwell AB*</b>, Villafuerte FC, Banihani S, Zhou D, Subramaniam S, Haddad GG. 2025. Integrated multiomics reveals inflammation-driven excessive erythrocytosis in subjects with Monge′s disease. <i>bioRxiv</i> 10.20.683487. <a href="https://www.biorxiv.org/content/10.1101/2025.10.20.683487v1" target="_blank" rel="noopener noreferrer">Azad et al. 2025</a></li>
-                                </ul>
+        <!-- Preprints -->
+        <section class="section pt-0">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-three-quarters-desktop is-full-tablet">
+                        <div class="box content-box">
+                            <div class="cv-section-default">
+                                <h2 class="title is-4 section-title-indigo">Preprints</h2>
+                                <div class="content">
+                                    <ul>
+                                        <li class="mb-3">Azad P<sup>*</sup>, <b>Caldwell AB<sup>*</sup></b>, Villafuerte FC, Banihani S, Zhou D, Subramaniam S, Haddad GG. 2025. Integrated multiomics reveals inflammation-driven excessive erythrocytosis in subjects with Monge′s disease. <i>bioRxiv</i>. <a href="https://doi.org/10.1101/2025.10.20.683487" target="_blank" rel="noopener noreferrer">doi:10.1101/2025.10.20.683487</a></li>
+                                    </ul>
+                                    <p class="cv-note"><sup>*</sup> Equal contribution</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <!-- Collaboration Section -->
-    <section class="section white-collab-section" style="padding-bottom: 3rem;">
-        <div class="container has-text-centered">
-            <h1 class="title is-1 is-spaced hero-main-title">Interested in collaborating with me?</h1>
-            <p class="subtitle is-4 hero-tagline">I'm always open to discussing new projects, research collaborations, or interesting opportunities.</p>
-            <div class="mt-5">
-                <a href="mailto:andrewbcaldwell@gmail.com" class="button is-primary is-large is-rounded">
-                    <span class="icon"><i class="fas fa-envelope"></i></span>
-                    <span>Let's talk</span>
-                </a>
+        </section>
+
+        <!-- Collaboration -->
+        <section class="section white-collab-section">
+            <div class="container has-text-centered">
+                <h2 class="title is-1 is-spaced hero-main-title">Interested in collaborating with me?</h2>
+                <p class="subtitle is-4 hero-tagline">I'm always open to discussing new projects, research collaborations, or interesting opportunities.</p>
+                <div class="mt-5">
+                    <a href="mailto:andrewbcaldwell@gmail.com" class="button is-primary is-large is-rounded">
+                        <span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-envelope"></use></svg></span>
+                        <span>Let's talk</span>
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer section indigo-description-hero is-primary" style="padding: 2rem 1.5rem; color: white !important;">
+    <footer class="site-footer">
         <div class="container">
-            <h3 class="title is-3 has-text-centered mb-3" style="color: white !important;">Find Me Online</h3>
-            <div class="has-text-centered mb-4"> 
-                <div class="hero-social-links field is-grouped is-grouped-centered">
-                    <p class="control">
-                        <a href="https://www.linkedin.com/in/andrewbcaldwell/" title="LinkedIn" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
-                            <span class="icon"><i class="fa-brands fa-linkedin-in"></i></span>
-                        </a>
-                    </p>
-                    <p class="control">
-                        <a href="https://scholar.google.com/citations?hl=en&user=yZdrmZoAAAAJ&view_op=list_works&authuser=1" title="Google Scholar" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
-                            <span class="icon"><i class="fa-brands fa-google-scholar"></i></span>
-                        </a>
-                    </p>
-                    <p class="control">
-                    <a href="https://orcid.org/0000-0002-2850-7677" title="ORCID (0000-0002-2850-7677)" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
-                        <span class="icon"><i class="fab fa-orcid"></i></span>
-                    </a>
-                    </p>
-                    <p class="control">
-                        <a href="https://www.researchgate.net/profile/Andrew_Caldwell2" title="ResearchGate" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
-                            <span class="icon"><i class="fab fa-researchgate"></i></span>
-                        </a>
-                    </p>
-                    <p class="control">
-                        <a href="https://github.com/andrewbcaldwell" title="GitHub" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
-                            <span class="icon"><i class="fab fa-github"></i></span>
-                        </a>
-                    </p>
-                    <p class="control">
-                        <a href="https://www.twitter.com/AndrewBCaldwell" title="X (Twitter)" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
-                            <span class="icon"><i class="fab fa-x-twitter"></i></span>
-                        </a>
-                    </p>
-                    <p class="control">
-                        <a href="https://bsky.app/profile/andrewbcaldwell.bsky.social" title="Bluesky" target="_blank" rel="noopener noreferrer" class="button is-ghost" style="color: white;">
-                            <span class="icon"><i class="fa-solid fa-cloud"></i></span>
-                        </a>
-                    </p>
-                </div>
+            <h2 class="title is-3 mb-3">Find Me Online</h2>
+            <div class="footer-social-links field is-grouped is-grouped-centered is-flex-wrap-wrap">
+                <p class="control"><a href="https://www.linkedin.com/in/andrewbcaldwell/" title="LinkedIn" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer" class="button is-ghost"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-linkedin"></use></svg></span></a></p>
+                <p class="control"><a href="https://scholar.google.com/citations?user=yZdrmZoAAAAJ&amp;hl=en" title="Google Scholar" aria-label="Google Scholar" target="_blank" rel="noopener noreferrer" class="button is-ghost"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-scholar"></use></svg></span></a></p>
+                <p class="control"><a href="https://orcid.org/0000-0002-2850-7677" title="ORCID 0000-0002-2850-7677" aria-label="ORCID" target="_blank" rel="noopener noreferrer" class="button is-ghost"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-orcid"></use></svg></span></a></p>
+                <p class="control"><a href="https://www.researchgate.net/profile/Andrew_Caldwell2" title="ResearchGate" aria-label="ResearchGate" target="_blank" rel="noopener noreferrer" class="button is-ghost"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-researchgate"></use></svg></span></a></p>
+                <p class="control"><a href="https://github.com/andrewbcaldwell" title="GitHub" aria-label="GitHub" target="_blank" rel="noopener noreferrer" class="button is-ghost"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-github"></use></svg></span></a></p>
+                <p class="control"><a href="https://bsky.app/profile/andrewbcaldwell.bsky.social" title="Bluesky" aria-label="Bluesky" target="_blank" rel="noopener noreferrer" class="button is-ghost"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-bluesky"></use></svg></span></a></p>
+                <p class="control"><a href="https://x.com/AndrewBCaldwell" title="X (Twitter)" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer" class="button is-ghost"><span class="icon" aria-hidden="true"><svg><use href="icons.svg#i-x"></use></svg></span></a></p>
             </div>
-            <div style="display: flex; justify-content: center; align-items: center;"> 
-                <p style="margin: 0; color: white !important;"> 
-                    Built with
-                    <a href="https://bulma.io" target="_blank" rel="noopener noreferrer" class="bulma-credit" style="color: white !important;">
-                    <img src="images/bulma-logo.svg" alt="Bulma CSS Framework" class="bulma-logo-img" style="filter: brightness(0) invert(1);">
-                    </a>
-                    by me &copy; <span id="current-year"></span>
-                </p>
-            </div>
+            <p>
+                Built with
+                <a href="https://bulma.io" target="_blank" rel="noopener noreferrer" class="bulma-credit"><img src="images/bulma-logo.svg" alt="Bulma" class="bulma-logo-img"></a>
+                by me &copy; <span data-current-year>2026</span>
+            </p>
         </div>
     </footer>
-
-    <script>
-        // Current year in footer
-        if(document.getElementById('current-year')) {
-            document.getElementById('current-year').textContent = new Date().getFullYear();
-        }
-        
-        // Fixed Mobile Menu Toggle and Navbar Shadow
-        document.addEventListener('DOMContentLoaded', () => {
-            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
-            if ($navbarBurgers.length > 0) {
-                $navbarBurgers.forEach(el => {
-                    el.addEventListener('click', () => {
-                        const target = el.dataset.target;
-                        const $target = document.getElementById(target);
-                        el.classList.toggle('is-active');
-                        $target.classList.toggle('is-active');
-                    });
-                });
-            }
-            
-            const mainNavbar = document.querySelector('.main-navbar');
-            if (mainNavbar) {
-                const scrollThreshold = 10; 
-                const addShadow = () => mainNavbar.classList.add('has-shadow');
-                const removeShadow = () => mainNavbar.classList.remove('has-shadow');
-                if (window.scrollY > scrollThreshold) { addShadow(); } else { removeShadow(); }
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY > scrollThreshold) { addShadow(); } else { removeShadow(); }
-                });
-            }
-            // All theme toggle JavaScript has been removed.
-        });
-    </script>
 </body>
 </html>
